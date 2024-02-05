@@ -24,15 +24,22 @@ const Data = () => {
     return audioFiles.map((url) => {
       const parts = url.split("/");
       const filename = parts[parts.length - 1];
-      const splitFilename = filename.split(" - ");
+      let splitFilename;
+      if (filename.includes(" - ")) {
+        splitFilename = filename.split(" - ");
+      } else if (filename.includes("- ")) {
+        splitFilename = filename.split("- ");
+      } else {
+        throw new Error("Unexpected filename format");
+      }
       const episodeNumber = splitFilename[0].split(" ")[1];
       const content = splitFilename[1].split(".")[0];
       return { episodeNumber, content, url };
     });
-  }
+  };
 
   const data = segregate(audioFiles);
-
+  data.sort((a, b) => a.episodeNumber - b.episodeNumber);
   return data;
 }
 
