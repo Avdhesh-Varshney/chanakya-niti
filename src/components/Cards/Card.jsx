@@ -7,7 +7,7 @@ const Card = (props) => {
 
   return (
     <div className="card bg-white text-bg-light" style={{ width: '18rem' }}>
-      <img src="https://i.pinimg.com/736x/34/e9/0c/34e90cc38006d921e4a9fbb4fd54e9c2.jpg" className="card-img" alt="Chanakya-Image" />
+      <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya.webp" className="card-img" alt="Chanakya-Image" />
       <div className="card-img p-3">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{content}</p>
