@@ -46,7 +46,7 @@ function App() {
       {alert && <Alert alert={alert} />}
 
       <h1 className='display-1 text-center my-2'>
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya.png" alt="Chanakya-Image" style={{ width: '5rem' }} />
+        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
         चाणक्य नीति
       </h1>
 
