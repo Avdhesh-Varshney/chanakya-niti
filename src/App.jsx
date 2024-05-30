@@ -13,12 +13,13 @@ function App() {
 
   const handleOnChange = (event) => {
     const newValue = parseInt(event.target.value);
-    if (newValue > 0) {
+    if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
-      setValue(1);
+      setValue('');
     }
   };
+  
   
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
