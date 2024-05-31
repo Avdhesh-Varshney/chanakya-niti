@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Cards/Card';
+import './RequestEpisode.css'; // Ensure you import your CSS file if using external CSS
 
 const segregate = (url) => {
   const parts = url.split("/");
@@ -58,9 +59,27 @@ const RequestEpisode = (props) => {
     fetchData();
   }, [episodeNumber]);
 
+  const shareEpisode = () => {
+    const episodeUrl = `${window.location.origin}/episode/${episodeNumber}`;
+    if (navigator.share) {
+      navigator.share({
+        title: `Episode ${episodeNumber}`,
+        text: `Check out Episode ${episodeNumber}: ${content}`,
+        url: episodeUrl,
+      }).then(() => {
+        console.log('Thanks for sharing!');
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(episodeUrl).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    }
+  };
+
   return (
-    <div className="d-flex flex-wrap align-content-around justify-content-evenly">
+    <div className="request-episode-container">
       <Card title={`Episode ${episodeNumber}`} content={content} url={url} />
+      <button className="share-button" onClick={shareEpisode}>Share</button>
     </div>
   );
 }
