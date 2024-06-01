@@ -37,6 +37,7 @@ function App() {
       setStartPlayback(true); // Start playback when decrement button is clicked
     }
   };
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       setEpisodeNumber(value);
