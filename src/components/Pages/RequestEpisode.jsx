@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../Cards/Card';
+import Card fromhttps://github.com/Avdhesh-Varshney/Chanakya-Niti/pull/22 '../Cards/Card';
 import './RequestEpisode.css'; // Ensure you import your CSS file if using external CSS
 
 const segregate = (url) => {
