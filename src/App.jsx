@@ -60,7 +60,7 @@ function App() {
         </div>
       </div>
 
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setProgress={setProgress} />}
+      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
 
     </div>
   );
