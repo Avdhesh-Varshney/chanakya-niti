@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SpeedControl from '../SpeedControl/speed_control'; 
 import 'react-h5-audio-player/lib/styles.css';
 import '../SpeedControl/speed_control.css'; 
+import './card.css'; 
 
 const Card = (props) => {
   const { title, content, url, setEpisodeNumber, episodeNumber, fetchData } = props;
@@ -33,8 +34,8 @@ const Card = (props) => {
         <p className="card-text">{content}</p>
         <SpeedControl src={url} />
         <div className="d-flex justify-content-between mt-3">
-          <button onClick={handlePrevious} disabled={epsNumber <= 1} className="btn btn-primary">Previous</button>
-          <button onClick={handleNext} className="btn btn-primary">Next</button>
+          <button onClick={handlePrevious} disabled={epsNumber <= 1} className="custom-button">Previous</button>
+          <button onClick={handleNext} className="custom-button">Next</button>
         </div>
       </div>
     </div>
