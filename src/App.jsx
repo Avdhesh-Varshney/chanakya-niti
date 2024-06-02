@@ -27,6 +27,11 @@ function App() {
     }
   };
 
+  const handleKey=(e)=>{
+    setEpisodeNumber(value);
+    setStartPlayback(true);
+  };
+
   useEffect(() => {
     showAlert("To begin, input the episode number and press Enter.");
   }, []);
@@ -53,10 +58,20 @@ function App() {
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
+          
         </div>
         <div className="col-auto">
           <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
+          
         </div>
+        <div className='col-auto'>
+          <button
+          onClick={handleKey}
+          className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
+          >
+            Enter
+          </button>
+          </div>
       </div>
 
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setProgress={setProgress} />}
