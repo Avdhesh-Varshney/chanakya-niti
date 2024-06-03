@@ -51,6 +51,8 @@ const RequestEpisode = (props) => {
       } catch (error) {
         console.error('Error fetching episode:', error);
         setContent('Error fetching episode');
+        // audio player should also be stopped in case of invalid episodes
+        setUrl('');
       }
       setProgress(100);
     };
