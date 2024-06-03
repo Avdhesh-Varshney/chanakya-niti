@@ -1,9 +1,10 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import "./Cards.css"
 
 const Card = (props) => {
-  const { title, content, url, setEpisodeNumber, episodeNumber, fetchData, useEffect} = props;
+  const { title, content, url, setEpisodeNumber, episodeNumber, fetchData, useEffect } = props;
   const [epsNumber, setEpsNumber] = useState(episodeNumber);
   useEffect(() => {
     fetchData(epsNumber);
@@ -13,12 +14,12 @@ const Card = (props) => {
   }, [episodeNumber]);
 
   const handlePrevious = () => {
-    setEpsNumber(epsNumber-1);
-    setEpisodeNumber(episodeNumber-1);
+    setEpsNumber(epsNumber - 1);
+    setEpisodeNumber(episodeNumber - 1);
   };
   const handleNext = () => {
-    setEpsNumber(epsNumber+1);
-    setEpisodeNumber(episodeNumber+1);
+    setEpsNumber(epsNumber + 1);
+    setEpisodeNumber(episodeNumber + 1);
   };
   return (
     <div className="card bg-white text-bg-light" style={{ width: '18rem' }}>
@@ -28,13 +29,14 @@ const Card = (props) => {
         <p className="card-text">{content}</p>
         <AudioPlayer
           src={url}
-          onClickPrevious={epsNumber>1? handlePrevious:undefined}
+          onClickPrevious={epsNumber > 1 ? handlePrevious : undefined}
           onClickNext={handleNext}
           customAdditionalControls={[]}
           customVolumeControls={[]}
           showDownloadProgress={[]}
           className='bg-transparent'
           showSkipControls={true}
+          style={{ color: "white" }}
         />
       </div>
     </div>
