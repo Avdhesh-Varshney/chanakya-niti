@@ -17,7 +17,7 @@ const segregate = (url) => {
 };
 
 const RequestEpisode = (props) => {
-  const { episodeNumber, setProgress,setEpisodeNumber } = props;
+  const { episodeNumber, setProgress, setEpisodeNumber } = props;
   const [content, setContent] = useState('');
   const [url, setUrl] = useState('');
 
@@ -54,15 +54,23 @@ const RequestEpisode = (props) => {
     }
     setProgress(100);
   };
+
   useEffect(() => {
     fetchData(episodeNumber);
   }, [episodeNumber]);
 
   return (
     <div className="d-flex flex-wrap align-content-around justify-content-evenly">
-      <Card title={`Episode ${episodeNumber}`} content={content} url={url} setEpisodeNumber={setEpisodeNumber} episodeNumber={episodeNumber} fetchData={fetchData} useEffect={useEffect} />
+      <Card
+        title={`Episode ${episodeNumber}`}
+        content={content}
+        url={url}
+        setEpisodeNumber={setEpisodeNumber}
+        episodeNumber={episodeNumber}
+        fetchData={fetchData}
+      />
     </div>
   );
-}
+};
 
 export default RequestEpisode;
