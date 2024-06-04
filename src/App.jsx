@@ -20,7 +20,6 @@ function App() {
     }
   };
   
-  
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       setEpisodeNumber(value);
@@ -28,18 +27,23 @@ function App() {
     }
   };
 
+  const handleNextEpisode = () => {
+    const nextEpisode = episodeNumber + 1;
+    setEpisodeNumber(nextEpisode);
+    setValue(nextEpisode);
+    setStartPlayback(true);
+  };
+
   useEffect(() => {
     showAlert("To begin, input the episode number and press Enter.");
   }, []);
 
   const showAlert = (message) => {
-    setAlert({
-      msg: message
-    })
+    setAlert({ msg: message });
     setTimeout(() => {
       setAlert(null);
     }, 3500);
-  }
+  };
 
   return (
     <div className='container'>
@@ -60,8 +64,11 @@ function App() {
         </div>
       </div>
 
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setProgress={setProgress} />}
+      <div className="nextepisode">
+      <button className="next-episode-btn" onClick={handleNextEpisode}>Next Episode</button>
+      </div>
 
+      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setProgress={setProgress} />}
     </div>
   );
 }
