@@ -33,6 +33,12 @@ function App() {
     setStartPlayback(true);
   };
 
+  const handleNextEpisode = () => {
+    const nextEpisode = episodeNumber + 1;
+    setEpisodeNumber(nextEpisode);
+    setValue(nextEpisode);
+  }
+  
   useEffect(() => {
     showAlert("To begin, input the episode number and press Enter.");
   }, []);
@@ -73,6 +79,10 @@ function App() {
             Enter
           </button>
           </div>
+      </div>
+
+      <div className="nextepisode">
+      <button className="next-episode-btn" onClick={handleNextEpisode}>Next Episode</button>
       </div>
 
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}

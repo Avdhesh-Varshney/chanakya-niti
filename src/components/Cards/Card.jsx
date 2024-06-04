@@ -37,7 +37,6 @@ const Card = (props) => {
           showDownloadProgress={[]}
           className='audio-player'
 
-          className='bg-transparent'
           showSkipControls={true}
           style={{ color: "white" }}
 

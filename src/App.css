@@ -4,3 +4,28 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Next episode button */
+
+.next-episode-btn {
+  background: transparent ;  
+  color: rgb(255, 255, 255);              
+  padding: 8px 12px;       
+  border-radius: 5px;         
+  cursor: pointer;  
+  font-weight: 700; 
+  font-size: large;   
+  letter-spacing: 0.02cm;      
+  transition: all 0.2s ease-in-out;  
+}
+
+.next-episode-btn:hover {
+  background-color: #17bfd1d0; 
+}
+
+.nextepisode {
+  display: flex; 
+  justify-content: center; 
+  margin-bottom: 1rem; 
+
+}
