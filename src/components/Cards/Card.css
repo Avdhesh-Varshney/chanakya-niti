@@ -1,0 +1,70 @@
+body {
+    padding: 1rem;
+  }
+
+  .custom-card {
+    max-width: 400px;
+    border: 1px solid #ffffff81;
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: .7rem;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    overflow: hidden;
+    transition: .5s all;
+    padding: 0.1rem;
+  }
+  
+  
+  .card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 1rem;
+    backdrop-filter: blur(2px);
+  }
+  
+  
+  .card-text {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    padding-left: 6rem;
+    padding-top: 5rem;
+  }
+
+  
+  .rhap_container {
+    background-color: rgba(86, 78, 21, 0.613); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 1rem; 
+    border-radius: 5px;
+    width: 368px;
+  }
+  
+  .rhap_main-controls-button {
+    color: #000000 ;
+  }
+  
+  .rhap_time {
+    color: #000000 ;
+  }
+  
+  .rhap_progress-indicator {
+    background-color: #000000 ;
+  }
+  
+  .rhap_progress-filled {
+    background-color: #2e2e2e ;
+  }
+  
+  
+  .custom-card:hover {
+    border: 1px solid #ffffff;
+    box-shadow: 0 7px 50px 10px #000000aa;
+    transform: scale(1.09);
+    filter: brightness(1.01);
+    backdrop-filter: blur(0px);
+  }
+  
+  
