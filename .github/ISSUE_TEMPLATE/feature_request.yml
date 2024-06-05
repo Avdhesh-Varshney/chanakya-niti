@@ -2,7 +2,7 @@ name: Feature request
 description: Suggest a new feature or enhancement
 title: "[FEATURE] "
 labels: [enhancement]
-assignees: ''
+assignees: []
 
 body:
   - type: markdown
@@ -30,7 +30,7 @@ body:
       description: Describe any solutions you've considered.
       placeholder: Describe potential solutions...
 
-  - type: radiobuttons
+  - type: dropdown
     id: program_selection
     attributes:
       label: Program
