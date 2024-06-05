@@ -2,7 +2,7 @@ name: Bug report
 description: Report a bug to help us improve
 title: "[BUG] "
 labels: [bug]
-assignees: ''
+assignees: []
 
 body:
   - type: markdown
@@ -40,7 +40,7 @@ body:
       description: If applicable, add screenshots to help explain your problem.
       placeholder: Attach screenshots or images...
 
-  - type: radiobuttons
+  - type: dropdown
     id: program_selection
     attributes:
       label: Program
