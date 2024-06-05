@@ -2,7 +2,7 @@ name: Documentation request
 description: Request changes or additions to documentation
 title: "[DOC] "
 labels: [documentation]
-assignees: ''
+assignees: []
 
 body:
   - type: markdown
@@ -30,7 +30,7 @@ body:
       description: Describe the improvements or additions you suggest.
       placeholder: Suggest improvements...
 
-  - type: radiobuttons
+  - type: dropdown
     id: program_selection
     attributes:
       label: Program
