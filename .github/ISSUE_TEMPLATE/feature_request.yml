@@ -9,7 +9,6 @@ body:
     attributes:
       value: |
         Thanks for suggesting a new feature! Please provide as much detail as possible.
-
   - type: input
     id: feature_description
     attributes:
@@ -31,9 +30,20 @@ body:
       description: Describe any solutions you've considered.
       placeholder: Describe potential solutions...
 
+  - type: radiobuttons
+    id: program_selection
+    attributes:
+      label: Program
+      description: Please select the program.
+      options:
+        - SSOC
+        - GSSOC
+
   - type: textarea
     id: additional_context
     attributes:
       label: Additional Context
       description: Add any other context or screenshots about the feature request here.
       placeholder: Provide additional context...
+
+
