@@ -27,6 +27,7 @@ const Card = (props) => {
   };
 
   return (
+
       <div className="card custom-card bg-light-subtle">
 
         <img src="https://images.tv9telugu.com/wp-content/uploads/2023/10/chanakya-motivational-quotes.jpg"
