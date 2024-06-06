@@ -1,70 +1,87 @@
-body {
-    padding: 1rem;
-  }
+.body {
+  padding: 1rem;
+}
 
-  .custom-card {
-    max-width: 400px;
-    border: 1px solid #ffffff81;
-    box-shadow: 0 7px 20px 5px #00000088;
-    border-radius: .7rem;
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
-    overflow: hidden;
-    transition: .5s all;
-    padding: 0.1rem;
-  }
-  
-  
-  .card-img-overlay {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    padding: 1rem;
-    backdrop-filter: blur(2px);
-  }
-  
-  
-  .card-text {
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #000000;
-    padding-left: 6rem;
-    padding-top: 5rem;
-  }
+.custom-card {
+  max-width: 500px; /* Increased the card width */
+  border: 1px solid #ffffff81;
+  box-shadow: 0 7px 20px 5px #00000088;
+  border-radius: .7rem;
+  overflow: hidden;
+  transition: .5s all;
+  padding: 0.3rem;
+  background-color: #FFB6C1; /* Added lightpink background color */
+}
 
-  
-  .rhap_container {
-    background-color: rgba(86, 78, 21, 0.613); /* Semi-transparent background */
-    backdrop-filter: blur(10px);
-    padding: 1.2rem 1rem; 
-    border-radius: 5px;
-    width: 368px;
-  }
-  
-  .rhap_main-controls-button {
-    color: #000000 ;
-  }
-  
-  .rhap_time {
-    color: #000000 ;
-  }
-  
-  .rhap_progress-indicator {
-    background-color: #000000 ;
-  }
-  
-  .rhap_progress-filled {
-    background-color: #2e2e2e ;
-  }
-  
-  
-  .custom-card:hover {
-    border: 1px solid #ffffff;
-    box-shadow: 0 7px 50px 10px #000000aa;
-    transform: scale(1.09);
-    filter: brightness(1.01);
-    backdrop-filter: blur(0px);
-  }
-  
-  
+.custom-card:hover {
+  border: 1px solid #ffffff;
+  box-shadow: 0 7px 50px 10px #000000aa;
+  transform: scale(1.09);
+  filter: brightness(1.01);
+}
+
+.card-img {
+  width: 100%; /* Changed the width to 100% */
+  height: 300px; /* Increased the image height */
+  border-radius: .7rem;
+}
+
+.audio-player {
+  width: 100%; /* Changed the width to 100% */
+  height: 50%; /* Decreased the audio player height */
+  background-color: #FFB6C1; /* Added lightpink background color */
+  /*backdrop-filter: blur(10px);*/
+  border-radius: 5px;
+  border: 1px solid rgba(86, 78, 21, 0.613);
+}
+
+.rhap_container {
+  background-color: transparent;
+}
+
+.rhap_main-controls-button {
+  color: #000000; /* Changed control button color */
+  margin-top: -1.5rem;
+}
+
+.rhap_time {
+  color: #000000; /* Changed time color */
+  margin-top: -1.5rem;
+}
+
+.rhap_progress-indicator {
+  background-color: #000000; /* Changed progress indicator background color */
+}
+
+.rhap_progress-filled {
+  background-color: #2e2e2e; /* Changed filled progress bar color */
+}
+
+.card-content {
+  background: #FFFFFF; /* Added white background color */
+  padding: 1rem;
+  border-radius: .7rem;
+}
+
+.card-title {
+  color: #333; /* Changed title color */
+}
+
+.card-text {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333; /* Changed text color */
+}
+
+.episode-number {
+  text-align: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.custom-card {
+  background: #FFB6C1; /* Added lightpink background color */
+}
