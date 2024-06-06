@@ -87,3 +87,40 @@ body {
       transform: translateX(1);
   }
 }
+
+/* Adjusting text color highlight for better visibility */
+.episode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.next-episode-card {
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  width: 450px;
+  height: auto; /* Allow height to adjust to content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(40, 40, 40, 0.8);
+  color: #fff;
+  position: relative;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.next-episode-card h5, .next-episode-card p {
+  color: #FFBF00; /* Adjusting text color */
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
