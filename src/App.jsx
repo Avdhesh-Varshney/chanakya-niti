@@ -3,7 +3,7 @@ import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
-import QuoteSection from './components/QuotesSection';
+import QuoteSection from './components/Quotes/QuotesSection';
 
 function App() {
   const [value, setValue] = useState(1);
