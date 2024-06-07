@@ -25,11 +25,6 @@ Example how to mark a checkbox:-
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-### How Has This Been Tested? ⚙️
-<!-- Describe how it has been tested
-Describe how have you verified the changes made -->
-
-
 
 ### Checklist: ☑️
 <!--
