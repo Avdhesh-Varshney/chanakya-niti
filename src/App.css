@@ -4,3 +4,52 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+/* info button css */
+.info-button-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.info-button {
+  background-color: #848485;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.info-button:hover {
+  background-color: #48515b;
+}
+
+.info-box {
+  display: none;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  position: relative;
+  bottom: 60px; 
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px; 
+  z-index: 10;
+}
+
+.info-button-container:hover .info-box {
+  display: block;
+}
