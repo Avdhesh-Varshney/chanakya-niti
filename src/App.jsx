@@ -74,6 +74,15 @@ function App() {
         </div>
       </div>
 
+      <div className="info-button-container">
+        <button className="info-button">
+          i
+        </button>
+        <div className="info-box">
+          <p>Explore the life and teachings of Chanakya, an ancient Indian philosopher, economist, and political strategist. Learn about his contributions to Indian philosophy and political science.</p>
+        </div>
+      </div>
+      
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
     </div>
   );
