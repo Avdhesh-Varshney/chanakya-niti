@@ -1,0 +1,47 @@
+name: Documentation Request 🧑‍💻
+description: Request changes or additions to the documentation
+title: '[DOC 🧑‍💻]: '
+labels: ["Up-for-Grabs ✋", "documentation 📃"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting improvements to our documentation!
+  - type: input
+    id: doc_section
+    attributes:
+      label: Documentation Section
+      description: Specify the section of the documentation that needs improvement.
+      placeholder: Section name...
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current State
+      description: Describe the current state of the documentation.
+      placeholder: Describe the current state...
+
+  - type: textarea
+    id: improvement_suggestion
+    attributes:
+      label: Improvement Suggestion
+      description: Describe the improvements or additions you suggest.
+      placeholder: Suggest improvements...
+
+  - type: dropdown
+    id: program_selection
+    attributes:
+      label: Program
+      description: Please select the program.
+      options:
+        - SSOC
+        - GSSOC
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context or screenshots related to the documentation request here.
+      placeholder: Provide additional context...
