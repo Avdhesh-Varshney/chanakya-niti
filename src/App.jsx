@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
+import About from './components/about'; // Import the About component
 import './App.css';
 import QuoteSection from './components/Quotes/QuotesSection';
 
@@ -55,6 +56,7 @@ function App() {
         <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
         चाणक्य नीति
       </h1>
+      <About /> {/* Include the About component here */}
       <QuoteSection/>
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
