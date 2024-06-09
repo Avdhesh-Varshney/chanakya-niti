@@ -1,0 +1,8 @@
+.addMarginBottom{
+    margin-bottom: 5% ;
+}
+@media (min-width:321px) and (max-width:621px){
+    .addMarginBottom{
+        margin-bottom: 12% ;
+    }
+}
