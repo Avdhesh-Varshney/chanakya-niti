@@ -41,9 +41,9 @@ function App() {
     setAlert({
       msg: message
     })
-    setTimeout(() => {
-      setAlert(null);
-    }, 3500);
+    // setTimeout(() => {
+    //   setAlert(null);
+    // }, 3500);
   }
 
   return (
