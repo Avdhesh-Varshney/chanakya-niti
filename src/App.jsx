@@ -3,6 +3,7 @@ import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
+import QuoteSection from './components/Quotes/QuotesSection';
 
 function App() {
   const [value, setValue] = useState(1);
@@ -28,7 +29,7 @@ function App() {
     }
   };
 
-  const handleKey = () => {
+  const handleKey = (e) => {
     setEpisodeNumber(value);
     setStartPlayback(true);
     console.log("Button clicked, episode number set to:", value);
@@ -56,6 +57,7 @@ function App() {
         <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
         चाणक्य नीति
       </h1>
+      <QuoteSection/>
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
@@ -74,6 +76,15 @@ function App() {
         </div>
       </div>
 
+      <div className="info-button-container">
+        <button className="info-button">
+          i
+        </button>
+        <div className="info-box">
+          <p>Explore the life and teachings of Chanakya, an ancient Indian philosopher, economist, and political strategist. Learn about his contributions to Indian philosophy and political science.</p>
+        </div>
+      </div>
+      
       {startPlayback && (
         <RequestEpisode 
           episodeNumber={episodeNumber} 
