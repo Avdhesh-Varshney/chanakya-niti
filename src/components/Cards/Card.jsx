@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import SpeedControl from '../SpeedControl/speed_control';  
+import SpeedControl from '../SpeedControl/speed_control';
+import AudioPlayer from 'react-h5-audio-player'; // Assuming you use 'react-h5-audio-player'
 import './Card.css';
 
 const Card = (props) => {
@@ -31,6 +32,17 @@ const Card = (props) => {
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{content}</p>
         <SpeedControl src={url} />
+        <AudioPlayer
+          src={url}
+          onClickPrevious={epsNumber > 1 ? handlePrevious : undefined}
+          onClickNext={handleNext}
+          customAdditionalControls={[]}
+          customVolumeControls={[]}
+          showDownloadProgress={[]}
+          className='audio-player'
+          showSkipControls={true}
+          style={{ color: "white" }}
+        />
       </div>
     </div>
   );

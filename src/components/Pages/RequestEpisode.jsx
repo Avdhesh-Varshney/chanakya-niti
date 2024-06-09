@@ -84,7 +84,7 @@ const RequestEpisode = ({ episodeNumber, setProgress, setEpisodeNumber }) => {
       {nextTitle && nextContent && (
         <div className="next-episode-card">
           <h5>Up Next:</h5>
-          <p>{nextTitle} - {nextContent}</p>
+          <p>{nextTitle} {nextContent}</p>
         </div>
       )}
     </div>

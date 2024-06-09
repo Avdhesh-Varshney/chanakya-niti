@@ -29,7 +29,7 @@ function App() {
     }
   };
 
-  const handleKey = () => {
+  const handleKey = (e) => {
     setEpisodeNumber(value);
     setStartPlayback(true);
     console.log("Button clicked, episode number set to:", value);
@@ -88,7 +88,13 @@ function App() {
         </div>
       </div>
       
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+      {startPlayback && (
+        <RequestEpisode 
+          episodeNumber={episodeNumber} 
+          setEpisodeNumber={setEpisodeNumber} 
+          setProgress={setProgress} 
+        />
+      )}
     </div>
   );
 }
