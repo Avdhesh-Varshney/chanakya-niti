@@ -16,12 +16,12 @@ const Card = (props) => {
 
   const handlePrevious = () => {
     setEpsNumber(epsNumber - 1);
-    setEpisodeNumber(episodeNumber - 1);
+    setEpisodeNumber(epsNumber - 1);
   };
 
   const handleNext = () => {
     setEpsNumber(epsNumber + 1);
-    setEpisodeNumber(episodeNumber + 1);
+    setEpisodeNumber(epsNumber + 1);
   };
 
   return (
@@ -35,5 +35,5 @@ const Card = (props) => {
     </div>
   );
 }
- 
+
 export default Card;

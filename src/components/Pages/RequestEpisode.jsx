@@ -2,28 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Cards/Card';
 
 const segregate = (url) => {
-  const parts = url.split("/");
+  const parts = url.split('/');
   const filename = parts[parts.length - 1];
   let splitFilename;
-  if (filename.includes(" - ")) {
-    splitFilename = filename.split(" - ");
-  } else if (filename.includes("- ")) {
-    splitFilename = filename.split("- ");
+  if (filename.includes(' - ')) {
+    splitFilename = filename.split(' - ');
+  } else if (filename.includes('- ')) {
+    splitFilename = filename.split('- ');
   } else {
-    throw new Error("Unexpected filename format");
+    throw new Error('Unexpected filename format');
   }
-  const content = splitFilename[1].split(".")[0];
+  const content = splitFilename[1].split('.')[0];
   return { content, url };
 };
 
-const RequestEpisode = (props) => {
-  const { episodeNumber, setProgress, setEpisodeNumber } = props;
+const RequestEpisode = ({ episodeNumber, setProgress, setEpisodeNumber }) => {
   const [content, setContent] = useState('');
   const [url, setUrl] = useState('');
 
   const fetchData = async (episodeNumber) => {
     setProgress(5);
-    setEpisodeNumber(episodeNumber);
     let episodeName = '';
     if (episodeNumber < 10) {
       episodeName = `Ep 0${episodeNumber}`;
@@ -45,7 +43,7 @@ const RequestEpisode = (props) => {
         throw new Error(`${episodeName} not found`);
       }
       setProgress(80);
-      let trimData = segregate(URL);
+      const trimData = segregate(URL);
       setContent(trimData.content);
       setUrl(trimData.url);
     } catch (error) {

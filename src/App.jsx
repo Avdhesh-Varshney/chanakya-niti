@@ -12,7 +12,7 @@ function App() {
   const [alert, setAlert] = useState(null);
 
   const handleOnChange = (event) => {
-    const newValue = parseInt(event.target.value);
+    const newValue = parseInt(event.target.value, 10);
     if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
@@ -39,9 +39,7 @@ function App() {
   }, []);
 
   const showAlert = (message) => {
-    setAlert({
-      msg: message
-    });
+    setAlert({ msg: message });
     setTimeout(() => {
       setAlert(null);
     }, 3500);
@@ -49,7 +47,12 @@ function App() {
 
   return (
     <div className='container'>
-      <LoadingBar height={4} color='#f11946' progress={progress} />
+      <LoadingBar
+        height={4}
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       {alert && <Alert alert={alert} />}
 
       <h1 className='display-1 text-center my-2'>
@@ -62,7 +65,14 @@ function App() {
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
         </div>
         <div className="col-auto">
-          <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
+          <input
+            type="number"
+            id="inputNumber"
+            className="form-control"
+            value={value}
+            onKeyDown={handleKeyPress}
+            onChange={handleOnChange}
+          />
         </div>
         <div className='col-auto'>
           <button
@@ -75,10 +85,10 @@ function App() {
       </div>
 
       {startPlayback && (
-        <RequestEpisode 
-          episodeNumber={episodeNumber} 
-          setEpisodeNumber={setEpisodeNumber} 
-          setProgress={setProgress} 
+        <RequestEpisode
+          episodeNumber={episodeNumber}
+          setEpisodeNumber={setEpisodeNumber}
+          setProgress={setProgress}
         />
       )}
     </div>
