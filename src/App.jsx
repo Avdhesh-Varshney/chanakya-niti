@@ -3,6 +3,7 @@ import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   const [value, setValue] = useState(1);
@@ -76,8 +77,9 @@ function App() {
       </div>
 
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
-
+      <Footer/>
     </div>
+    
   );
 }
 
