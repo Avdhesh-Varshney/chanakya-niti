@@ -4,6 +4,9 @@ import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
 import QuoteSection from './components/Quotes/QuotesSection';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Contact from './components/Pages/ContactUs';
 
 function App() {
   const [value, setValue] = useState(1);
@@ -84,6 +87,19 @@ function App() {
       </div>
       
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+   
+      <div className="NavLink-container">
+  <BrowserRouter>
+    <Routes className="">
+      <Route path="/contact" element={<Contact/>}/>
+    </Routes>
+    <NavLink to="/contact">
+      <img src="/c7.png" className=''   style={{ width: '3rem' }} />
+    </NavLink>
+  </BrowserRouter>
+</div>
+
+
     </div>
   );
 }
