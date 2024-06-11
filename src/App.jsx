@@ -3,12 +3,12 @@ import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
-import QuoteSection from './components/Quotes/QuotesSection';
+import Navbar from './components/Navbar';
 
 function App() {
   const [value, setValue] = useState(1);
   const [episodeNumber, setEpisodeNumber] = useState(1);
-  const [startPlayback, setStartPlayback] = useState(false);
+  const [startPlayback, setStartPlayback] = useState(true);
   const [progress, setProgress] = useState(0);
   const [alert, setAlert] = useState(null);
 
@@ -23,6 +23,11 @@ function App() {
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
+
+      if(value<1){
+        showAlert("Enter valid episode");
+        return;
+      }
       setEpisodeNumber(value);
       setStartPlayback(true);
     }
@@ -47,32 +52,16 @@ function App() {
   }
 
   return (
+    
     <div className='container'>
       <LoadingBar height={4} color='#f11946' progress={progress} />
       {alert && <Alert alert={alert} />}
 
-      <h1 className='display-1 text-center my-2'>
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
-        चाणक्य नीति
-      </h1>
-      <QuoteSection/>
+      
+      <Navbar handleOnChange={handleOnChange} handleKeyPress={handleKeyPress} value={value} handleKey={handleKey}/>
+      {/* <QuoteSection/> */}
 
-      <div className="row g-3 text-center align-items-center justify-content-center mb-5">
-        <div className="col-auto">
-          <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
-        </div>
-        <div className="col-auto">
-          <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
-        </div>
-        <div className='col-auto'>
-          <button
-            onClick={handleKey}
-            className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
-          >
-            Enter
-          </button>
-        </div>
-      </div>
+      
 
       <div className="info-button-container">
         <button className="info-button">
@@ -83,7 +72,8 @@ function App() {
         </div>
       </div>
       
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} showAlert={showAlert}/>}
+      
     </div>
   );
 }

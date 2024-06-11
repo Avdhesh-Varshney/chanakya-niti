@@ -18,13 +18,17 @@ const segregate = (url) => {
 };
 
 const RequestEpisode = (props) => {
-  const { episodeNumber, setProgress, setEpisodeNumber } = props;
+  const { episodeNumber, setProgress, setEpisodeNumber, showAlert } = props;
   const [content, setContent] = useState('');
   const [url, setUrl] = useState('');
   const [nextContent, setNextContent] = useState('');
   const [nextTitle, setNextTitle] = useState('');
 
   const fetchData = async (episodeNumber) => {
+    // if (episodeNumber < 1) {
+    //   showAlert("Enter valid episode");
+    //   return;
+    // }
     setProgress(5);
     setEpisodeNumber(episodeNumber);
     let episodeName = '';
@@ -41,6 +45,7 @@ const RequestEpisode = (props) => {
       const response = await fetch('https://api.github.com/repos/hack-boi/Chanakya/contents');
       setProgress(30);
       const data = await response.json();
+      // console.log(data);
       const audioFiles = data
         .filter(file => file.name.endsWith('.mp3') || file.name.endsWith('.wav') || file.name.endsWith('.m4a') || file.name.endsWith('.aac'))
         .map(file => file.download_url);
@@ -72,25 +77,31 @@ const RequestEpisode = (props) => {
   }, [episodeNumber]);
 
   return (
-    <div className="episode-container">
-      <div className="card-container">
-        <Card
-          title={`Episode ${episodeNumber}`}
-          content={content}
-          url={url}
-          setEpisodeNumber={setEpisodeNumber}
-          episodeNumber={episodeNumber}
-          fetchData={fetchData}
-          useEffect={useEffect}
-        />
-      </div>
-      {nextTitle && nextContent && (
-        <div className="next-episode-card">
-          <h5>Up Next:</h5>
-          <p>{nextTitle}  {nextContent}</p>
+    <>
+      <div className="episode-container">
+
+
+        <div className="card-container">
+          <Card
+            title={`Episode ${episodeNumber}`}
+            content={content}
+            url={url}
+            setEpisodeNumber={setEpisodeNumber}
+            episodeNumber={episodeNumber}
+            fetchData={fetchData}
+            useEffect={useEffect}
+          />
         </div>
-      )}
-    </div>
+      </div>
+      {/* {nextTitle && nextContent && (
+        <button type="button" className="btn btn-secondary position-absolute " style={{ right: 20, bottom: 20 }}
+          data-bs-toggle="tooltip" data-bs-placement="top"
+          data-bs-custom-class="custom-tooltip"
+          data-bs-title={nextContent}>
+          Next
+        </button>
+      )} */}
+    </>
   );
 };
 

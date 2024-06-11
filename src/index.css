@@ -16,7 +16,7 @@
 
 /* BACKGROUND with wave animation */
 
-
+/* 
 body {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -87,9 +87,9 @@ body {
       transform: translateX(1);
   }
 }
-
+*/
 /* Adjusting text color highlight for better visibility */
-.episode-container {
+/*.episode-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,13 +103,12 @@ body {
   padding: 16px;
   margin-top: 20px;
   width: 450px;
-  height: auto; /* Allow height to adjust to content */
+  height: auto; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(40, 40, 40, 0.8);
   color: #fff;
   position: relative;
 }
-
 .card-container {
   width: 100%;
   display: flex;
@@ -118,9 +117,9 @@ body {
 }
 
 .next-episode-card h5, .next-episode-card p {
-  color: #FFBF00; /* Adjusting text color */
+  color: #FFBF00; 
   display: inline-block;
   padding: 0 4px;
   border-radius: 4px;
-}
+} */
 
