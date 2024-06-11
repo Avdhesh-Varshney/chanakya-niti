@@ -54,6 +54,17 @@ const RequestEpisode = (props) => {
       setProgress(80);
       let trimData = segregate(URL);
       let nextTrimData = nextURL ? segregate(nextURL) : { title: 'No more episodes available,', content: 'this is the finale' };
+
+      // Special case for episode 2
+      if (episodeNumber === 2) {
+        trimData.content = 'गुलामी से मुक्ति';
+      }
+
+      // Special case for episode 1 up next
+      if (episodeNumber === 1 && nextTrimData.title.includes('Ep 02')) {
+        nextTrimData.content = 'गुलामी से मुक्ति';
+      }
+
       setContent(trimData.content);
       setUrl(trimData.url);
       setNextTitle(nextTrimData.title);
@@ -87,7 +98,7 @@ const RequestEpisode = (props) => {
       {nextTitle && nextContent && (
         <div className="next-episode-card">
           <h5>Up Next:</h5>
-          <p>{nextTitle}  {nextContent}</p>
+          <p>{nextTitle} {nextContent}</p>
         </div>
       )}
     </div>
