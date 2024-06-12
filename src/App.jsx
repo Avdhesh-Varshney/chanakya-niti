@@ -4,6 +4,10 @@ import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
 import QuoteSection from './components/Quotes/QuotesSection';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { options } from './assets/options.js';
+
 
 function App() {
   const [value, setValue] = useState(1);
@@ -57,12 +61,22 @@ function App() {
       </h1>
       <QuoteSection/>
 
+
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
         </div>
+
         <div className="col-auto">
-          <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
+          <Autocomplete
+            disablePortal
+            className="bg-white"
+
+            options={options}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField onSelect={handleOnChange} onChange={handleOnChange} {...params} label="Input Ep.1 to 806 (Finale)" />}
+          />
+          
         </div>
         <div className='col-auto'>
           <button
