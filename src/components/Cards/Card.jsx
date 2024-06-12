@@ -48,7 +48,7 @@ const Card = (props) => {
             customAdditionalControls={[]}
             customVolumeControls={[]}
             showDownloadProgress={[]}
-            className='audio-player'
+            className='my-2 py-4'
             showSkipControls={true}
             style={{ color: "white" }}
           />

@@ -6,7 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState();
   const [episodeNumber, setEpisodeNumber] = useState(1);
   const [startPlayback, setStartPlayback] = useState(true);
   const [progress, setProgress] = useState(0);
