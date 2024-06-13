@@ -3,7 +3,11 @@ import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
+
 import { Footer } from './components/Footer/Footer';
+
+import QuoteSection from './components/Quotes/QuotesSection';
+
 
 function App() {
   const [value, setValue] = useState(1);
@@ -20,8 +24,7 @@ function App() {
       setValue('');
     }
   };
-  
-  
+
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       setEpisodeNumber(value);
@@ -29,7 +32,7 @@ function App() {
     }
   };
 
-  const handleKey=(e)=>{
+  const handleKey = (e) => {
     setEpisodeNumber(value);
     setStartPlayback(true);
   };
@@ -56,27 +59,29 @@ function App() {
         <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
         चाणक्य नीति
       </h1>
+      <QuoteSection/>
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
-          
         </div>
         <div className="col-auto">
           <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
-          
         </div>
         <div className='col-auto'>
           <button
-          onClick={handleKey}
-          className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
+            onClick={handleKey}
+            className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
           >
             Enter
           </button>
-          </div>
+        </div>
       </div>
+
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+
       <Footer/>
+
     </div>
     
   );
