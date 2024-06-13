@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import LoadingBar from 'react-top-loading-bar';
-import RequestEpisode from './components/Pages/RequestEpisode';
-import Alert from './components/Alert/Alert';
-import './App.css';
-import QuoteSection from './components/Quotes/QuotesSection';
+import React, { useState, useEffect } from "react";
+import LoadingBar from "react-top-loading-bar";
+import RequestEpisode from "./components/Pages/RequestEpisode";
+import Alert from "./components/Alert/Alert";
+import "./App.css";
+import QuoteSection from "./components/Quotes/QuotesSection";
+import Conclusion from "./components/Conclusions/Conclusion";
 
 function App() {
   const [value, setValue] = useState(1);
@@ -11,18 +12,27 @@ function App() {
   const [startPlayback, setStartPlayback] = useState(false);
   const [progress, setProgress] = useState(0);
   const [alert, setAlert] = useState(null);
+  const [conclusionbox, setConclusionbox] = useState(false);
+
+  const handleOnClick = () => {
+    setConclusionbox(!conclusionbox);
+  };
+
+  const getEpNum = () => {
+    return episodeNumber;
+  }
 
   const handleOnChange = (event) => {
     const newValue = parseInt(event.target.value);
     if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
-      setValue('');
+      setValue("");
     }
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       setEpisodeNumber(value);
       setStartPlayback(true);
     }
@@ -39,32 +49,45 @@ function App() {
 
   const showAlert = (message) => {
     setAlert({
-      msg: message
-    })
-     setTimeout(() => {
-       setAlert(null);
-     }, 3500);
-  }
+      msg: message,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 3500);
+  };
 
   return (
-    <div className='container'>
-      <LoadingBar height={4} color='#f11946' progress={progress} />
+    <div className="container">
+      <LoadingBar height={4} color="#f11946" progress={progress} />
       {alert && <Alert alert={alert} />}
 
-      <h1 className='display-1 text-center my-2'>
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
+      <h1 className="display-1 text-center my-2">
+        <img
+          src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp"
+          alt="Chanakya-Image"
+          style={{ width: "5rem" }}
+        />
         चाणक्य नीति
       </h1>
-      <QuoteSection/>
+      <QuoteSection />
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
-          <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
+          <label htmlFor="inputNumber" className="col-form-label">
+            Episode Number
+          </label>
         </div>
         <div className="col-auto">
-          <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
+          <input
+            type="number"
+            id="inputNumber"
+            className="form-control"
+            value={value}
+            onKeyDown={handleKeyPress}
+            onChange={handleOnChange}
+          />
         </div>
-        <div className='col-auto'>
+        <div className="col-auto">
           <button
             onClick={handleKey}
             className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
@@ -75,15 +98,34 @@ function App() {
       </div>
 
       <div className="info-button-container">
-        <button className="info-button">
-          i
-        </button>
+        <button className="info-button">i</button>
         <div className="info-box">
-          <p>Explore the life and teachings of Chanakya, an ancient Indian philosopher, economist, and political strategist. Learn about his contributions to Indian philosophy and political science.</p>
+          <p>
+            Explore the life and teachings of Chanakya, an ancient Indian
+            philosopher, economist, and political strategist. Learn about his
+            contributions to Indian philosophy and political science.
+          </p>
         </div>
       </div>
+
+      {startPlayback && (
+        <RequestEpisode
+          episodeNumber={episodeNumber}
+          setEpisodeNumber={setEpisodeNumber}
+          setProgress={setProgress}
+        />
+      )}
+
+      {startPlayback ? (
+        <Conclusion
+          conclusionbox={conclusionbox}
+          handleOnClick={handleOnClick}
+          getEpNum={getEpNum}
+        />
+      ) : (
+        ""
+      )}
       
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
     </div>
   );
 }

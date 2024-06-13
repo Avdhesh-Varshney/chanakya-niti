@@ -1,0 +1,12 @@
+.button {
+    background-color: rgb(255, 221, 0);
+    color: black;
+    height: 50px;
+    width: 300px;
+    margin-left: 39%;
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

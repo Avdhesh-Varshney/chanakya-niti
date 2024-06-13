@@ -1,0 +1,12 @@
+.box {
+    background-color: rgb(38, 110, 86);
+    color: white;
+    height: 95px;
+    width: 800px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: 22%;
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
