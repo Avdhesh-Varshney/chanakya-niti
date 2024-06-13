@@ -75,7 +75,6 @@ function App() {
           </button>
           </div>
       </div>
-
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
       <Footer/>
     </div>
