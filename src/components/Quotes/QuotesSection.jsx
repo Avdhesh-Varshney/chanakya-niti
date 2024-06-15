@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import quotes from './quotes.json';
-import './QuoteSection.css';  // Import the CSS file
+import React, { useEffect, useState } from "react";
+import quotes from "./quotes.json";
+import "./QuoteSection.css";  // Import the CSS file
 
 const QuoteSection = () => {
-  const [quote, setQuote] = useState('');
+  const [quote, setQuote] = useState("");
 
   useEffect(() => {
     fetchDailyQuote();
@@ -11,9 +11,9 @@ const QuoteSection = () => {
 
   const fetchDailyQuote = async () => {
     try {
-      const response = await fetch('https://api.yourquoteapi.com/quotes?author=Chanakya', {
+      const response = await fetch("https://api.yourquoteapi.com/quotes?author=Chanakya", {
         headers: {
-          'Authorization': `4fe303f4bamshb97ef5b1dd575e0p1ccc51jsnd9644d3c587b`
+          "Authorization": `4fe303f4bamshb97ef5b1dd575e0p1ccc51jsnd9644d3c587b`
         }
       });
       const data = await response.json();
@@ -23,7 +23,7 @@ const QuoteSection = () => {
         setFallbackQuote();
       }
     } catch (error) {
-      console.error('Error fetching the quote:', error);
+      console.error("Error fetching the quote:", error);
       setFallbackQuote();
     }
   };
