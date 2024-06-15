@@ -1,52 +1,53 @@
 body {
-    padding: 1rem;
-  }
-  .audio-player{
-    width: 80vw;
-    padding: 1.2rem 1rem; 
-    border-radius: 5px
-  }
+  padding: 1rem;
+}
 
-  .rhap_container {
-    background: #f7f7f9;
-  }
-  
-  .rhap_controls-section {
-    margin-bottom: 15px;
-  }
-  
-  .rhap_progress-section {
-    height: 20px;
-    padding-bottom: 20px;
-  }
-  
-  /* .rhap_main-controls-button {
+.audio-player {
+  width: 80vw;
+  padding: 1.2rem 1rem;
+  border-radius: 5px;
+}
+
+.rhap_container {
+  /* background: #f7f7f9; */
+  background-color: transparent;
+}
+
+.rhap_controls-section {
+  margin-bottom: 15px;
+}
+
+.rhap_progress-section {
+  height: 20px;
+  padding-bottom: 20px;
+}
+
+/* .rhap_main-controls-button {
     width: 80px !important;
     height: 80px !important;
   } */
-  
-  /* .rhap_main-controls-button {
+
+/* .rhap_main-controls-button {
     width: 4vw;
     height: 4vw;
   } */
-  
-  .rhap_main-controls-button svg {
-    color: #ff5555;
-    width: 100%;
-    height: 100%;
-  }
-  .rhap_progress-filled,
-  .rhap_progress-indicator {
-    background-color: #ff5555 !important;
-  }
-  
-  .rhap_button-clear.rhap_volume-button {
-    color: #ff5555 !important;
-  }
-  
-  .rhap_volume-bar, .rhap_volume-indicator {
-    background-color: red;
-  }
-  
- 
-  
+
+.rhap_main-controls-button svg {
+  color: #ff5555;
+  width: 100%;
+  height: 100%;
+}
+
+.rhap_progress-filled,
+.rhap_progress-indicator {
+  background-color: #ff5555 !important;
+}
+
+.rhap_button-clear.rhap_volume-button {
+  color: #ff5555 !important;
+}
+
+.rhap_volume-bar,
+.rhap_volume-indicator {
+  background-color: red;
+}

@@ -12,11 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
 /* BACKGROUND with wave animation */
 
-/* 
+
 body {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,13 +28,15 @@ body {
 
 @keyframes gradient {
   0% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
+
   50% {
-      background-position: 100% 100%;
+    background-position: 100% 100%;
   }
+
   100% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
 }
 
@@ -68,26 +68,26 @@ body {
 
 @keyframes wave {
   2% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 
   25% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   50% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   75% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   100% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 }
-*/
+
 /* Adjusting text color highlight for better visibility */
 /*.episode-container {
   display: flex;
@@ -122,4 +122,3 @@ body {
   padding: 0 4px;
   border-radius: 4px;
 } */
-
