@@ -13,7 +13,7 @@ const QuoteSection = () => {
     try {
       const response = await fetch("https://api.yourquoteapi.com/quotes?author=Chanakya", {
         headers: {
-          "Authorization": `4fe303f4bamshb97ef5b1dd575e0p1ccc51jsnd9644d3c587b`
+          'Authorization': process.env.REACT_APP_QUOTES_API_KEY
         }
       });
       const data = await response.json();
