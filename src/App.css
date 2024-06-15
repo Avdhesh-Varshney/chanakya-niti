@@ -4,6 +4,7 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 /* info button css */
 .info-button-container {
   position: fixed;
@@ -42,16 +43,17 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 10px;
   font-size: 14px;
   position: relative;
-  bottom: 60px; 
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 250px; 
+  width: 250px;
   z-index: 10;
 }
 
 .info-button-container:hover .info-box {
   display: block;
+
 }
 
 .NavLink-container {
@@ -60,4 +62,6 @@ input[type=number]::-webkit-outer-spin-button {
   right: 20px; 
   z-index: 999; 
 }
+
+
 

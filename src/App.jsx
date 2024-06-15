@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import LoadingBar from 'react-top-loading-bar';
-import RequestEpisode from './components/Pages/RequestEpisode';
-import Alert from './components/Alert/Alert';
-import './App.css';
-import QuoteSection from './components/Quotes/QuotesSection';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Contact from './components/Pages/ContactUs';
+
+import React, { useState, useEffect } from "react";
+import LoadingBar from "react-top-loading-bar";
+import RequestEpisode from "./components/Pages/RequestEpisode";
+import Alert from "./components/Alert/Alert";
+import "./App.css";
+import QuoteSection from "./components/Quotes/QuotesSection";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { options } from "./assets/options.js";
+
 
 function App() {
   const [value, setValue] = useState(1);
@@ -20,12 +26,12 @@ function App() {
     if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
-      setValue('');
+      setValue("");
     }
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       setEpisodeNumber(value);
       setStartPlayback(true);
     }
@@ -50,24 +56,32 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <LoadingBar height={4} color='#f11946' progress={progress} />
+    <div className="container">
+      <LoadingBar height={4} color="#f11946" progress={progress} />
       {alert && <Alert alert={alert} />}
 
-      <h1 className='display-1 text-center my-2'>
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
+      <h1 className="display-1 text-center my-2">
+        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: "5rem" }} />
         चाणक्य नीति
       </h1>
-      <QuoteSection/>
+      <QuoteSection />
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
         </div>
+
         <div className="col-auto">
-          <input type="number" id="inputNumber" className="form-control" value={value} onKeyDown={handleKeyPress} onChange={handleOnChange} />
+          <Autocomplete
+            disablePortal
+            className="bg-white"
+            options={options}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField onSelect={handleOnChange} onChange={handleOnChange} {...params} label="Input Ep.1 to 806 (Finale)" />}
+          />
         </div>
-        <div className='col-auto'>
+
+        <div className="col-auto">
           <button
             onClick={handleKey}
             className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
@@ -85,7 +99,7 @@ function App() {
           <p>Explore the life and teachings of Chanakya, an ancient Indian philosopher, economist, and political strategist. Learn about his contributions to Indian philosophy and political science.</p>
         </div>
       </div>
-      
+
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
    
       <div className="NavLink-container">

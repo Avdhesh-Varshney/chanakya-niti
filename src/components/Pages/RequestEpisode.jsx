@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Card from '../Cards/Card';
+import React, { useState, useEffect } from "react";
+import Card from "../Cards/Card";
 
 const segregate = (url) => {
   const parts = url.split("/");
@@ -19,16 +19,16 @@ const segregate = (url) => {
 
 const RequestEpisode = (props) => {
   const { episodeNumber, setProgress, setEpisodeNumber } = props;
-  const [content, setContent] = useState('');
-  const [url, setUrl] = useState('');
-  const [nextContent, setNextContent] = useState('');
-  const [nextTitle, setNextTitle] = useState('');
+  const [content, setContent] = useState("");
+  const [url, setUrl] = useState("");
+  const [nextContent, setNextContent] = useState("");
+  const [nextTitle, setNextTitle] = useState("");
 
   const fetchData = async (episodeNumber) => {
     setProgress(5);
     setEpisodeNumber(episodeNumber);
-    let episodeName = '';
-    let nextEpisodeName = '';
+    let episodeName = "";
+    let nextEpisodeName = "";
     if (episodeNumber < 10) {
       episodeName = `Ep 0${episodeNumber}`;
       nextEpisodeName = `Ep 0${episodeNumber + 1}`;
@@ -38,11 +38,11 @@ const RequestEpisode = (props) => {
     }
     setProgress(10);
     try {
-      const response = await fetch('https://api.github.com/repos/hack-boi/Chanakya/contents');
+      const response = await fetch("https://api.github.com/repos/hack-boi/Chanakya/contents");
       setProgress(30);
       const data = await response.json();
       const audioFiles = data
-        .filter(file => file.name.endsWith('.mp3') || file.name.endsWith('.wav') || file.name.endsWith('.m4a') || file.name.endsWith('.aac'))
+        .filter(file => file.name.endsWith(".mp3") || file.name.endsWith(".wav") || file.name.endsWith(".m4a") || file.name.endsWith(".aac"))
         .map(file => file.download_url);
 
       setProgress(55);
@@ -53,16 +53,27 @@ const RequestEpisode = (props) => {
       }
       setProgress(80);
       let trimData = segregate(URL);
-      let nextTrimData = nextURL ? segregate(nextURL) : { title: 'No more episodes available,', content: 'this is the finale' };
+      let nextTrimData = nextURL ? segregate(nextURL) : { title: "No more episodes available,", content: "this is the finale" };
+
+      // Special case for episode 2
+      if (episodeNumber === 2) {
+        trimData.content = "गुलामी से मुक्ति";
+      }
+
+      // Special case for episode 1 up next
+      if (episodeNumber === 1 && nextTrimData.title.includes("Ep 02")) {
+        nextTrimData.content = "गुलामी से मुक्ति";
+      }
+
       setContent(trimData.content);
       setUrl(trimData.url);
       setNextTitle(nextTrimData.title);
       setNextContent(nextTrimData.content);
     } catch (error) {
-      console.error('Error fetching episode:', error);
-      setContent('Error fetching episode');
-      setNextTitle('Error fetching next episode');
-      setNextContent('');
+      console.error("Error fetching episode:", error);
+      setContent("Error fetching episode");
+      setNextTitle("Error fetching next episode");
+      setNextContent("");
     }
     setProgress(100);
   };
@@ -87,7 +98,7 @@ const RequestEpisode = (props) => {
       {nextTitle && nextContent && (
         <div className="next-episode-card">
           <h5>Up Next:</h5>
-          <p>{nextTitle}  {nextContent}</p>
+          <p>{nextTitle} {nextContent}</p>
         </div>
       )}
     </div>
