@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-import './Card.css';
+
+import React, { useState } from "react";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
+import "./Card.css";
 
 
 const Card = (props) => {
   const { title, content, url, setEpisodeNumber, episodeNumber, fetchData, useEffect } = props;
+
   const [epsNumber, setEpsNumber] = useState(episodeNumber);
+  
   useEffect(() => {
     fetchData(epsNumber);
   }, [epsNumber]);
+  
   useEffect(() => {
     setEpsNumber(episodeNumber);
   }, [episodeNumber]);
@@ -18,11 +22,14 @@ const Card = (props) => {
     setEpsNumber(epsNumber - 1);
     setEpisodeNumber(episodeNumber - 1);
   };
+  
   const handleNext = () => {
     setEpsNumber(epsNumber + 1);
     setEpisodeNumber(episodeNumber + 1);
   };
+  
   return (
+
     <>
       {/* <div className="custom-card">
         <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya.webp" className="card-img" alt="Chanakya-Image" />
@@ -54,6 +61,7 @@ const Card = (props) => {
           />
 
         </div>
+
       </div>
 
 

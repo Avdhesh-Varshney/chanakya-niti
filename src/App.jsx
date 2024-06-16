@@ -1,9 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
 import Navbar from './components/Navbar';
+
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 function App() {
   const [value, setValue] = useState();
@@ -17,11 +21,12 @@ function App() {
     if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
-      setValue('');
+      setValue("");
     }
   };
 
   const handleKeyPress = (event) => {
+
     if (event.key === 'Enter') {
 
       if (value < 1) {
@@ -60,7 +65,6 @@ function App() {
 
       <Navbar handleOnChange={handleOnChange} handleKeyPress={handleKeyPress} value={value} handleKey={handleKey} />
       {/* <QuoteSection/> */}
-
 
 
       <div className="info-button-container">
