@@ -20,17 +20,13 @@ const segregate = (url) => {
 const RequestEpisode = (props) => {
 
   const { episodeNumber, setProgress, setEpisodeNumber } = props;
-  const [content, setContent] = useState("");
-  const [url, setUrl] = useState("");
-  const [nextContent, setNextContent] = useState("");
-  const [nextTitle, setNextTitle] = useState("");
+  const [content, setContent] = useState('');
+  const [url, setUrl] = useState('');
+  const [nextContent, setNextContent] = useState('');
+  const [nextTitle, setNextTitle] = useState('');
 
 
   const fetchData = async (episodeNumber) => {
-    // if (episodeNumber < 1) {
-    //   showAlert("Enter valid episode");
-    //   return;
-    // }
     setProgress(5);
     setEpisodeNumber(episodeNumber);
     let episodeName = "";
