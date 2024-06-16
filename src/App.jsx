@@ -100,12 +100,12 @@ function App() {
         </div>
 
         <div className="col-auto">
-          <button
-            onClick={handleKey}
-            className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
-          >
-            Enter
-          </button>
+           <button
+           onClick={handleKey}
+           className="button-custom"
+           >
+               Enter
+           </button>
         </div>
       </div>
 
