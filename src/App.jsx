@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import LoadingBar from 'react-top-loading-bar';
-import RequestEpisode from './components/Pages/RequestEpisode';
-import Alert from './components/Alert/Alert';
-import './App.css';
-import QuoteSection from './components/Quotes/QuotesSection';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import { options } from './assets/options.js';
+import React, { useState, useEffect } from "react";
+import LoadingBar from "react-top-loading-bar";
+import RequestEpisode from "./components/Pages/RequestEpisode";
+import Alert from "./components/Alert/Alert";
+import "./App.css";
+import QuoteSection from "./components/Quotes/QuotesSection";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { options } from "./assets/options.js";
+
 
 function App() {
   const [value, setValue] = useState(1);
@@ -27,6 +28,7 @@ function App() {
       setEpisodeNumber(parseInt(savedEpisodeNumber));
       setValue(parseInt(savedEpisodeNumber));
       setStartPlayback(true);
+      
     }
   };
 
@@ -40,15 +42,15 @@ function App() {
     if (!isNaN(newValue)) {
       setValue(newValue);
     } else {
-      setValue('');
+      setValue("");
     }
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       setEpisodeNumber(value);
       setStartPlayback(true);
-      saveProgress(value); // Save progress on key press
+      saveProgress(value); // Save progress on button click
     }
   };
 
@@ -58,25 +60,29 @@ function App() {
     saveProgress(value); // Save progress on button click
   };
 
+  useEffect(() => {
+    showAlert("To begin, input the episode number and press Enter.");
+  }, []);
+
   const showAlert = (message) => {
     setAlert({
       msg: message
-    });
+    })
     setTimeout(() => {
       setAlert(null);
     }, 3500);
-  };
+  }
 
   return (
-    <div className='container'>
-      <LoadingBar height={4} color='#f11946' progress={progress} />
+    <div className="container">
+      <LoadingBar height={4} color="#f11946" progress={progress} />
       {alert && <Alert alert={alert} />}
 
-      <h1 className='display-1 text-center my-2'>
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: '5rem' }} />
+      <h1 className="display-1 text-center my-2">
+        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: "5rem" }} />
         चाणक्य नीति
       </h1>
-      <QuoteSection/>
+      <QuoteSection />
 
       <div className="row g-3 text-center align-items-center justify-content-center mb-5">
         <div className="col-auto">
@@ -92,7 +98,8 @@ function App() {
             renderInput={(params) => <TextField onSelect={handleOnChange} onChange={handleOnChange} {...params} label="Input Ep.1 to 806 (Finale)" />}
           />
         </div>
-        <div className='col-auto'>
+
+        <div className="col-auto">
           <button
             onClick={handleKey}
             className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-700 rounded"
