@@ -16,6 +16,27 @@ function App() {
   const [progress, setProgress] = useState(0);
   const [alert, setAlert] = useState(null);
 
+  // Save progress to localStorage
+  const saveProgress = (episodeNumber) => {
+    localStorage.setItem('episodeNumber', episodeNumber);
+  };
+
+  // Load progress from localStorage
+  const loadProgress = () => {
+    const savedEpisodeNumber = localStorage.getItem('episodeNumber');
+    if (savedEpisodeNumber) {
+      setEpisodeNumber(parseInt(savedEpisodeNumber));
+      setValue(parseInt(savedEpisodeNumber));
+      setStartPlayback(true);
+      
+    }
+  };
+
+  useEffect(() => {
+    showAlert("To begin, input the episode number and press Enter.");
+    loadProgress(); // Load progress when component mounts
+  }, []);
+
   const handleOnChange = (event) => {
     const newValue = parseInt(event.target.value);
     if (!isNaN(newValue)) {
@@ -29,12 +50,14 @@ function App() {
     if (event.key === "Enter") {
       setEpisodeNumber(value);
       setStartPlayback(true);
+      saveProgress(value); // Save progress on button click
     }
   };
 
   const handleKey = (e) => {
     setEpisodeNumber(value);
     setStartPlayback(true);
+    saveProgress(value); // Save progress on button click
   };
 
   useEffect(() => {
