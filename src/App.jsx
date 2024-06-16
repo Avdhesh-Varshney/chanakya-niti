@@ -6,8 +6,6 @@ import Alert from './components/Alert/Alert';
 import './App.css';
 import Navbar from './components/Navbar';
 
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 
 function App() {
   const [value, setValue] = useState();
