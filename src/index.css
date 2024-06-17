@@ -12,11 +12,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122, 153, 217)), color-stop(0.72, rgb(73, 125, 189)), color-stop(0.86, rgb(28, 58, 148)));
+}
 
 /* BACKGROUND with wave animation */
-
-
 body {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,13 +43,15 @@ body {
 
 @keyframes gradient {
   0% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
+
   50% {
-      background-position: 100% 100%;
+    background-position: 100% 100%;
   }
+
   100% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
 }
 
@@ -68,23 +83,23 @@ body {
 
 @keyframes wave {
   2% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 
   25% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   50% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   75% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   100% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 }
 
@@ -103,7 +118,7 @@ body {
   padding: 16px;
   margin-top: 20px;
   width: 450px;
-  height: auto; /* Allow height to adjust to content */
+  height: auto;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: rgba(40, 40, 40, 0.8);
   color: #fff;
@@ -117,10 +132,10 @@ body {
   margin-bottom: 20px;
 }
 
-.next-episode-card h5, .next-episode-card p {
-  color: #FFBF00; /* Adjusting text color */
+.next-episode-card h5,
+.next-episode-card p {
+  color: #FFBF00;
   display: inline-block;
   padding: 0 4px;
   border-radius: 4px;
 }
-
