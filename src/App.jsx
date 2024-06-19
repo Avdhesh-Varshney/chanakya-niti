@@ -6,7 +6,7 @@ import "./App.css";
 import QuoteSection from "./components/Quotes/QuotesSection";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { options } from "./assets/options.js";
+import { options } from "./functions/options.js";
 
 
 function App() {
@@ -28,7 +28,6 @@ function App() {
       setEpisodeNumber(parseInt(savedEpisodeNumber));
       setValue(parseInt(savedEpisodeNumber));
       setStartPlayback(true);
-      
     }
   };
 
@@ -100,12 +99,12 @@ function App() {
         </div>
 
         <div className="col-auto">
-           <button
-           onClick={handleKey}
-           className="button-custom"
-           >
-               Enter
-           </button>
+          <button
+            onClick={handleKey}
+            className="button-custom"
+          >
+            Enter
+          </button>
         </div>
       </div>
 
