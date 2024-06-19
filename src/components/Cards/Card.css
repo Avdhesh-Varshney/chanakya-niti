@@ -7,8 +7,8 @@ body {
   border: 1px solid #ffffff81;
   box-shadow: 0 7px 20px 5px #00000088;
   border-radius: .7rem;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  /*backdrop-filter: blur(1px);*/
+  /*-webkit-backdrop-filter: blur(1px);*/
   overflow: hidden;
   transition: .5s all;
   padding: 0.1rem;
@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   width: 90%;
   padding: 1rem;
-  backdrop-filter: blur(2px);
+  /*backdrop-filter: blur(2px);*/
 }
 
 .card-text {
@@ -32,10 +32,10 @@ body {
 }
 
 .rhap_container {
-  background-color: rgba(86, 78, 21, 0.613);
+  background-color:rgba(226, 215, 163, 0.8);
   backdrop-filter: blur(10px);
   padding: 1.2rem 1rem;
-  border-radius: 5px;
+  border-radius: 100px;
   width: 368px;
 }
 
@@ -61,4 +61,24 @@ body {
   transform: scale(1.09);
   filter: brightness(1.01);
   backdrop-filter: blur(0px);
+}
+.card-title{
+  margin-top: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -40px;
+}
+.card-text{
+  margin-top: -85px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+
+
+}
+.audio-player{
+  margin-top: 350px;
 }
