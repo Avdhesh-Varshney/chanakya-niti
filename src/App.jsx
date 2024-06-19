@@ -9,7 +9,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { options } from "./assets/options.js";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Contact from './components/Pages/Contact/ContactUs';
+import Contact from './components/Contact/ContactUs.jsx';
 
 
 function App() {
