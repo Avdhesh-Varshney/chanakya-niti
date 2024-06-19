@@ -29,7 +29,6 @@ const Card = (props) => {
   };
   
   return (
-
     <>
       {/* <div className="custom-card">
         <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya.webp" className="card-img" alt="Chanakya-Image" />
@@ -61,6 +60,7 @@ const Card = (props) => {
           />
 
         </div>
+
 
       </div>
 

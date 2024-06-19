@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import RequestEpisode from './components/Pages/RequestEpisode';
 import Alert from './components/Alert/Alert';
 import './App.css';
 import Navbar from './components/Navbar';
+
 
 
 function App() {
@@ -26,7 +26,6 @@ function App() {
       setEpisodeNumber(parseInt(savedEpisodeNumber));
       setValue(parseInt(savedEpisodeNumber));
       setStartPlayback(true);
-      
     }
   };
 
@@ -86,7 +85,6 @@ function App() {
 
       <Navbar handleOnChange={handleOnChange} handleKeyPress={handleKeyPress} value={value} handleKey={handleKey} />
       {/* <QuoteSection/> */}
-
 
       <div className="info-button-container">
         <button className="info-button">
