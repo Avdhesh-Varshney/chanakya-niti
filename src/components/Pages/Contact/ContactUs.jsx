@@ -34,8 +34,8 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_kssjugu',//write service id here 
-        'template_cg8qcij',//write templet id here
+        'service_fqk1mfre',//write service id here 
+        'template_a3yerj',//write templet id here
         {
           from_name: form.name,
           to_name: "FoodiesWeb",
@@ -43,7 +43,7 @@ const Contact = () => {
           to_email: "info@foodiweb.com",
           message: form.message,
         },
-        'EJL9aVO3EzRRm0TRE'  //write public_key here
+        'EJL9aVO3EzRRm0Ifdfs'  //write public_key here
       );
 
       setLoading(false);

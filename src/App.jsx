@@ -6,7 +6,7 @@ import './App.css';
 import QuoteSection from './components/Quotes/QuotesSection';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import Contact from './components/Pages/ContactUs';
+import Contact from './components/Pages/Contact/ContactUs';
 
 function App() {
   const [value, setValue] = useState(1);
