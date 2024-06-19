@@ -28,7 +28,7 @@ const Card = (props) => {
   
   return (
     <div className="card custom-card">
-      <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya.webp" className="card-img" alt="Chanakya-Image" />
+      <img src="https://i.pinimg.com/736x/8f/d6/e3/8fd6e39770c21a8992c0f23d5c9ee738.jpg" className="card-img" alt="Chanakya-Image" />
       <div className="card-img-overlay p-3">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{content}</p>
