@@ -88,14 +88,20 @@ function App() {
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
         </div>
 
-        <div className="col-auto">
-          <Autocomplete
+        <div className="col-auto autocomplete-container">
+         <Autocomplete
             disablePortal
-            className="bg-white"
             options={options}
             sx={{ width: 300 }}
-            renderInput={(params) => <TextField onSelect={handleOnChange} onChange={handleOnChange} {...params} label="Input Ep.1 to 806 (Finale)" />}
-          />
+            renderInput={(params) => (
+         <TextField
+             onSelect={handleOnChange}
+            onChange={handleOnChange}
+             {...params}
+            label="Input Ep.1 to 806 (Finale)"
+              />
+            )}
+            />
         </div>
 
         <div className="col-auto">
