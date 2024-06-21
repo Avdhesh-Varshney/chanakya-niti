@@ -6,10 +6,10 @@ import "./App.css";
 import QuoteSection from "./components/Quotes/QuotesSection";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { options } from "./assets/options.js";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Contact from './components/Contact/ContactUs.jsx';
+import { options } from "./functions/options.js";
 
 
 function App() {
@@ -31,7 +31,6 @@ function App() {
       setEpisodeNumber(parseInt(savedEpisodeNumber));
       setValue(parseInt(savedEpisodeNumber));
       setStartPlayback(true);
-      
     }
   };
 
@@ -92,23 +91,29 @@ function App() {
           <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
         </div>
 
-        <div className="col-auto">
-          <Autocomplete
+        <div className="col-auto autocomplete-container">
+         <Autocomplete
             disablePortal
-            className="bg-white"
             options={options}
             sx={{ width: 300 }}
-            renderInput={(params) => <TextField onSelect={handleOnChange} onChange={handleOnChange} {...params} label="Input Ep.1 to 806 (Finale)" />}
-          />
+            renderInput={(params) => (
+         <TextField
+             onSelect={handleOnChange}
+            onChange={handleOnChange}
+             {...params}
+            label="Input Ep.1 to 806 (Finale)"
+              />
+            )}
+            />
         </div>
 
         <div className="col-auto">
-           <button
-           onClick={handleKey}
-           className="button-custom"
-           >
-               Enter
-           </button>
+          <button
+            onClick={handleKey}
+            className="button-custom"
+          >
+            Enter
+          </button>
         </div>
       </div>
 
