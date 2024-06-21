@@ -70,3 +70,22 @@ input[type=number]::-webkit-outer-spin-button {
   transform: scale(1.05);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+.autocomplete-container .MuiOutlinedInput-root {
+  border-radius: 8px;
+  border-color: white;
+  color: white;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.autocomplete-container .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: white; 
+}
+.autocomplete-container .MuiInputLabel-root {
+  color: white;
+  transition: color 0.3s ease;
+}
+.autocomplete-container .MuiInputLabel-root.Mui-focused {
+  color: white; 
+}
+.autocomplete-container .MuiOutlinedInput-input {
+  color: white; 
+}
