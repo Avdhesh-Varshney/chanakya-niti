@@ -7,6 +7,7 @@ import QuoteSection from "./components/Quotes/QuotesSection";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { options } from "./functions/options.js";
+import Contributor from "./components/Contributor/Contributor.jsx";
 
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
       </div>
 
       {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+      <Contributor/>
     </div>
   );
 }
