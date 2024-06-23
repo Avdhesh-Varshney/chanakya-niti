@@ -1,129 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
-import RequestEpisode from "./components/Pages/RequestEpisode";
-import Alert from "./components/Alert/Alert";
-import "./App.css";
-import QuoteSection from "./components/Quotes/QuotesSection";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import { options } from "./functions/options.js";
 
+import Navbar from "./components/shared/Navbar";
+import Footer from "./components/shared/Footer";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contributors from "./pages/Contributors";
+import Audio from "./pages/resources/Audio";
+import ChanakyaAudio from "./pages/resources/audio/ChanakyaAudio";
+import Video from "./pages/resources/Video";
+import ChanakyaVideo from "./pages/resources/video/ChanakyaVideo";
+import Book from "./pages/resources/Book";
+import ChanakyaBook from "./pages/resources/book/ChanakyaBook";
+
+import SignIn from "./pages/auth/SignIn";
+import SignUp from "./pages/auth/SignUp";
 
 function App() {
-  const [value, setValue] = useState(1);
-  const [episodeNumber, setEpisodeNumber] = useState(1);
-  const [startPlayback, setStartPlayback] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [alert, setAlert] = useState(null);
-
-  // Save progress to localStorage
-  const saveProgress = (episodeNumber) => {
-    localStorage.setItem('episodeNumber', episodeNumber);
-  };
-
-  // Load progress from localStorage
-  const loadProgress = () => {
-    const savedEpisodeNumber = localStorage.getItem('episodeNumber');
-    if (savedEpisodeNumber) {
-      setEpisodeNumber(parseInt(savedEpisodeNumber));
-      setValue(parseInt(savedEpisodeNumber));
-      setStartPlayback(true);
-    }
-  };
-
-  useEffect(() => {
-    showAlert("To begin, input the episode number and press Enter.");
-    loadProgress(); // Load progress when component mounts
-  }, []);
-
-  const handleOnChange = (event) => {
-    const newValue = parseInt(event.target.value);
-    if (!isNaN(newValue)) {
-      setValue(newValue);
-    } else {
-      setValue("");
-    }
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      setEpisodeNumber(value);
-      setStartPlayback(true);
-      saveProgress(value); // Save progress on button click
-    }
-  };
-
-  const handleKey = (e) => {
-    setEpisodeNumber(value);
-    setStartPlayback(true);
-    saveProgress(value); // Save progress on button click
-  };
-
-  useEffect(() => {
-    showAlert("To begin, input the episode number and press Enter.");
-  }, []);
-
-  const showAlert = (message) => {
-    setAlert({
-      msg: message
-    })
-    setTimeout(() => {
-      setAlert(null);
-    }, 3500);
-  }
 
   return (
-    <div className="container">
-      <LoadingBar height={4} color="#f11946" progress={progress} />
-      {alert && <Alert alert={alert} />}
+    <div className='container d-flex flex-column min-vh-100'>
+      <Router>
+        <Navbar />
+        <LoadingBar height={3} color="#f11946" progress={progress} />
 
-      <h1 className="display-1 text-center my-2">
-        <img src="https://raw.githubusercontent.com/Avdhesh-Varshney/Chanakya/main/src/assets/Chanakya-Logo.webp" alt="Chanakya-Image" style={{ width: "5rem" }} />
-        चाणक्य नीति
-      </h1>
-      <QuoteSection />
+        <main className="flex-grow-1 container mt-4">
+          <Routes>
+            <Route exact path="/" element={<Home setProgress={setProgress} />} />
+            <Route exact path="/about" element={<About setProgress={setProgress} />} />
 
-      <div className="row g-3 text-center align-items-center justify-content-center mb-5">
-        <div className="col-auto">
-          <label htmlFor="inputNumber" className="col-form-label">Episode Number</label>
-        </div>
+            {/* Audio Resource Pages */}
+            <Route exact path="/resources/audio" element={<Audio />} />
+            <Route exact path="/resources/audio/ChanakyaNiti" element={<ChanakyaAudio setProgress={setProgress} />} />
 
-        <div className="col-auto autocomplete-container">
-         <Autocomplete
-            disablePortal
-            options={options}
-            sx={{ width: 300 }}
-            renderInput={(params) => (
-         <TextField
-             onSelect={handleOnChange}
-            onChange={handleOnChange}
-             {...params}
-            label="Input Ep.1 to 806 (Finale)"
-              />
-            )}
-            />
-        </div>
+            {/* Video Resource Pages */}
+            <Route exact path="/resources/video" element={<Video />} />
+            <Route exact path="/resources/video/ChanakyaNiti" element={<ChanakyaVideo setProgress={setProgress} />} />
 
-        <div className="col-auto">
-          <button
-            onClick={handleKey}
-            className="button-custom"
-          >
-            Enter
-          </button>
-        </div>
-      </div>
+            {/* Book Resource Pages */}
+            <Route exact path="/resources/book" element={<Book />} />
+            <Route exact path="/resources/book/ChanakyaNiti" element={<ChanakyaBook setProgress={setProgress} />} />
 
-      <div className="info-button-container">
-        <button className="info-button">
-          i
-        </button>
-        <div className="info-box">
-          <p>Explore the life and teachings of Chanakya, an ancient Indian philosopher, economist, and political strategist. Learn about his contributions to Indian philosophy and political science.</p>
-        </div>
-      </div>
+            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} />
 
-      {startPlayback && <RequestEpisode episodeNumber={episodeNumber} setEpisodeNumber={setEpisodeNumber} setProgress={setProgress} />}
+            {/* Authentication Pages */}
+            <Route exact path="/auth/SignIn" element={<SignIn />} />
+            <Route exact path="/auth/SignUp" element={<SignUp />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </Router>
     </div>
   );
 }
