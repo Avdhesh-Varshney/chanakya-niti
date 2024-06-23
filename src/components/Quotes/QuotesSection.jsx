@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import quotes from "./quotes.json";
-import "./QuoteSection.css";  // Import the CSS file
+import quotes from "/src/database/quotes.json";
+import "./QuoteSection.css";
 
 const QuoteSection = () => {
   const [quote, setQuote] = useState("");
