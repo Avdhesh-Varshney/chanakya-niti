@@ -16,6 +16,8 @@ import Book from "./pages/resources/Book";
 import ChanakyaBook from "./pages/resources/book/ChanakyaBook";
 import News from "./pages/resources/News";
 import ChanakyaNews from "./pages/resources/news/ChanakyaNews";
+import Quiz from "./pages/resources/Quiz";
+import ChanakyaQuiz from "./pages/resources/quiz/ChanakyaQuiz";
 
 import Contributors from "./pages/Contributors";
 
@@ -51,6 +53,10 @@ function App() {
             {/* News Resource Pages */}
             <Route exact path="/resources/news" element={<News />} />
             <Route exact path="/resources/news/chanakya" element={<ChanakyaNews setProgress={setProgress} />} />
+
+            {/* Quiz Resource Pages */}
+            <Route exact path="/resources/quiz" element={<Quiz />} />
+            <Route exact path="/resources/quiz/chanakya" element={<ChanakyaQuiz setProgress={setProgress} />} />
 
             <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} />
 
