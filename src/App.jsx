@@ -23,6 +23,7 @@ import Contributors from "./pages/Contributors";
 
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
+import ContributorDetail from "./ContributorDetail";
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -58,7 +59,9 @@ function App() {
             <Route exact path="/resources/quiz" element={<Quiz />} />
             <Route exact path="/resources/quiz/chanakya" element={<ChanakyaQuiz setProgress={setProgress} />} />
 
-            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} />
+            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} >
+            </Route>
+            <Route path="/contributor/details" element={<ContributorDetail setProgress={setProgress}/>}> </Route>
 
             {/* Authentication Pages */}
             <Route exact path="/auth/SignIn" element={<SignIn />} />
