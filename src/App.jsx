@@ -7,13 +7,17 @@ import Footer from "./components/shared/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Contributors from "./pages/Contributors";
+
 import Audio from "./pages/resources/Audio";
 import ChanakyaAudio from "./pages/resources/audio/ChanakyaAudio";
 import Video from "./pages/resources/Video";
 import ChanakyaVideo from "./pages/resources/video/ChanakyaVideo";
 import Book from "./pages/resources/Book";
 import ChanakyaBook from "./pages/resources/book/ChanakyaBook";
+import News from "./pages/resources/News";
+import ChanakyaNews from "./pages/resources/news/ChanakyaNews";
+
+import Contributors from "./pages/Contributors";
 
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -34,15 +38,19 @@ function App() {
 
             {/* Audio Resource Pages */}
             <Route exact path="/resources/audio" element={<Audio />} />
-            <Route exact path="/resources/audio/ChanakyaNiti" element={<ChanakyaAudio setProgress={setProgress} />} />
+            <Route exact path="/resources/audio/chanakya" element={<ChanakyaAudio setProgress={setProgress} />} />
 
             {/* Video Resource Pages */}
             <Route exact path="/resources/video" element={<Video />} />
-            <Route exact path="/resources/video/ChanakyaNiti" element={<ChanakyaVideo setProgress={setProgress} />} />
+            <Route exact path="/resources/video/chanakya" element={<ChanakyaVideo setProgress={setProgress} />} />
 
             {/* Book Resource Pages */}
             <Route exact path="/resources/book" element={<Book />} />
-            <Route exact path="/resources/book/ChanakyaNiti" element={<ChanakyaBook setProgress={setProgress} />} />
+            <Route exact path="/resources/book/chanakya" element={<ChanakyaBook setProgress={setProgress} />} />
+
+            {/* News Resource Pages */}
+            <Route exact path="/resources/news" element={<News />} />
+            <Route exact path="/resources/news/chanakya" element={<ChanakyaNews setProgress={setProgress} />} />
 
             <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} />
 
