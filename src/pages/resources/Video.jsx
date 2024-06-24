@@ -5,10 +5,10 @@ const Video = () => {
   return (
     <div>
       <Card 
-        imgSrc="../src/assets/image.webp" 
+        imgSrc="/src/assets/image.webp" 
         title="Chanakya Niti" 
         description="Hello World" 
-        path="/resources/video/ChanakyaNiti" 
+        path="/resources/video/chanakya" 
         btnName="Watch Chanakya's Story" 
       />
     </div>
