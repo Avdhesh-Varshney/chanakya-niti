@@ -34,6 +34,7 @@ const Navbar = () => {
                 <li><Link className="dropdown-item" to="/resources/video">Videos</Link></li>
                 <li><Link className="dropdown-item" to="/resources/book">Books</Link></li>
                 <li><Link className="dropdown-item" to="/resources/news">News</Link></li>
+                <li><Link className="dropdown-item" to="/resources/quiz">Quiz</Link></li>
               </ul>
             </li>
             
