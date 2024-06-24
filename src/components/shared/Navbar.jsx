@@ -33,6 +33,7 @@ const Navbar = () => {
                 <li><Link className="dropdown-item" to="/resources/audio">Audios</Link></li>
                 <li><Link className="dropdown-item" to="/resources/video">Videos</Link></li>
                 <li><Link className="dropdown-item" to="/resources/book">Books</Link></li>
+                <li><Link className="dropdown-item" to="/resources/news">News</Link></li>
               </ul>
             </li>
             
