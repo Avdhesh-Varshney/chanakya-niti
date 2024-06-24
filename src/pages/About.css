@@ -1,0 +1,50 @@
+/* src/pages/About.css */
+.about-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1 {
+  text-align: center;
+  color: #874343;
+  font-family: 'Arial', sans-serif;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  text-align: justify;
+  color: #090909;
+  font-family: 'Georgia', serif;
+  font-size: x-large;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.about-text ul li {
+  margin-bottom: 10px;
+  color: #780d0d;
+}
