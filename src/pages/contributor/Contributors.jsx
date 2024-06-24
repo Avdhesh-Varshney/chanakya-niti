@@ -1,8 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import Contricard from './Contricard'
 import axios from 'axios'
-import './Contributor.css'
+import ContributorCard from './ContributorCard'
 
 const Contributors = () => {
   
@@ -26,15 +25,15 @@ const Contributors = () => {
   return (
     <>
       <div className='d-flex flex-column contribution' style={{ overflowX: "hidden" }}>
-        <div className="contri-heading">
+        <div className="fs-3" style={{fontWeight:"500"}}>
           Our Contributors
         </div>
-        <div className='d-flex flex-wrap'>
+        <div className='d-flex flex-wrap justify-content-evenly'>
 
         {
           data.map((element) => {
-            return <div>
-              <Contricard name={element.login} img={element.avatar_url} count={element.contributions} />
+            return <div key={data.indexOf(element)}>
+              <ContributorCard name={element.login} img={element.avatar_url} />
             </div>
           })
         }
