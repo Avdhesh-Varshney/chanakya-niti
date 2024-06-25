@@ -19,7 +19,8 @@ import ChanakyaNews from "./pages/resources/news/ChanakyaNews";
 import Quiz from "./pages/resources/Quiz";
 import ChanakyaQuiz from "./pages/resources/quiz/ChanakyaQuiz";
 
-import Contributors from "./pages/Contributors";
+import Contributors from "./pages/contributor/Contributors";
+import ContributorDetail from "./pages/contributor/ContributorDetail";
 
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -58,7 +59,9 @@ function App() {
             <Route exact path="/resources/quiz" element={<Quiz />} />
             <Route exact path="/resources/quiz/chanakya" element={<ChanakyaQuiz setProgress={setProgress} />} />
 
-            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} />
+            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} >
+            </Route>
+            <Route path="/contributor/details" element={<ContributorDetail setProgress={setProgress}/>}> </Route>
 
             {/* Authentication Pages */}
             <Route exact path="/auth/SignIn" element={<SignIn />} />
