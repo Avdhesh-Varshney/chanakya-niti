@@ -4,6 +4,7 @@ import "./QuoteSection.css";
 
 const QuoteSection = () => {
   const [quote, setQuote] = useState("");
+  const AuthInfo = process.env.QUOTES_API_KEY;
 
   useEffect(() => {
     fetchDailyQuote();
@@ -11,11 +12,14 @@ const QuoteSection = () => {
 
   const fetchDailyQuote = async () => {
     try {
-      const response = await fetch("https://api.yourquoteapi.com/quotes?author=Chanakya", {
-        headers: {
-          "Authorization": `4fe303f4bamshb97ef5b1dd575e0p1ccc51jsnd9644d3c587b`
+      const response = await fetch(
+        "https://api.yourquoteapi.com/quotes?author=Chanakya",
+        {
+          headers: {
+            Authorization: AuthInfo,
+          },
         }
-      });
+      );
       const data = await response.json();
       if (data && data.length > 0) {
         setQuote(data[0].quote);

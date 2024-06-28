@@ -29,39 +29,73 @@ function App() {
   const [progress, setProgress] = useState(0);
 
   return (
-    <div className='container d-flex flex-column min-vh-100'>
+    <div className="container d-flex flex-column min-vh-100">
       <Router>
         <Navbar />
         <LoadingBar height={3} color="#f11946" progress={progress} />
 
         <main className="flex-grow-1 container mt-4">
           <Routes>
-            <Route exact path="/" element={<Home setProgress={setProgress} />} />
-            <Route exact path="/about" element={<About setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/"
+              element={<Home setProgress={setProgress} />}
+            />
+            <Route
+              exact
+              path="/about"
+              element={<About setProgress={setProgress} />}
+            />
 
             {/* Audio Resource Pages */}
             <Route exact path="/resources/audio" element={<Audio />} />
-            <Route exact path="/resources/audio/chanakya" element={<ChanakyaAudio setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/resources/audio/chanakya"
+              element={<ChanakyaAudio setProgress={setProgress} />}
+            />
 
             {/* Video Resource Pages */}
             <Route exact path="/resources/video" element={<Video />} />
-            <Route exact path="/resources/video/chanakya" element={<ChanakyaVideo setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/resources/video/chanakya"
+              element={<ChanakyaVideo setProgress={setProgress} />}
+            />
 
             {/* Book Resource Pages */}
             <Route exact path="/resources/book" element={<Book />} />
-            <Route exact path="/resources/book/chanakya" element={<ChanakyaBook setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/resources/book/chanakya"
+              element={<ChanakyaBook setProgress={setProgress} />}
+            />
 
             {/* News Resource Pages */}
             <Route exact path="/resources/news" element={<News />} />
-            <Route exact path="/resources/news/chanakya" element={<ChanakyaNews setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/resources/news/chanakya"
+              element={<ChanakyaNews setProgress={setProgress} />}
+            />
 
             {/* Quiz Resource Pages */}
             <Route exact path="/resources/quiz" element={<Quiz />} />
-            <Route exact path="/resources/quiz/chanakya" element={<ChanakyaQuiz setProgress={setProgress} />} />
+            <Route
+              exact
+              path="/resources/quiz/chanakya"
+              element={<ChanakyaQuiz setProgress={setProgress} />}
+            />
 
-            <Route exact path="/contributor" element={<Contributors setProgress={setProgress} />} >
+            <Route
+              exact
+              path="/contributor"
+              element={<Contributors setProgress={setProgress} />}></Route>
+            <Route
+              path="/contributor/details"
+              element={<ContributorDetail setProgress={setProgress} />}>
+              {" "}
             </Route>
-            <Route path="/contributor/details" element={<ContributorDetail setProgress={setProgress}/>}> </Route>
 
             {/* Authentication Pages */}
             <Route exact path="/auth/SignIn" element={<SignIn />} />
