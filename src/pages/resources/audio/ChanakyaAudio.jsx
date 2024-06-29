@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import AudioPlayer from "react-h5-audio-player";
-import * as func from '../../../functions/RequestEpisode.module';
+import React, { useEffect, useState } from "react";
+import * as func from "../../../functions/RequestEpisode.module";
+import ReactPlayer from "react-player";
 
 const ChanakyaAudio = ({ setProgress }) => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [URL, setURL] = useState(null);
   const [episodeNumber, setEpisodeNumber] = useState(1);
   const [value, setValue] = useState(1);
+
+  const [playbackRate, setPlaybackRate] = useState(1);
+
+  const changePlaybackRate = (rate) => {
+    setPlaybackRate(rate);
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -21,11 +27,11 @@ const ChanakyaAudio = ({ setProgress }) => {
           setURL(data.trimData.URL);
           setProgress(85);
         } else {
-          console.error('No data found!');
+          console.error("No data found!");
           setURL(null);
         }
       } catch (error) {
-        console.error('Error fetching episode:', error);
+        console.error("Error fetching episode:", error);
         setURL(null);
       }
       setProgress(100);
@@ -41,7 +47,11 @@ const ChanakyaAudio = ({ setProgress }) => {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && event.target.value >= 1 && event.target.value <= 806) {
+    if (
+      event.key === "Enter" &&
+      event.target.value >= 1 &&
+      event.target.value <= 806
+    ) {
       setEpisodeNumber(event.target.value);
     }
   };
@@ -52,37 +62,49 @@ const ChanakyaAudio = ({ setProgress }) => {
 
   const handlePrevious = () => {
     if (episodeNumber > 1) {
-      setEpisodeNumber(prevEpisode => prevEpisode - 1);
+      setEpisodeNumber((prevEpisode) => prevEpisode - 1);
     }
   };
 
   const handleNext = () => {
     if (episodeNumber < 806) {
-      setEpisodeNumber(prevEpisode => prevEpisode + 1);
+      setEpisodeNumber((prevEpisode) => prevEpisode + 1);
     }
   };
 
   return (
-    <div className='container'>
-      <div className='container'>
-        <input type="number" placeholder='Enter episode number' value={value} onChange={handleChange} onKeyDown={handleKeyPress} />
-        <button type="submit" className="btn btn-dark" onClick={handleClick}>Enter</button>
+    <div className="container">
+      <div className="container">
+        <input
+          type="number"
+          placeholder="Enter episode number"
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyPress}
+        />
+        <button type="submit" className="btn btn-dark" onClick={handleClick}>
+          Enter
+        </button>
       </div>
 
-      <div className="card" style={{ width: '20rem' }}>
-        <img src="/src/assets/image.webp" className="card-img-top" alt="chanakya-image" />
+      <div className="card" style={{ width: "20rem" }}>
+        <img
+          src="/src/assets/image.webp"
+          className="card-img-top"
+          alt="chanakya-image"
+        />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{content}</p>
 
-          <AudioPlayer
-            autoPlay={false}
-            src={URL}
+          <ReactPlayer
+            url={URL}
             volume={0.5}
-            onClickPrevious={handlePrevious}
-            onClickNext={handleNext}
-            customAdditionalControls={[]}
-            showSkipControls={true}
+            playing
+            controls
+            playbackRate={playbackRate}
+            width="100%"
+            height="50px"
           />
         </div>
       </div>
