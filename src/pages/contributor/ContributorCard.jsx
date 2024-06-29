@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import "../../css/Contributor.css"
 
 function ContributorCard(props) {
   const { name, img } = props;
