@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ContributorCard from './ContributorCard'
 
-const Contributors = () => {
-  
+const Contributors = (props) => {
   const [data, setdata] = useState([])
   useEffect(() => {
     getContributor();
+    localStorage.setItem('contributorName','');
+    localStorage.setItem('contributions','');
   }, [])
 
 
@@ -15,7 +16,7 @@ const Contributors = () => {
     await axios.get('https://api.github.com/repos/Avdhesh-Varshney/chanakya-niti/contributors')
       .then(function (response) {
         setdata(response.data);
-        // console.log(response.data);
+        // console.log(data);
       })
       .catch(function (error) {
         console.log(error);
@@ -33,7 +34,7 @@ const Contributors = () => {
         {
           data.map((element) => {
             return <div key={data.indexOf(element)}>
-              <ContributorCard name={element.login} img={element.avatar_url} />
+              <ContributorCard name={element.login} img={element.avatar_url} contributions={element.contributions} />
             </div>
           })
         }
