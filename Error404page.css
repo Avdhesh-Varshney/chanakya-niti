@@ -1,0 +1,114 @@
+/* Error404Page.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', Helvetica, sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #3a1c71, #d76d77, #ffaf7b);
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+.text1 {
+  font-size: 225px;
+  font-weight: 900;
+  margin-bottom: 50px;
+  color: #f0e68c; /* Chanakya yellow color */
+}
+
+.text2 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.text3 {
+  font-size: x-large;
+  width: 700px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+a {
+  text-transform: uppercase;
+  background-color: #8b0000; /* Dark red color */
+  color: white;
+  text-decoration: none;
+  width: 200px;
+  height: 50px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #6b0000;
+}
+
+@media only screen and (max-width: 705px) {
+  .text1 {
+      font-size: 175px;
+  }
+
+  .text2 {
+      font-size: 20px;
+  }
+
+  .text3 {
+      font-size: 16px;
+      width: 500px;
+  }
+}
+
+@media only screen and (max-width: 565px) {
+  .text1 {
+      font-size: 125px;
+  }
+
+  .text2 {
+      font-size: 18px;
+  }
+
+  .text3 {
+      font-size: 16px;
+      width: 400px;
+  }
+
+  a {
+      width: 155px;
+      font-size: 12px;
+      height: 30px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .text1 {
+      font-size: 100px;
+  }
+
+  .text2 {
+      font-size: 15px;
+  }
+
+  .text3 {
+      font-size: 12px;
+      width: 300px;
+  }
+}

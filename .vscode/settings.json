@@ -1,4 +1,6 @@
 {
   "editor.tabSize": 2,
-  "editor.insertSpaces": true
+  "editor.insertSpaces": true,  
+   "editor.insertSpaces": true,
+  "liveServer.settings.port": 5501
 }
