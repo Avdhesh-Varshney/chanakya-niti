@@ -2,7 +2,7 @@ import React from "react";
 import "../css/Home.css";
 import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
-
+import Tilt from 'react-parallax-tilt';
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -26,7 +26,9 @@ export default function Home() {
           </div>
         </div>
         <div className="img-container">
-          <img className="animated-img" src="/home1.png" alt="" />
+        <Tilt>
+            <img className="animated-img" src="/home1.png" alt="" />
+        </Tilt>
         </div>
       </div>
 
