@@ -11,7 +11,7 @@ const ChanakyaQuiz = () => {
         webkitallowfullscreen="true" 
         mozallowfullscreen="true" 
         referrerpolicy="no-referrer-when-downgrade" 
-        style={{ width: '100%', height: '580px', overflow: 'hidden', marginTop: '4px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', transition: 'all 0.3s ease' }}
+        style={{ width: '100%', height: '600px', overflow: 'hidden', marginTop: '4px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', transition: 'all 0.3s ease' }}
       ></iframe>
     </div>
   );
