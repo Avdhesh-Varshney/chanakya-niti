@@ -74,6 +74,8 @@ function ContributorDetail(props) {
                       }
                     </div>
                     <a href={element.html_url} target='_blank' className="btn btn-primary my-2">View PR</a>
+                    <p className='fw-bold'>Created at: {element.created_at.substring(0,10).split("-").reverse().join("-")}</p>
+                    <p className='fw-bold'>Closed at: {element.closed_at.substring(0,10).split("-").reverse().join("-")}</p>
                   </div>
                 </div>
 
