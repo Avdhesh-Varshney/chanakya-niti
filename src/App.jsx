@@ -24,11 +24,28 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
+import { createContext } from 'react';
 
+
+//theme context
+export const ThemeContext = createContext(null);
 function App() {
   const [progress, setProgress] = useState(0);
+  const [theme, setTheme] = useState("light");
 
+  //Toggle theme
+  const toggleTheme = () => {
+    console.log('cliocking')
+document.body.classList.toggle('dark')
+    if(theme=='dark'){
+      setTheme('light')
+    }else{
+      setTheme('dark')
+    }
+  }
   return (
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+
     <div className='container d-flex flex-column min-vh-100'>
       <Router>
         <Navbar />
@@ -72,6 +89,7 @@ function App() {
         <Footer />
       </Router>
     </div>
+    </ThemeContext.Provider>
   );
 }
 
