@@ -7,7 +7,11 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.dark .about-container{
+  background-color: black;
+  border: 2px solid white ;
+  color: white ;
+}
 .about-container h1 {
   text-align: center;
   color: #874343;
@@ -49,7 +53,9 @@
   margin-bottom: 10px;
   color: #780d0d;
 }
-
+.dark .about-text ul li {
+  color: rgb(241, 66, 66);
+}
 blockquote {
   margin: 20px 0;
   padding: 10px 20px;
@@ -58,7 +64,10 @@ blockquote {
   font-style: italic;
   color: #333;
 }
-
+.dark blockquote{
+  background-color: black;
+  color: white;
+}
 @media (min-width: 768px) {
   .about-image {
     width: 35%;
@@ -83,4 +92,7 @@ blockquote {
   {
     font-size: 20px;
   }
+}
+.dark .about-text{
+  color:white !important;
 }
