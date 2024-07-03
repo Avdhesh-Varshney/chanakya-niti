@@ -4,6 +4,54 @@
 .flex-col {
   flex-direction: column;
 }
+.scrollToTopBtn {
+  /* background-color: #FFE70F; */
+  background-image: radial-gradient(#f7a469, #f83411);
+  color: #fff;
+  text-align: center;
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  font-size: 18px;
+  text-decoration: none;
+  border: none;
+  line-height: 50px;
+  /* Center text vertically */
+  transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 40px;
+  right: 43px;
+  /* Hidden by default */
+  z-index: 1000;
+  margin-bottom: 10px;
+}
+
+.scrollToTopBtn a {
+  text-decoration: none;
+  color: white;
+}
+
+.progress-ring {
+  position: fixed;
+  bottom: 36px;
+  margin-bottom: 10px;
+  right: 39px;
+  transform: rotate(0deg);
+  z-index: 999;
+  /* Just below the button */
+  margin-bottom: 10px;
+}
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dasharray;
+  transform: rotate(0deg);
+  transform-origin: 50% 50%;
+}
+
+.scrollToTopBtn:hover {
+  background-color: #484848;
+}
+
 .item-center {
   align-items: center;
 }

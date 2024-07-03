@@ -5,6 +5,10 @@ const About = () => {
   return (
     <div className="about-container">
       <h1>Aacharya Chanakya</h1>
+      <div><a href="#top" class="scrollToTopBtn" id="scrollToTopBtn">▲</a></div>
+      <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="28" cx="30" cy="30" />
+      </svg>
       <div className="about-content">
         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" />
         <div className="about-text">

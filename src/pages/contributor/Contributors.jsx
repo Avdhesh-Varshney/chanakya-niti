@@ -25,6 +25,10 @@ const Contributors = (props) => {
 
   return (
     <>
+    <div><a href="#top" class="scrollToTopBtn" id="scrollToTopBtn">▲</a></div>
+      <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="28" cx="30" cy="30" />
+      </svg>
       <div className='d-flex flex-column contribution' style={{ overflowX: "hidden" }}>
         <div className="fs-3" style={{fontWeight:"500"}}>
           Our Contributors

@@ -4,6 +4,53 @@ import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
 export default function Home() {
+  //  useEffect(() => {
+  //   window.addEventListener('DOMContentLoaded',()=>{
+
+  //     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  //     const circle = document.querySelector(".progress-ring__circle");
+  
+  //     if (circle && scrollToTopBtn) {
+  //       const radius = circle.r.baseVal.value;
+  //       const circumference = 2 * Math.PI * radius;
+  
+  //       circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  //       circle.style.strokeDashoffset = circumference;
+  
+  //       const scrollFunction = () => {
+  //         if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  //           scrollToTopBtn.style.display = "block";
+  //         } else {
+  //           scrollToTopBtn.style.display = "none";
+  //         }
+  //       };
+  
+  //       const topFunction = () => {
+  //         window.scrollTo({ top: 0, behavior: 'smooth' });
+  //       };
+  
+  //       const updateProgress = () => {
+  //         const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  //         const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  //         const scrollPercent = scrollTop / docHeight;
+  //         const offset = circumference - (scrollPercent * circumference);
+  //         circle.style.strokeDashoffset = offset;
+  //       };
+  
+  //       window.onscroll = () => {
+  //         scrollFunction();
+  //         updateProgress();
+  //       };
+  
+  //       scrollToTopBtn.addEventListener("click", function (event) {
+  //         event.preventDefault();
+  //         topFunction();
+  //       });
+  //     } else {
+  //       console.error("Elements with ID 'scrollToTopBtn' or class 'progress-ring__circle' not found.");
+  //     }
+  //   }, []);
+  //   })
   return (
     <div className="flex flex-col">
       {/* Introduction */}
@@ -31,6 +78,11 @@ export default function Home() {
         </Tilt>
         </div>
       </div>
+
+      <div><a href="#top" class="scrollToTopBtn" id="scrollToTopBtn">▲</a></div>
+      <svg class="progress-ring" width="60" height="60">
+        <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="28" cx="30" cy="30" />
+      </svg>
 
       <div className="feat-2">
         <div className="feat-card">
