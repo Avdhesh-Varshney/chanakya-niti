@@ -1,7 +1,9 @@
-import React from 'react';
+import { ThemeContext } from '../../App';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import {FaSun,FaMoon} from 'react-icons/fa6'
 const Navbar = () => {
+  let {theme,toggleTheme}=useContext(ThemeContext)
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark mt-2 rounded">
       <div className="container-fluid">
@@ -50,6 +52,8 @@ const Navbar = () => {
                 <button type='button' className='btn btn-light'>Sign Up</button>
               </Link>
             </li>
+            <li onClick={toggleTheme} className='mode'>
+              {theme == 'dark' ?<FaSun style={{color:"white"}}/>:<FaMoon style={{color:"white"}}/> }</li>
           </ul>
         </div>
       </div>

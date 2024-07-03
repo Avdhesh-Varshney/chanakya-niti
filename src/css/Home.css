@@ -304,3 +304,23 @@
     box-shadow: 0 0 0 45px rgba(0, 0, 0, 0);
   }
 }
+.dark .feat-3{
+  background-color: black;
+  color: white;
+}
+.dark .feat-card-2{
+  background-color: black;
+  box-shadow: 0px 0px 10px white;
+  border: solid white 2px;
+}
+.dark .feat-card{
+  background-color: black ;
+  box-shadow: 0px 0px 10px white;
+  color: white;
+}
+.mode{
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 1.5rem;
+}
