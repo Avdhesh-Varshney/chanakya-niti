@@ -76,3 +76,11 @@ hr.solid {
   border: 1px solid rgb(135,67,67);  
   transform: translateX(10px);
 }
+/* Video.css */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 77vh; /* Full viewport height */
+  text-align: center; /* Center text if needed */
+}

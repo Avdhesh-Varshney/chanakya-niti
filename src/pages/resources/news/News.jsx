@@ -1,18 +1,18 @@
 import React from 'react'
-import Card from '../../components/shared/Card';
+import Card from '../../../components/shared/Card';
 
-const Audio = () => {
+const News = () => {
   return (
     <div>
       <Card 
         imgSrc="/src/assets/image.webp" 
         title="Chanakya Niti" 
         description="Hello World" 
-        path="/resources/audio/chanakya" 
-        btnName="Listen Chanakya's Story" 
+        path="/resources/news/chanakya" 
+        btnName="Read Chanakya's News" 
       />
     </div>
   )
 }
 
-export default Audio;
+export default News;

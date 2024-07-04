@@ -1,0 +1,57 @@
+/* ChanakyaVideo.css */
+.container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  /* padding: 10px; */
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: -40px;
+  color :white;
+}
+
+.video-container {
+  /* margin-bottom: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  background: linear-gradient(135deg, #000 50%, #fff 50%);
+  color: #fff;
+  text-align: center;
+}
+
+.video-list {
+  margin-top: -28px;
+}
+
+.video-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.video-list li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.video-button1 {
+  padding: 10px 20px;
+  background-color: #04090e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+.video-button1:hover {
+  background-color: #f6f7f3;
+  color: rgb(12, 12, 12);
+}
+
+.video-button1:active {
+  transform: scale(0.95);
+}

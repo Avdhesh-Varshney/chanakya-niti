@@ -8,7 +8,7 @@ const Card = ({ imgSrc, title, description, path, btnName }) => {
     <div className="glass-card">
       <div className="glass-card-image-container">
         <h5 className="glass-card-title">{title}</h5>
-        <hr class="solid"></hr>
+        <hr className="solid" />
         <img src={imgSrc} alt={title} className="glass-card-image" />
       </div>
       <div className="glass-card-content">
@@ -16,7 +16,7 @@ const Card = ({ imgSrc, title, description, path, btnName }) => {
         <Link to={path} className="glass-card-button">
           {btnName}
         </Link>
-      </div>    
+      </div>
     </div>
   );
 };
