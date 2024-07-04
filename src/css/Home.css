@@ -171,7 +171,14 @@
   border-radius: 100%;
 }
 
-
+.shareButton{
+  border: none;
+  padding: 4px 14px;
+  outline: none;
+  border-radius: 20px;
+  background-color: #574B90;
+  color: white;
+}
 
 .gap-10{
   gap: 40px;

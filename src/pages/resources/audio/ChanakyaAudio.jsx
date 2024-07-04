@@ -15,6 +15,13 @@ const ChanakyaAudio = ({ setProgress }) => {
     setPlaybackRate(rate);
   };
 
+  let shareData = {
+    title: "Chanakya's Story",
+    text: "Audio files on Chanakya's life and lessons!!",
+    url: window.location.href,
+  };
+  
+
   useEffect(() => {
     const getData = async () => {
       setProgress(50);
@@ -72,19 +79,28 @@ const ChanakyaAudio = ({ setProgress }) => {
     }
   };
 
+  const ShareHandler = async () => {
+    await navigator.share(shareData);
+  }
+
   return (
     <div className="container">
-      <div className="container">
-        <input
-          type="number"
-          placeholder="Enter episode number"
-          value={value}
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-        />
-        <button type="submit" className="btn btn-dark" onClick={handleClick}>
-          Enter
-        </button>
+      <div className="flex ">
+        <div className="container">
+          <input
+            type="number"
+            placeholder="Enter episode number"
+            value={value}
+            onChange={handleChange}
+            onKeyDown={handleKeyPress}
+          />
+          <button type="submit" className="btn btn-dark" onClick={handleClick}>
+            Enter
+          </button>
+        </div>
+        <div>
+          <button onClick={()=>ShareHandler()} className="shareButton">Share</button>
+        </div>
       </div>
 
       <div className="card" style={{ width: "20rem" }}>
