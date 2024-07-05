@@ -2,6 +2,7 @@
 cursor: url('/src/assets/CURSOR1.png'),auto;
 }
 .dark {
-  background-color: black;
+  background-color: #121212;
   color: white;
+  transition: 0.25s;
 }

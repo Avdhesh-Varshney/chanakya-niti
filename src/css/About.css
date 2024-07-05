@@ -3,14 +3,19 @@
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #f9f9f9;
+  background-color: rgba(245, 245, 220, 0.685);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .dark .about-container{
-  background-color: black;
-  border: 2px solid white ;
-  color: white ;
+  background-color: rgba(245, 245, 220, 0.086);
+  border: 2px solid rgba(255, 255, 255, 0.269) ;
+  color: white ;  
+}
+.dark .about-container:hover{
+  background-color: rgba(245, 245, 220, 0.046);
+  transition: 0.35s ease-out;
+
 }
 .about-container h1 {
   text-align: center;

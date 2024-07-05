@@ -45,6 +45,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.035);
+  border-radius: 15px;
   /* flex sm:flex-row flex-col item-center justify-center w-full p-4 */
 }
 .img-container {
@@ -305,18 +307,25 @@
   }
 }
 .dark .feat-3{
-  background-color: black;
+  background-color: transparent;
   color: white;
 }
 .dark .feat-card-2{
-  background-color: black;
-  box-shadow: 0px 0px 10px white;
-  border: solid white 2px;
+  background-color: #353535 ;
+}
+.dark .feat-card-2:hover{
+  box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.152);
+  transition: 0.15s;
 }
 .dark .feat-card{
-  background-color: black ;
-  box-shadow: 0px 0px 10px white;
+  background-color: #353535 ;
+  /* box-shadow: 0px 0px 10px white; */
   color: white;
+}
+.dark .feat-card:hover{
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.200);
+  transition: 0.15s;
+
 }
 .mode{
 display: flex;
