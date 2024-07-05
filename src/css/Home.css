@@ -131,6 +131,19 @@
   background-color: #eef1ff;
 }
 
+.feat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feat-card:hover img {
+  transform: scale(1.05);
+}
+
+.feat-card:hover .card-line {
+  width: 100%;
+}
+
 .feat-card-content {
   display: flex;
   flex-direction: column;
@@ -171,6 +184,7 @@
   border-radius: 100%;
 }
 
+
 .shareButton{
   border: none;
   padding: 4px 14px;
@@ -178,6 +192,9 @@
   border-radius: 20px;
   background-color: #574B90;
   color: white;
+.feat-card:hover, .feat-card-2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .gap-10{
