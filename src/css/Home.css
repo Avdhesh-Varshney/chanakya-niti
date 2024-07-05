@@ -116,8 +116,8 @@
   gap: 20px;
   padding: 20px;
   border-radius: 20px;
-  border: 1px black solid;
-  background-color: #eef1ff;
+  border: 2px rgba(0, 0, 0, 0.302) solid;
+  background-color: rgba(52, 91, 57, 0.328)   ;
 }
 
 .feat-card-2{
@@ -129,17 +129,22 @@
   gap: 20px;
   padding: 20px;
   border-radius: 20px;
-  border: 1px black solid;
-  background-color: #eef1ff;
+  border: 2px rgba(0, 0, 0, 0.302) solid;
+  background-color: rgba(52, 91, 57, 0.328);
 }
 
 .feat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
 }
 
 .feat-card:hover img {
   transform: scale(1.05);
+  transition: 0.5s;
+}
+.feat-card:not(:hover) img {
+  transform: scale(1);
+  transition: 0.5s;
 }
 
 .feat-card:hover .card-line {
@@ -187,7 +192,6 @@
 }
 
 .feat-card:hover, .feat-card-2:hover {
-  transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -279,8 +283,8 @@
     gap: 20px;
     padding: 20px;
     border-radius: 20px;
-    border: 1px black solid;
-    background-color: #eef1ff;
+    /* border: 1px black solid;
+    background-color: #eef1ff; */
   }
 
   .feat-card-2{
@@ -292,8 +296,8 @@
     gap: 20px;
     padding: 20px;
     border-radius: 20px;
-    border: 1px black solid;
-    background-color: #eef1ff;
+    /* border: 1px black solid;
+    background-color: #eef1ff; */
   }
 }
 
