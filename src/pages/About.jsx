@@ -6,7 +6,8 @@ const About = () => {
     <div className="about-container">
       <h1>Aacharya Chanakya</h1>
       <div className="about-content">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" />
+        {/* <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" /> */}
+        <img src="src/assets/Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" />
         <div className="about-text">
           <p>Chanakya, also known as Kautilya or Vishnugupta, was an ancient Indian teacher, philosopher, economist, jurist, and royal advisor. He is traditionally identified as the author of the ancient Indian political treatise, the Arthashastra.</p>
           <p>Born in 350 BCE in India, Chanakya played a crucial role in the establishment of the Maurya Empire. He was the chief advisor to both Emperor Chandragupta and his son, Bindusara.</p>
