@@ -1,6 +1,9 @@
 *{
 cursor: url('/src/assets/CURSOR1.png'),auto;
 }
+body{
+ background-color: 	rgba(228, 193, 129, 0.272);
+}
 .dark {
   background-color: #121212;
   color: white;
