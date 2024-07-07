@@ -1,11 +1,13 @@
 import { ThemeContext } from '../../App';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import {FaSun,FaMoon} from 'react-icons/fa6'
+import { FaSun, FaMoon } from 'react-icons/fa6';
+import '../../css/Navbar.css';
+
 const Navbar = () => {
-  let {theme,toggleTheme}=useContext(ThemeContext)
+  let { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mt-2 rounded">
+    <nav className="navbar navbar-expand-lg navbar-dark gradient-bg mt-2 rounded">
       <div className="container-fluid">
         {/* Attach logo of website */}
         <Link className="navbar-brand" to="/">चाणक्य नीति</Link>
@@ -53,7 +55,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li onClick={toggleTheme} className='mode'>
-              {theme == 'dark' ?<FaSun style={{color:"white"}}/>:<FaMoon style={{color:"white"}}/> }</li>
+              {theme === 'dark' ? <FaSun style={{ color: "white" }} /> : <FaMoon style={{ color: "white" }} />}
+            </li>
           </ul>
         </div>
       </div>
