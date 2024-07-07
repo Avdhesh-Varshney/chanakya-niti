@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .gradient-bg {
-  background: linear-gradient(45deg, #ff6f61, #d35d6e, #74569e);
+  background: linear-gradient(45deg, #d29e66, #8b952c, #9f552d, #8a3945, #79215d, #886ab0, #537c97, #23388f, #34865c);
   background-size: 600% 600%;
   animation: gradient-animation 15s ease infinite;
 }
