@@ -4,7 +4,11 @@
 }
 
 body {
-  background-color: rgba(228, 193, 129, 0.272);
+  background-color: rgb(247, 238, 220);
+}
+
+#root{
+  background-color: rgb(247, 238, 220);
 }
 
 .dark {
