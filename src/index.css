@@ -1,11 +1,51 @@
-*{
-cursor: url('/src/assets/CURSOR1.png'),auto;
+/* index.css */
+* {
+  cursor: url('/src/assets/CURSOR1.png'), auto;
 }
-body{
- background-color: 	rgba(228, 193, 129, 0.272);
+
+body {
+  background-color: rgba(228, 193, 129, 0.272);
 }
+
 .dark {
   background-color: #121212;
   color: white;
   transition: 0.25s;
+}
+
+/* scroll_to_top_button_css */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  /* Adjust size as needed */
+  height: 50px;
+  /* Adjust size as needed */
+  border-radius: 50%;
+  /* This makes the button round */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text/icon color */
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.4s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: #555;
+  /* Background color on hover */
 }
