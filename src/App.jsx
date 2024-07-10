@@ -25,7 +25,8 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
 import { createContext } from 'react';
-
+import Gpt from './pages/resources/Gpt.jsx'
+import ChanakyaGpt from './pages/resources/chanakyaGpt/ChanakyaGpt.jsx';
 
 //theme context
 export const ThemeContext = createContext(null);
@@ -55,6 +56,9 @@ document.body.classList.toggle('dark')
           <Routes>
             <Route exact path="/" element={<Home setProgress={setProgress} />} />
             <Route exact path="/about" element={<About setProgress={setProgress} />} />
+            {/* Gpt Resource Pages */}
+            <Route exact path="/resources/chanakyagpt" element={<Gpt />} />
+            <Route exact path="/resources/chanakyagpt/chanakya" element={<ChanakyaGpt setProgress={setProgress} />} />
 
             {/* Audio Resource Pages */}
             <Route exact path="/resources/audio" element={<Audio />} />
