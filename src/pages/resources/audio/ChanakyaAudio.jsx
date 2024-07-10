@@ -82,22 +82,18 @@ const ChanakyaAudio = ({ setProgress }) => {
       value={value}
       onChange={handleChange}
       onKeyDown={handleKeyPress}
-      className="input-field"
+      className="input1"
       min="1"
       max="806"
     />
-    <button type="submit" className="btn btn-dark input-button" onClick={handleClick}>
+    <button type="submit" className="btn1" onClick={handleClick}>
       Enter
     </button>
   </div>
 
-  <div className="card" style={{ width: "20rem" }}>
-    <img
-      src="/src/assets/image.webp"
-      className="card-img-top"
-      alt="chanakya-image"
-    />
-    <div className="card-body">
+  <div className="card1">
+    
+    {/* <div className="card-body">
       <h5 className="card-title">{title}</h5>
       <p className="card-text">{content}</p>
 
@@ -109,8 +105,42 @@ const ChanakyaAudio = ({ setProgress }) => {
         playbackRate={playbackRate}
         width="100%"
         height="50px"
+        
       />
+    </div> */}
+    <div class="card2">
+  <div class="one">
+    <span class="title">{title}</span>
+    <div class="music">
+    <img
+  src="/src/assets/image.webp"
+  className="card-img-top"
+  alt="chanakya-image"
+  onError={(e) => {
+    e.target.onerror = null; // prevents looping
+    e.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4KV6l9gso36NZhG1dHxQCmu_9mjCPU1wNMQ&s';
+  }}
+/>
     </div>
+    <span class="name"
+      ><div></div>
+      {content}</span>
+      <ReactPlayer
+        url={URL}
+        volume={0.5}
+        playing
+        controls
+        playbackRate={playbackRate}
+        width="100%"
+        height="50px"
+        
+      />
+   
+  </div>
+  <div class="two"></div>
+  <div class="three"></div>
+</div>
+
   </div>
 </div>
 

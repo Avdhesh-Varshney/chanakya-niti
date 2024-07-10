@@ -39,12 +39,336 @@
     box-shadow: 0 0 10px rgba(0, 86, 179, 0.5);
   }
   
-  .card {
+  .card1 {
     transition: transform 0.3s, box-shadow 0.3s;
   }
   
-  .card:hover {
+  .card1:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
   
+
+
+  .card2 {
+    width: 290px;
+    height: 300px;
+    background: rgb(180, 174, 174);
+    border-radius: 10px;
+  }
+  
+  .card2 .one {
+    width: 290px;
+    height: 300px;
+    z-index: 10;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .dark .card2 .one{
+    background: black !important;
+    text-align: white !important;
+    opacity: 0.8;
+  }
+  .card2 .one .title {
+    width: 80px;
+    border: 1px solid rgba(180, 177, 177, 0.308);
+    display: block;
+    margin: 6px auto;
+    text-align: center;
+    font-size: x-large;
+    border-radius: 12px;
+    font-family:cursive;
+    color: rgba(102, 100, 100, 0.911);
+  }
+  .dark .card2  .one .title{
+    color: white !important;
+  }
+  .card2 .one .music  {
+    width: 143px;
+    height: 142px;
+    background: rgba(216, 212, 212, 0.726);
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+
+    justify-content: center;
+  }
+ 
+ .card2 img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50% !important; 
+  }
+  .card2 .one .name {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: cursive;
+    padding: 0 5px;
+    font-weight: 600;
+    margin: -22px auto;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    color: rgba(50, 49, 51, 0.637);
+  }
+  .dark .card2  .one .name{
+    color: white !important;
+  }
+  .card2 .one .name1 {
+    width: 120px;
+    height: 20px;
+    font-size: 9px;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    padding: 0 5px;
+    margin: 19px auto;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    color: rgba(50, 49, 51, 0.637);
+  }
+  .card2 .one .bar {
+    width: 100px;
+    margin: -15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    cursor: pointer;
+  }
+  
+  .card2 .one .bar:last-child {
+    margin: 35px auto;
+    width: 100%;
+    padding: 2px 23px;
+  }
+  .card2 .one .bar .color {
+    fill: rgba(82, 79, 79, 0.829);
+  }
+  .card2 .one .bar .color1 {
+    fill: rgba(29, 28, 28, 0.829);
+    cursor: pointer;
+  }
+  
+  .card2 .one .bar .bi:first-child {
+    transform: rotate(180deg);
+  }
+  .card2 .one .bar:last-child .color1:first-child {
+    transform: rotate(0deg);
+  }
+  
+  .card2 .two {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(131, 25, 163);
+    filter: drop-shadow(0 0 10px rgb(131, 25, 163));
+    border-radius: 50%;
+    position: relative;
+    top: 30px;
+    left: 20px;
+    animation: one 5s infinite;
+  }
+  
+  .card2 .three {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(29, 209, 149);
+    filter: drop-shadow(0 0 10px rgb(29, 209, 149));
+    border-radius: 50%;
+    position: relative;
+    top: 90px;
+    left: 90px;
+    animation: two 5s infinite;
+  }
+  
+  @keyframes one {
+    0% {
+      top: 30px;
+      left: 40px;
+    }
+    20% {
+      top: 50px;
+      left: 40px;
+    }
+    40% {
+      top: 80px;
+      left: 70px;
+    }
+    50% {
+      top: 60px;
+      left: 40px;
+    }
+    60% {
+      top: 35px;
+      left: 90px;
+    }
+    80% {
+      top: 70px;
+      left: 70px;
+    }
+    100% {
+      top: 30px;
+      left: 20px;
+    }
+  }
+  
+  @keyframes two {
+    0% {
+      top: 90px;
+      left: 90px;
+    }
+    20% {
+      top: 50px;
+      left: 40px;
+    }
+    40% {
+      top: 60px;
+      left: 20px;
+    }
+    50% {
+      top: 80px;
+      left: 30px;
+    }
+    60% {
+      top: 35px;
+      left: 90px;
+    }
+    80% {
+      top: 70px;
+      left: 60px;
+    }
+    100% {
+      top: 90px;
+      left: 90px;
+    }
+  }
+  .btn1 {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #1e0d3f;
+    --color: #afffff;
+    color: var(--color);
+    cursor: pointer;
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+  
+  .btn1::after,
+  .btn1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  
+  .btn1::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+  
+    50% {
+      background-position: 70% 100%;
+    }
+  
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+  
+  .btn1::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+  
+  .btn1:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+  
+  .btn1:where(:hover, :focus) {
+    color: #fff;
+  }
+  
+
+
+  .input1 {
+    max-width: 190px;
+    border: none;
+    outline: none;
+    background: none;
+    margin-right: 20px ;
+    font-size: 18px;
+    color: #555;
+    padding: 15px 5px 10px 20px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+                inset -8px -8px 8px #ffffff;
+    border-radius: 25px;
+  }
+  
+  .input1::placeholder {
+    color: #555;
+    transition: all 0.3s ease;
+  }
+  
+  .input1:focus::placeholder {
+    color: #999;
+  }
