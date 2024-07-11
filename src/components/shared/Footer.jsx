@@ -1,6 +1,7 @@
 import React from "react";
 import "../../css/Footer.css";
 import { Link, NavLink } from "react-router-dom";
+import Visitors from "./Visitors";
 
 const Footer = () => (
   <footer className="page-footer font-small blue pt-4 mb-4">
@@ -13,7 +14,11 @@ const Footer = () => (
             alt="footer logo"
             className="pt-4"
           />
-          <h5 className="pt-5 m-0 mt-2 fw-bolder fs-1">चाणक्य नीति</h5>
+          <div>
+          <h5 className="pt-5 m-0 mt-2 fw-bolder fs-1 mb-3">चाणक्य नीति</h5>
+          <a href="https://github.com/Avdhesh-Varshney/chanakya-niti" target="_blank" className="text-white bg-dark p-2 rounded text-decoration-none">Star Us ⭐</a>
+          <Visitors />
+          </div>
         </div>
 
         <hr className="clearfix w-100 d-md-none pb-0" />
