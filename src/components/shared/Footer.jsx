@@ -1,6 +1,8 @@
 import React from "react";
 import "../../css/Footer.css";
 import { Link, NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter, faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Visitors from "./Visitors";
 
 const Footer = () => (
@@ -15,9 +17,9 @@ const Footer = () => (
             className="pt-4"
           />
           <div>
-          <h5 className="pt-5 m-0 mt-2 fw-bolder fs-1 mb-3">चाणक्य नीति</h5>
-          <a href="https://github.com/Avdhesh-Varshney/chanakya-niti" target="_blank" className="text-white bg-dark p-2 rounded text-decoration-none">Star Us ⭐</a>
-          <Visitors />
+            <h5 className="pt-5 m-0 mt-2 fw-bolder fs-1 mb-3">चाणक्य नीति</h5>
+            <a href="https://github.com/Avdhesh-Varshney/chanakya-niti" target="_blank" className="text-white bg-dark p-2 rounded text-decoration-none">Star Us ⭐</a>
+            <Visitors />
           </div>
         </div>
 
@@ -62,6 +64,23 @@ const Footer = () => (
           </ul>
         </div>
       </div>
+    </div>
+    <div className="social-icons text-center pt-3">
+      <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+      <a href="mailto:yourmail@example.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+        <FontAwesomeIcon icon={faGoogle} />
+      </a>
+      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+        <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+        <FontAwesomeIcon icon={faFacebook} />
+      </a>
     </div>
     <div className="footer-copyright text-center pt-2">
       <center>

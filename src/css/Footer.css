@@ -27,3 +27,48 @@ ul li a:hover {
  .dark ul li a {
     color: white;
   }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.5em;
+  }
+  
+  .social-icon:hover {
+    color: white;
+  }
+  
+  .social-icon:hover[href*="github.com"] {
+    background-color: #333;
+  }
+  
+  .social-icon:hover[href*="linkedin.com"] {
+    background-color: #0077b5;
+  }
+  
+  .social-icon:hover[href*="twitter.com"] {
+    background-color: #1da1f2;
+  }
+  
+  .social-icon:hover[href*="facebook.com"] {
+    background-color: #3b5998;
+  }
+  
+  .social-icon:hover[href*="mailto"] {
+    background-color: #d44638;
+  }
+  
