@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/Footer.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter, faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Visitors from "./Visitors";
@@ -9,7 +9,7 @@ const Footer = () => (
   <footer className="page-footer font-small blue pt-4 mb-4">
     <div className="container-fluid text-center text-md-left">
       <div className="row">
-        <div className="col-md-6 mt-md-0 mt-3 flex flex-row">
+        <div className="col-md-6 mt-md-0 mt-3 d-flex flex-row niti">
           <img
             src="/logo.webp"
             height="220"
@@ -25,9 +25,28 @@ const Footer = () => (
 
         <hr className="clearfix w-100 d-md-none pb-0" />
 
-        <div className="col-md-3 mb-md-0 mb-3 pt-4">
-          <h5 className="text-uppercase fw-bold">चाणक्य नीति</h5>
-          <ul className="list-unstyled">
+        <div className="col-md-3 mb-md-0 mb-3 pt-4 d-flex">
+          <div className="social-icons-vertical">
+            <ul className="list-unstyled">
+              <li>
+                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+              </li>
+              <li>
+                <a href="mailto:yourmail@example.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <FontAwesomeIcon icon={faGoogle} />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul className="list-unstyled ml-4">
+            <h5 className="text-uppercase fw-bold mb-3">चाणक्य नीति</h5>
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
@@ -43,7 +62,7 @@ const Footer = () => (
           </ul>
         </div>
 
-        <div className="col-md-3 mb-md-0 mb-3 pt-3">
+        <div className="col-md-3 mb-md-0 mb-3 pt-3 pos">
           <h5 className="text-uppercase fw-bold">Resources</h5>
           <ul className="list-unstyled">
             <li>
@@ -65,27 +84,8 @@ const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="social-icons text-center pt-3">
-      <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-        <FontAwesomeIcon icon={faGithub} />
-      </a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-      <a href="mailto:yourmail@example.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-        <FontAwesomeIcon icon={faGoogle} />
-      </a>
-      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-        <FontAwesomeIcon icon={faTwitter} />
-      </a>
-      <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-        <FontAwesomeIcon icon={faFacebook} />
-      </a>
-    </div>
-    <div className="footer-copyright text-center pt-2">
-      <center>
-        <p>&copy; 2024 Chanakya Niti. All rights reserved.</p>
-      </center>
+    <div className="text-center pt-2">
+      <p>&copy; 2024 Chanakya Niti. All rights reserved.</p>
     </div>
   </footer>
 );
