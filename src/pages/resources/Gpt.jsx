@@ -8,7 +8,7 @@ const Gpt = () => {
         title="Chanakya Niti" 
         description="Ask questions that you might ask to chanakya" 
         path="/resources/chanakyagpt/chanakya" 
-        btnName="Ask chanakya your questions" 
+        btnName="Ask your questions" 
       />
     </div>
   )
