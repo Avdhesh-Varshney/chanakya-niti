@@ -3,7 +3,7 @@ import '../../css/Home.css'
 
 export default function VideoButton() {
   return (
-    <button class="video-button">
+    <button className="video-button">
       <svg
         viewBox="0 0 448 512"
         xmlns="http://www.w3.org/2000/svg"
