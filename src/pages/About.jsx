@@ -76,7 +76,7 @@ const About = () => {
         <div className="row">
           <h4 className="text-success">Early Life & Education</h4>
           <figure className="figure mt-4">
-            <img className="figure-img img-fluid rounded" src="takshashila.jpg" alt="Takshashila University" />
+            <img className="figure-img img-fluid rounded" src="takshashila.jpg" alt="Takshashila University" style={{width: '100%'}} />
             <figcaption className="figure-caption mb-4 mt-3 text-center">Chanakya received his education at the ancient Takshashila University, where he mastered various fields of knowledge.</figcaption>
           </figure>
           <p>Chanakya was born in 350 BCE in ancient India. He was a brilliant student and pursued his studies at the Takshashila University, one of the oldest universities in the world. He was proficient in various subjects, including economics, politics, and military strategy.</p>
