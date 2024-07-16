@@ -29,7 +29,7 @@ export const fetchData = async (episodeNumber) => {
   }
 
   try {
-    const response = await fetch('https://api.github.com/repos/hack-boi/Chanakya/contents');
+    const response = await fetch(import.meta.env.VITE_EPISODES_API_URL);
     const data = await response.json();
     const audioFiles = data
       .filter(file => file.name.endsWith(".mp3") || file.name.endsWith(".wav") || file.name.endsWith(".m4a") || file.name.endsWith(".aac"))

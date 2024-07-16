@@ -23,7 +23,7 @@ const SignUp = () => {
 						<a rel="noopener noreferrer" href="#">Forgot Password ?</a>
 					</div>
 				</div>
-				<button className="sign">Sign in</button>
+				<button className="sign">Sign In</button>
 			</form>
 
 			<div className="social-message">
