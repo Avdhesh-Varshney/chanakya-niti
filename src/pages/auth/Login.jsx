@@ -41,7 +41,7 @@ const Login = () => {
 			</div>
 
 			<p className="signup">Don't have an account?
-				<a rel="noopener noreferrer" href="/auth/SignUp"> Sign up</a>
+				<a rel="noopener noreferrer" href="/auth/signup"> Sign up</a>
 			</p>
 
 		</div>

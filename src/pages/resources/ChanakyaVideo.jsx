@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../../../css/Video.css";
+import "../../css/Video.css";
 
-const API_KEY = 'AIzaSyBMd6XCZpuY8o1L3r9ActcXKMVcG-N8bRc';
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const SEARCH_QUERY = 'chanakya niti, chanakya, story of chanakya, chanakya life';
 const MAX_RESULTS = 9;
 
