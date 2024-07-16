@@ -1,60 +1,173 @@
 import React from 'react';
-import '../css/About.css';
+import { BiCalendar, BiMap, BiUser, BiBook, BiBriefcase, BiWorld, BiStar, BiCalendarX } from 'react-icons/bi';
 
 const About = () => {
   return (
-    <div className="about-container">
-      <h1>Aacharya Chanakya</h1>
-      <div className="about-content">
-        {/* <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" /> */}
-        <img src="Chanakya_artistic_depiction.jpg" alt="Chanakya" className="about-image" />
-        <div className="about-text">
-          <p>Chanakya, also known as Kautilya or Vishnugupta, was an ancient Indian teacher, philosopher, economist, jurist, and royal advisor. He is traditionally identified as the author of the ancient Indian political treatise, the Arthashastra.</p>
-          <p>Born in 350 BCE in India, Chanakya played a crucial role in the establishment of the Maurya Empire. He was the chief advisor to both Emperor Chandragupta and his son, Bindusara.</p>
-          <blockquote>
-            "A person should not be too honest. Straight trees are cut first and honest people are screwed first."
-          </blockquote>
-          <p>Chanakya's work is considered pioneering in the fields of political science and economics. His strategies and principles are still studied and revered in modern times.</p>
-          <p>His notable works include:</p>
-          <ul>
-            <li><b>Arthashastra:</b> A treatise on statecraft, economic policy, and military strategy.</li>
-            <li><b>Chanakya Niti:</b> A collection of aphorisms offering guidance on various aspects of life.</li>
-          </ul>
-          <p>Chanakya's wisdom and teachings continue to influence and inspire leaders and scholars around the world.</p>
-          <blockquote>
-            "Learn from the mistakes of others. You can't live long enough to make them all yourselves."
-          </blockquote>
-          <p>He is often credited with having played a significant role in creating one of the largest empires in ancient India.</p>
-          <p>Chanakya was a brilliant strategist, and his works emphasize the importance of strong governance and strategic planning.</p>
-          <p>Many of his sayings and aphorisms are still quoted and provide timeless wisdom on politics, leadership, and life.</p>
-          <blockquote>
-            "The world's biggest power is the youth and beauty of a woman."
-          </blockquote>
-          <p>His life and teachings are a source of inspiration for those studying political science, economics, and leadership.</p>
-          <p>Other notable aspects of Chanakya's life include:</p>
-          <ul>
-            <li><b>Role in Chandragupta's Rise:</b> Chanakya's strategies were pivotal in helping Chandragupta overthrow the Nanda dynasty and establish the Maurya Empire.</li>
-            <li><b>Educational Contributions:</b> He was a professor at Takshashila University, one of the earliest universities in the world.</li>
-            <li><b>Diplomatic Skills:</b> Chanakya was a master of diplomacy and used his skills to forge alliances that were crucial for the expansion of the Maurya Empire.</li>
-          </ul>
-          <p>Chanakya's influence extended beyond his lifetime, and his teachings have been passed down through generations.</p>
-          <blockquote>
-            "As soon as the fear approaches near, attack and destroy it."
-          </blockquote>
-          <p>Here are some more of his notable teachings:</p>
-          <ul>
-            <li>"A person should not be too honest. Straight trees are cut first and honest people are screwed first."</li>
-            <li>"The world's biggest power is the youth and beauty of a woman."</li>
-            <li>"As soon as the fear approaches near, attack and destroy it."</li>
-          </ul>
-          <p>Chanakya's principles on leadership and governance are still relevant in today's world:</p>
-          <ul>
-            <li><b>Focus on Strength:</b> A ruler should always focus on building and maintaining strength to protect and expand the kingdom.</li>
-            <li><b>Importance of Allies:</b> Strong alliances are crucial for a kingdom's security and prosperity.</li>
-            <li><b>Manage Resources:</b> Efficient management of resources is key to the economic stability of the state.</li>
-          </ul>
+    <div className="container p-4">
+
+      <div className="d-flex flex-column flex-md-row mb-4 gap-4 align-items-center">
+        <div className="col-md-6 text-center">
+          <figure className="figure">
+            <img src="chanakya.jpg" alt="Aacharya Chanakya Image" className="img-fluid rounded" style={{ maxWidth: '300px' }} />
+            <figcaption className="figure-caption mt-2">
+              Chanakya (c. 350–283 BCE) was a philosopher, economist, and royal advisor.
+            </figcaption>
+          </figure>
+        </div>
+        <div className="col-md-6 d-flex flex-column gap-3">
+          <h2 className="display-2 text-danger">About Aacharya Chanakya</h2>
+          <p>
+            Chanakya, also known as Kautilya or Vishnugupta, was an ancient Indian teacher, philosopher, economist, jurist, and royal advisor. He is traditionally recognized as the author of the ancient Indian political treatise, the Arthashastra.
+          </p>
+          <p>
+            Born in 350 BCE in India, Chanakya played a pivotal role in the establishment of the Maurya Empire. He served as the chief advisor to both Emperor Chandragupta Maurya and his son, Bindusara.
+          </p>
         </div>
       </div>
+
+      <div className="container">
+        <h6 className="display-6 text-warning my-2">Timeline of Aacharya Chanakya</h6>
+
+        <div className="row">
+          <div className="col-md-6">
+            <ul className="list-group list-group-flush rounded shadow-md">
+              <li className="list-group-item">
+                <BiCalendar /> <strong>Born:</strong> 350 BCE
+              </li>
+              <li className="list-group-item">
+                <BiMap /> <strong>Place of Birth:</strong> Takshashila, India
+              </li>
+              <li className="list-group-item">
+                <BiUser /> <strong>Parents:</strong> Rishi Canak (Father)
+              </li>
+              <li className="list-group-item">
+                <BiBook /> <strong>Education:</strong> Takshashila
+              </li>
+              <li className="list-group-item">
+                <BiWorld /> <strong>Known For:</strong> Arthashastra, Nitishastra, Chanakya Neeti
+              </li>
+              <li className="list-group-item">
+                <BiBriefcase /> <strong>Occupation:</strong> Teacher, Philosopher, Economist, Jurist, Advisor
+              </li>
+              <li className="list-group-item">
+                <BiCalendarX /> <strong>Death:</strong> 283 BCE
+              </li>
+            </ul>
+          </div>
+          <div className="col-md-6 d-flex justify-content-center align-items-center text-center">
+            <figure className="figure">
+              <img
+                className="figure-img img-fluid rounded"
+                src="chanakya_and_chandragupta_maurya.jpg"
+                alt="Chanakya with Chandragupta Maurya"
+                style={{ maxWidth: '300px' }}
+              />
+              <figcaption className="figure-caption mt-2">
+                Chanakya is often credited with playing a crucial role in the establishment of the Maurya Empire.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex flex-column gap-4">
+        <h6 className="display-6 text-warning">His Efforts</h6>
+
+        <div className="row">
+          <h4 className="text-success">Early Life & Education</h4>
+          <figure className="figure mt-4">
+            <img className="figure-img img-fluid rounded" src="takshashila.jpg" alt="Takshashila University" />
+            <figcaption className="figure-caption mb-4 mt-3 text-center">Chanakya received his education at the ancient Takshashila University, where he mastered various fields of knowledge.</figcaption>
+          </figure>
+          <p>Chanakya was born in 350 BCE in ancient India. He was a brilliant student and pursued his studies at the Takshashila University, one of the oldest universities in the world. He was proficient in various subjects, including economics, politics, and military strategy.</p>
+        </div>
+
+        <div className="row">
+          <h4 className="text-success"><strong>Role in Establishing the Maurya Empire</strong></h4>
+          <figure className="figure mt-4">
+            <img className="figure-img rounded" src="Chandragupta_Maurya_Empire.png" alt="Maurya Empire" style={{ width: '100%' }} />
+            <figcaption className="figure-caption text-center">Chanakya's strategies were instrumental in the rise of the Maurya Empire, which became one of the largest empires in Indian history.</figcaption>
+          </figure>
+          <p>Chanakya played a crucial role in the rise of the Maurya Empire. He identified and mentored Chandragupta Maurya, helping him overthrow the Nanda dynasty. Chanakya's guidance was pivotal in Chandragupta's ascent to power, and he continued to serve as the chief advisor to both Chandragupta and his son, Bindusara.</p>
+        </div>
+
+        <div className="row">
+          <h4 className="text-success"><strong>Arthashastra</strong></h4>
+          <div className="col-md-6 text-center">
+            <figure className="figure">
+              <img src="arthashastra.webp" alt="Arthashastra" className="figure-img rounded" style={{ width: '300px' }} />
+              <figcaption className="figure-caption">The Arthashastra is Chanakya's most renowned work, covering topics such as economics, politics, military strategy, and statecraft.</figcaption>
+            </figure>
+          </div>
+          <div className="col-md-6">
+            <p>One of Chanakya's most significant contributions is the Arthashastra, an ancient Indian treatise on statecraft, economic policy, and military strategy. The Arthashastra provides comprehensive guidelines on governance, ethics, and administration, reflecting Chanakya's profound understanding of politics and economics.</p>
+            <p>The Arthashastra consists of 15 books and covers a wide range of topics, including the duties of a king, the functions of government officials, the management of state finances, diplomacy, and warfare. It is considered one of the earliest works on economics and political science, offering insights that are still relevant today.</p>
+          </div>
+        </div>
+
+        <div className="row">
+          <h4 className="text-success"><strong>Chanakya Neeti</strong></h4>
+          <div className="col-md-6 text-center">
+            <img src="chanakya-statue.jpg" alt="Statue of Chanakya" className="img-fluid rounded" style={{ width: '365px' }} />
+          </div>
+          <div className="col-md-6">
+            <h5 className="text-success">Leadership and Governance Principles</h5>
+            <ul className="pl-4">
+              <li><b>Focus on Strength:</b> Chanakya emphasized the necessity for rulers to prioritize building and maintaining military strength to defend and expand their domains.</li>
+              <li><b>Importance of Allies:</b> He underscored the significance of forming robust alliances to bolster a kingdom's security and prosperity.</li>
+              <li><b>Manage Resources:</b> Efficient resource management was central to Chanakya's governance philosophy, ensuring economic stability and growth.</li>
+            </ul>
+            <h5 className="text-success mt-4">Other Notable Aspects</h5>
+            <ul className="pl-4">
+              <li><b>Role in Chandragupta's Rise:</b> Chanakya's strategies were instrumental in Chandragupta Maurya's overthrow of the Nanda dynasty, leading to the establishment of the powerful Maurya Empire.</li>
+              <li><b>Educational Contributions:</b> As a revered professor at Takshashila University, Chanakya contributed significantly to early Indian education and intellectual discourse.</li>
+              <li><b>Diplomatic Skills:</b> Known for his diplomatic acumen, Chanakya forged strategic alliances crucial for expanding the Maurya Empire's influence across ancient India.</li>
+              <li><b>Legacy and Influence:</b> Chanakya's seminal works, including the Arthashastra and Chanakya Neeti, continue to influence political thought and strategy worldwide.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
+        <h6 className="display-6 text-warning mt-4"><strong>Legacy</strong></h6>
+        <p>Chanakya's legacy endures through his writings and the impact he had on Indian history. His teachings continue to influence modern economic and political thought. He is often regarded as the pioneer of classical economics and is considered one of the greatest political thinkers in history.</p>
+      </div>
+
+      <div id="carouselExample" className="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div className="carousel-inner text-center p-4 mt-5" style={{ borderLeft: '5px solid rgb(220, 53, 69)', fontFamily: 'Georgia, serif', fontSize: '1.2em' }}>
+          <div className="carousel-item active">
+            "A person should not be too honest. Straight trees are cut first and honest people are screwed first."
+          </div>
+          <div className="carousel-item">
+            "Learn from the mistakes of others. You can't live long enough to make them all yourselves."
+          </div>
+          <div className="carousel-item">
+            "As soon as the fear approaches near, attack and destroy it."
+          </div>
+          <div className="carousel-item">
+            "Education is the best friend. An educated person is respected everywhere. Education beats the beauty and the youth."
+          </div>
+          <div className="carousel-item">
+            "Before you start some work, always ask yourself three questions – Why am I doing it, What the results might be, and Will I be successful. Only when you think deeply and find satisfactory answers to these questions, go ahead."
+          </div>
+          <div className="carousel-item">
+            "Once you start working on something, don’t be afraid of failure and don’t abandon it. People who work sincerely are the happiest."
+          </div>
+          <div className="carousel-item">
+            "The world’s biggest power is the youth and beauty of a woman."
+          </div>
+        </div>
+
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+
     </div>
   );
 };
