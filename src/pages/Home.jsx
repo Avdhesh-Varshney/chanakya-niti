@@ -1,16 +1,15 @@
 import React from "react";
-import "../css/Home.css";
 import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
+
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      {/* Introduction */}
-      <div className="home-container">
-        <div className="flex flex-col item-center justify-center w-full">
-          <h1 className="font-bold home-heading">चाणक्य नीति</h1>
-          <div className="font-bold">
+    <div className="d-flex flex-column align-items-center">
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: 'rgba(255, 255, 255, 0.035)' }}>
+        <div className="d-flex flex-column align-items-center justify-content-center w-100">
+          <h1 className="font-weight-bold display-4 mb-3">चाणक्य नीति</h1>
+          <div className="font-weight-bold">
             <ReactTyped
               strings={[
                 "शक्तिशाली मन को कोई नहीं हरा सकता।",
@@ -25,20 +24,19 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="img-container">
-        <Tilt>
-            <img className="animated-img" src="/home1.png" alt="" />
-        </Tilt>
+        <div className="d-flex justify-content-center w-100 mt-4 mt-md-0">
+          <Tilt>
+            <img className="img-fluid" src="/home1.png" alt="" style={{ animation: 'moveUpDown 2s infinite' }} />
+          </Tilt>
         </div>
       </div>
 
-      <div className="feat-2">
-        <div className="feat-card">
-          <img src="/e-book.jpeg" alt="" />
-          <div className="card-line" />
-          <div className="feat-card-content">
-            <h5>Dive into the World of Chanakya through E-Books</h5>
-            <p>
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" style={{ gap: '20px', backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px' }}>
+        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px' }}>
+          <img src="/e-book.jpeg" className="card-img-top" alt="" />
+          <div className="card-body">
+            <h5 className="card-title font-weight-bold">Dive into the World of Chanakya through E-Books</h5>
+            <p className="card-text">
               Discover the profound wisdom of Chanakya with our meticulously
               curated e-books. Each page offers a gateway into the timeless
               teachings of this ancient sage, providing you with insights and
@@ -46,21 +44,20 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col item-center justify-center gap-10">
+        <div className="d-flex flex-column align-items-center justify-content-center gap-3">
           <VideoButton />
-          <div className="flex flex-col item-center justify-center">
-            <h4 className=" font-bold">MULTIMEDIA CONTENT</h4>
-            <p className=" font-semibold">
+          <div className="text-center">
+            <h4 className="font-weight-bold">MULTIMEDIA CONTENT</h4>
+            <p className="font-weight-semibold">
               Audio Files, Books, Videos on Chanakya’s Life
             </p>
           </div>
         </div>
-        <div className="feat-card">
-          <img src="/video.jpg" alt="" />
-          <div className="card-line" />
-          <div className="feat-card-content">
-            <h5>Video and Audio Experiences</h5>
-            <p>
+        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px' }}>
+          <img src="/video.jpg" className="card-img-top" alt="" />
+          <div className="card-body">
+            <h5 className="card-title font-weight-bold">Video and Audio Experiences</h5>
+            <p className="card-text">
               Immerse yourself in the wisdom of Chanakya through our captivating
               blend of video and audio content. Explore his timeless teachings
               with clarity and depth, as every word and gesture comes alive,
@@ -70,22 +67,19 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features */}
-      <div className="feat-3">
-        <div className="feat-card-2">
-          <div className="flex item-center gap-2 justify-center">
-            <img src="/ai.svg" alt="" />
-            <h5 className=" font-bold">AI-Powered Translations</h5>
-          </div>
-          <p>
-            Explore the world without boundaries with our AI-powered language
-            translation. Break down language barriers effortlessly as our
-            advanced technology seamlessly transforms content into your
-            preferred language. Whether you're discovering ancient wisdom or
-            connecting with global insights, our translation AI ensures every
-            word resonates, bridging cultures and uniting minds.
-          </p>
+      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px', width: '1000px' }}>
+        <div className="d-flex align-items-center gap-2 justify-content-center mb-3">
+          <img src="/ai.svg" alt="" style={{ width: '60px', borderRadius: '100%' }} />
+          <h5 className="font-weight-bold">AI-Powered Translations</h5>
         </div>
+        <p className="text-center">
+          Explore the world without boundaries with our AI-powered language
+          translation. Break down language barriers effortlessly as our
+          advanced technology seamlessly transforms content into your
+          preferred language. Whether you're discovering ancient wisdom or
+          connecting with global insights, our translation AI ensures every
+          word resonates, bridging cultures and uniting minds.
+        </p>
       </div>
     </div>
   );
