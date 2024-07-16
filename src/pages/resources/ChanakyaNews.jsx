@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../css/News.css';
 
 const ChanakyaNews = () => {
   const [news, setNews] = useState([]);
@@ -16,12 +15,12 @@ const ChanakyaNews = () => {
       setLoading(true);
       const rss2jsonEndpoint = 'https://api.rss2json.com/v1/api.json';
       const googleNewsRSS = 'https://news.google.com/rss/search?q=archaryachanakya+OR+Arthashastra+OR+kautilya&hl=en-IN&gl=IN&ceid=IN:en';
-      
+
       const response = await axios.get(rss2jsonEndpoint, {
         params: {
           rss_url: googleNewsRSS,
-          api_key: 'jno3gnujlhgh2diontk4z2au4d7qrd6nsc7rtacf', // Replace with your API key or remove if using the free tier
-          count: 60 // Number of items to fetch
+          api_key: import.meta.env.VITE_NEWS_API_KEY,
+          count: 60,
         }
       });
 
@@ -64,16 +63,19 @@ const ChanakyaNews = () => {
   if (error) return <div className="error-message">{error}</div>;
 
   return (
-    <div className="chanakya-news">
-      <h1>Latest News on Acharya Chanakya</h1>
-      <div className="news-grid">
+    <div className="container">
+      <h1 className="mb-4 text-center">Latest News on Aacharya Chanakya</h1>
+      <div className="row">
         {news.map((item, index) => (
-          <div key={index} className="news-item">
-            <h2>{item.title}</h2><br />
-            <p dangerouslySetInnerHTML={{ __html: item.description }}></p>
-            <span className="category-tag">{item.category}</span>
-            <p className="pub-date">Published: {new Date(item.pubDate).toLocaleDateString()}</p>
-            <a href={item.link} target="_blank" rel="noopener noreferrer" className="read-more">Read more</a>
+          <div key={index} className="col-md-6 col-lg-4 mb-4">
+            <div className="card w-full h-100 shadow-sm">
+              <div className="card-body d-flex flex-column">
+                <h5 className="card-title">{item.title}</h5>
+                <span className="badge bg-secondary mb-2 align-self-start">{item.category}</span>
+                <p className="text-muted mb-2">Published: {new Date(item.pubDate).toLocaleDateString()}</p>
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-auto">Read more</a>
+              </div>
+            </div>
           </div>
         ))}
       </div>
