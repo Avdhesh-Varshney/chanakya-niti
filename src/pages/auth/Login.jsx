@@ -2,16 +2,12 @@ import React from 'react';
 import '../../css/Auth.css';
 import { FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa6';
 
-const SignUp = () => {
+const Login = () => {
 	return (
 		<div className="form-container mb-4">
-			<p className="title">Sign Up</p>
+			<p className="title">Login</p>
 
 			<form className="form">
-				<div className="input-group">
-					<label htmlFor="username">Username</label>
-					<input type="text" name="username" id="username" placeholder="" />
-				</div>
 				<div className="input-group">
 					<label htmlFor="username">Email</label>
 					<input type="email" name="email" id="email" placeholder="" />
@@ -44,8 +40,12 @@ const SignUp = () => {
 				</button>
 			</div>
 
+			<p className="signup">Don't have an account?
+				<a rel="noopener noreferrer" href="/auth/SignUp"> Sign up</a>
+			</p>
+
 		</div>
 	)
 }
 
-export default SignUp;
+export default Login;
