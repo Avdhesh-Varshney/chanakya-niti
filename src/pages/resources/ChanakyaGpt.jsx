@@ -40,12 +40,14 @@ const ChanakyaGpt = () => {
   }
 
   return (
-    <div className="font-bold flex w-screen items-center rounded-lg">
+    <div className="font-bold flex w-screen items-center rounded-lg m-2">
             <form onSubmit={e => handleSubmit(e)} className="shadow-md p-10">
-                <div className="flex justify-center items-center flex-col gap-7">
-                    <h1 className="text-3xl font-semibold text-center">Ask your questions</h1>
-                    <input onChange={e => setPrompt(e.target.value)} value={prompt} type="text" placeholder="type something..." className="w-screen text-xl font-normal border-gray-300 rounded-lg border-2 p-2"/>
-                    {loader ? <button className="text-white w-full bg-white mt-2 p-2 rounded-md cursor-pointer"><ClipLoader/></button> :<button className="text-white w-full bg-black mt-2 p-2 rounded-md cursor-pointer">Search</button>}
+                <div className="flex flex-col gap-7">
+                    <h1 className="text-3xl font-semibold">Ask your questions</h1>
+                    <div className="flex flex-col justify-center items-center">
+                      <input onChange={e => setPrompt(e.target.value)} value={prompt} type="text" placeholder="type something..." className="w-screen text-xl font-normal border-gray-300 rounded-lg border-2 p-2"/>
+                      {loader ? <button className="text-white w-full bg-white mt-2 p-2 rounded-md cursor-pointer"><ClipLoader /></button> :<button className="text-white w-full bg-black mt-2 p-2 rounded-md cursor-pointer">Search</button>}
+                    </div> 
                 </div>
                 <div className="font-normal mt-2">
                 {response && <>
