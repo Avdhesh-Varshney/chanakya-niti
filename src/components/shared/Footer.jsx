@@ -37,6 +37,7 @@ const Footer = () => {
           <div className="col-md-3 my-auto">
             <h3 className="text-uppercase fw-bold">Resources</h3>
             <ul className="list-unstyled">
+            <li><NavLink to="/resources/audio" className="text-decoration-none text-dark"><FaMusic className="me-2" /> ChanakyaGpt</NavLink></li>
               <li><NavLink to="/resources/audio" className="text-decoration-none text-dark"><FaMusic className="me-2" /> Audio</NavLink></li>
               <li><NavLink to="/resources/video" className="text-decoration-none text-dark"><FaVideo className="me-2" /> Video</NavLink></li>
               <li><NavLink to="/resources/book" className="text-decoration-none text-dark"><FaBook className="me-2" /> Books</NavLink></li>
