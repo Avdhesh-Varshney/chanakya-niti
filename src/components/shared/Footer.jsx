@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Context } from "../../context/Context";
 import Visitors from "./Visitors";
-import { FaGithub, FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaMusic, FaVideo, FaBook, FaNewspaper, FaQuestionCircle } from "react-icons/fa";
+import { FaGithub, FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaMusic, FaVideo, FaBook, FaNewspaper, FaQuestionCircle, FaRobot } from "react-icons/fa";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
@@ -37,7 +37,7 @@ const Footer = () => {
           <div className="col-md-3 my-auto">
             <h3 className="text-uppercase fw-bold">Resources</h3>
             <ul className="list-unstyled">
-            <li><NavLink to="/resources/audio" className="text-decoration-none text-dark"><FaMusic className="me-2" /> ChanakyaGpt</NavLink></li>
+              <li><NavLink to="/resources/chanakyagpt" className="text-decoration-none text-dark"><FaRobot className="me-2" /> ChanakyaGpt</NavLink></li>
               <li><NavLink to="/resources/audio" className="text-decoration-none text-dark"><FaMusic className="me-2" /> Audio</NavLink></li>
               <li><NavLink to="/resources/video" className="text-decoration-none text-dark"><FaVideo className="me-2" /> Video</NavLink></li>
               <li><NavLink to="/resources/book" className="text-decoration-none text-dark"><FaBook className="me-2" /> Books</NavLink></li>

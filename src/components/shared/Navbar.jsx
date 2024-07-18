@@ -47,7 +47,7 @@ const Navbar = () => {
                 Resources
               </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><Link className="dropdown-item" to="/resources/chanakyaGpt">ChanakyaGpt</Link></li>
+                <li><Link className="dropdown-item" to="/resources/chanakyagpt">ChanakyaGpt</Link></li>
                 <li><Link className="dropdown-item" to="/resources/audio">Audios</Link></li>
                 <li><Link className="dropdown-item" to="/resources/book">Books</Link></li>
                 <li><Link className="dropdown-item" to="/resources/news">News</Link></li>
