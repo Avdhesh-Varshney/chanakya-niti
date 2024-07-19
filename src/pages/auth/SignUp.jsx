@@ -1,8 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import '../../css/Auth.css';
-import { FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa6';
+import { FaGithub, FaGoogle, FaTwitter,FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const SignUp = () => {
+	const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 	return (
 		<div className="form-container mb-4">
 			<p className="title">Sign Up</p>
@@ -18,7 +24,21 @@ const SignUp = () => {
 				</div>
 				<div className="input-group">
 					<label htmlFor="password">Password</label>
-					<input type="password" name="password" id="password" placeholder="" />
+					<div class="password-container">
+              <input
+                type={passwordVisible ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder=""
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                onClick={togglePasswordVisibility}
+              >
+                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
 					<div className="forgot">
 						<a rel="noopener noreferrer" href="#">Forgot Password ?</a>
 					</div>
