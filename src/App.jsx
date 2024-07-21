@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { Context } from "./context/Context";
@@ -20,6 +20,7 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
+import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
 
 function App() {
   const { progress } = useContext(Context);
@@ -40,6 +41,7 @@ function App() {
             <Route exact path="/resources/news" element={<ChanakyaNews />} />
             <Route exact path="/resources/quiz" element={<ChanakyaQuiz />} />
             <Route exact path="/resources/video" element={<ChanakyaVideo />} />
+            <Route exact path="/resources/chanakyagpt" element={<ChanakyaGpt />} />
 
             <Route exact path="/contributor" element={<Contributors />} >
             </Route>
