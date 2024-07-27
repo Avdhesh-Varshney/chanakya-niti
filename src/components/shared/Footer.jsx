@@ -31,10 +31,10 @@ const Footer = () => {
           <div className="col-md-3 m-auto">
             <h3 className="text-uppercase fw-bold">चाणक्य नीति</h3>
             <ul className="list-unstyled">
-              <li className="list"><NavLink to="/" className="text-decoration-none text-dark"><FaHome className="me-2" /> Home</NavLink></li>
-              <li className="list"><NavLink to="/about" className="text-decoration-none text-dark"><FaInfoCircle className="me-2" /> About</NavLink></li>
-              <li className="list"><NavLink to="/contributor" className="text-decoration-none text-dark"><FaUser className="me-2" /> Contributors</NavLink></li>
-              <li className="list"><NavLink to="/auth/login" className="text-decoration-none text-dark"><FaSignInAlt className="me-2" /> Login</NavLink></li>
+              <li><NavLink to="/" className="text-decoration-none text-dark"><FaHome className="me-2" /> Home</NavLink></li>
+              <li><NavLink to="/about" className="text-decoration-none text-dark"><FaInfoCircle className="me-2" /> About</NavLink></li>
+              <li><NavLink to="/contributor" className="text-decoration-none text-dark"><FaUser className="me-2" /> Contributors</NavLink></li>
+              <li><NavLink to="/auth/login" className="text-decoration-none text-dark"><FaSignInAlt className="me-2" /> Login</NavLink></li>
             </ul>
           </div>
 
