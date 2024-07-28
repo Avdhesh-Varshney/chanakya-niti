@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Context } from "../../context/Context";
 import Visitors from "./Visitors";
 import { FaGithub, FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaMusic, FaVideo, FaBook, FaNewspaper, FaQuestionCircle, FaRobot } from "react-icons/fa";
+import Tilt from 'react-parallax-tilt';
+import "../../css/Footer.css";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
@@ -13,10 +15,12 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6 d-flex">
             <figure className="figure">
-              <img src="logo.webp" height="200" alt="Chanakya Image" />
+              <Tilt>
+                <img src="logo.webp" height="200" alt="Chanakya Image" />
+              </Tilt>
               <figcaption className="figure-caption text-center">चाणक्य नीति</figcaption>
             </figure>
-            <div className="my-auto">
+            <div className="my-auto star-btn">
               <a href="https://github.com/Avdhesh-Varshney/chanakya-niti" target="_blank" rel="noopener noreferrer" className="text-white bg-dark p-2 rounded text-decoration-none d-inline-block">
                 <FaGithub className="me-2" /> Star Us ⭐
               </a>
