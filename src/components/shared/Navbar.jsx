@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar navbar-expand-lg ${isSticky ? 'mt-2 fixed-top' : ''} ${isDarkMode ? 'navbar-dark' : 'navbar-light'}`} style={{ backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.4)' : 'rgba(223, 223, 176, 0.4)'}` }}>
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
+        <Link className="navbar-brand d-flex align-items-center px-4" to="/">
           <img src="logo.webp" alt="Chanakya Image" className="me-2" style={{ width: '30px', height: '30px' }} />
           <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>चाणक्य नीति</span>
         </Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
             <li className="nav-item"><Link className="nav-link" to="/contributor">Contributors</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/auth/login">Login</Link></li>
 
-            <li className='nav-item nav-link' onClick={toggleTheme} style={{ cursor: 'pointer' }}>
+            <li className='nav-item nav-link px-4' onClick={toggleTheme} style={{ cursor: 'pointer' }}>
               {isDarkMode ? (
                 <MdOutlineLightMode style={{ fontSize: '1.5rem', color: 'white' }} />
               ) : (

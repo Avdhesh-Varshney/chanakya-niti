@@ -26,7 +26,7 @@ const Contributors = (props) => {
   return (
     <>
       <div className='d-flex flex-column contribution' style={{ overflowX: "hidden" }}>
-        <div className="fs-3" style={{fontWeight:"500"}}>
+        <div className="fs-2 text-center fw-bold" style={{fontWeight:"500"}}>
           Our Contributors
         </div>
         <div className='d-flex flex-wrap justify-content-evenly'>
