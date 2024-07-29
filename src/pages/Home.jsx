@@ -67,7 +67,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px', width: '1000px' }}>
+      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px', width: '100%' }}>
         <div className="d-flex align-items-center gap-2 justify-content-center mb-3">
           <img src="/ai.svg" alt="" style={{ width: '60px', borderRadius: '100%' }} />
           <h5 className="font-weight-bold">AI-Powered Translations</h5>
