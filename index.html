@@ -11,7 +11,12 @@
 
   <title>Chanakya Niti - A website of Aacharya Chanakya's life style</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
+  <style>
+    body{
+      scroll-behavior: smooth;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,6 +37,21 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <script>
+    const Lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+        direction: "vertical",
+        gestureDirection: "vertical",
+        smooth: true,
+        smoothTouch: false,
+        touchMultiplier: 2,
+    });
+
+  
+
+
+</script>
 </body>
 
 </html>
