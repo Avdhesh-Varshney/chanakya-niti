@@ -21,7 +21,7 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
-
+import ScrollToTop from "./components/shared/scrollToTop";
 function App() {
   const { progress } = useContext(Context);
 
@@ -54,6 +54,7 @@ function App() {
         </main>
 
         <Footer />
+        <ScrollToTop/>
       </Router>
     </div>
   );
