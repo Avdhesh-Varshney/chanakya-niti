@@ -21,14 +21,18 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
-import ScrollToTop from "./components/shared/scrollToTop";
+import ScrollToTop from "./components/shared/ScrollToTop";
+import ScrollProgressBar from "./components/shared/ScrollProgressBar";
 function App() {
   const { progress } = useContext(Context);
 
   return (
     <div className='d-flex flex-column'>
       <Router>
-        <Navbar />
+        <div>
+          <Navbar />
+          <ScrollProgressBar/>
+        </div>
         <LoadingBar height={3} color="#f11946" progress={progress} />
 
         <main className="container flex-grow-1 mt-4">
