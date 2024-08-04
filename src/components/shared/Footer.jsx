@@ -8,7 +8,7 @@ import "../../css/Footer.css";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
-
+  const year = new Date().getFullYear();
   return (
     <footer className="footer font-small pt-4" style={{ backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.4)' : 'rgba(223, 223, 176, 0.4)'}` }}>
       <div className="container pt-2">
@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center">
-        <p>&copy; 2024 Chanakya Niti. All rights reserved.</p>
+        <p>&copy; {year} Chanakya Niti. All rights reserved.</p>
       </div>
     </footer>
   );
