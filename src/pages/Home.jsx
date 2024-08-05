@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
+import { Context } from '../context/Context';
 
 export default function Home() {
+  const { isDarkMode } = useContext(Context);
+
   return (
-    <div className="d-flex flex-column align-items-center">
-      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: 'rgba(255, 255, 255, 0.035)' }}>
+    <div className={`d-flex flex-column align-items-center ${isDarkMode ? 'dark-mode' : 'light-mode'}`} style={{ color: isDarkMode ? 'white' : 'black' }}>
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.035)'}` }}>
         <div className="d-flex flex-column align-items-center justify-content-center w-100">
           <h1 className="font-weight-bold display-4 mb-3">चाणक्य नीति</h1>
           <div className="font-weight-bold">
@@ -31,8 +34,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" style={{ gap: '20px', backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px' }}>
-        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px' }}>
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" style={{ gap: '20px', backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px' }}>
+        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`, color: isDarkMode ? 'white' : 'black' }}>
           <img src="/e-book.jpeg" className="card-img-top" alt="" />
           <div className="card-body">
             <h5 className="card-title font-weight-bold">Dive into the World of Chanakya through E-Books</h5>
@@ -44,7 +47,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="d-flex flex-column align-items-center justify-content-center gap-3">
+        <div className="d-flex flex-column align-items-center justify-content-center gap-3" style={{ color: isDarkMode ? 'white' : 'black' }}>
           <VideoButton />
           <div className="text-center">
             <h4 className="font-weight-bold">MULTIMEDIA CONTENT</h4>
@@ -53,7 +56,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px' }}>
+        <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`, color: isDarkMode ? 'white' : 'black' }}>
           <img src="/video.jpg" className="card-img-top" alt="" />
           <div className="card-body">
             <h5 className="card-title font-weight-bold">Video and Audio Experiences</h5>
@@ -67,7 +70,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: 'rgba(52, 91, 57, 0.328)', borderRadius: '20px', width: '100%' }}>
+      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: isDarkMode ? 'white' : 'black' }}>
         <div className="d-flex align-items-center gap-2 justify-content-center mb-3">
           <img src="/ai.svg" alt="" style={{ width: '60px', borderRadius: '100%' }} />
           <h5 className="font-weight-bold">AI-Powered Translations</h5>

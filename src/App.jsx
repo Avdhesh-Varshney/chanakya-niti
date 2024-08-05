@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { Context } from "./context/Context";
@@ -23,10 +23,14 @@ import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
 
 function App() {
-  const { progress } = useContext(Context);
+  const { progress, isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
 
   return (
-    <div className='d-flex flex-column'>
+    <div className={`d-flex flex-column ${isDarkMode ? 'dark' : ''}`}>
       <Router>
         <Navbar />
         <LoadingBar height={3} color="#f11946" progress={progress} />
@@ -43,9 +47,8 @@ function App() {
             <Route exact path="/resources/video" element={<ChanakyaVideo />} />
             <Route exact path="/resources/chanakyagpt" element={<ChanakyaGpt />} />
 
-            <Route exact path="/contributor" element={<Contributors />} >
-            </Route>
-            <Route path="/contributor/details" element={<ContributorDetail />}> </Route>
+            <Route exact path="/contributor" element={<Contributors />} />
+            <Route path="/contributor/details" element={<ContributorDetail />} />
 
             {/* Authentication Pages */}
             <Route exact path="/auth/login" element={<Login />} />
