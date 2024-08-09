@@ -6,7 +6,7 @@ const About = () => {
   const { isDarkMode } = useContext(Context);
 
   return (
-    <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272)' }}>
+    <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272);' }}>
       <div className="d-flex flex-column flex-md-row mb-4 gap-4 align-items-center">
         <div className="col-md-6 text-center">
           <figure className="figure">
@@ -116,12 +116,17 @@ const About = () => {
               <li><b>Focus on Strength:</b> Chanakya emphasized the necessity for rulers to prioritize building and maintaining military strength to defend and expand their domains.</li>
               <li><b>Importance of Allies:</b> He underscored the significance of forming robust alliances to bolster a kingdom's security and prosperity.</li>
               <li><b>Manage Resources:</b> Efficient resource management was central to Chanakya's governance philosophy, ensuring economic stability and growth.</li>
-            <li><b>Legacy and Influence:</b> Chanakya's seminal works, including the Arthashastra and Chanakya Neeti, continue to influence political thought and strategy worldwide.</li>
+            </ul>
+            <h5 className="text-success mt-4">Other Notable Aspects</h5>
+            <ul className="pl-4">
+              <li><b>Role in Chandragupta's Rise:</b> Chanakya's strategies were instrumental in Chandragupta Maurya's overthrow of the Nanda dynasty, leading to the establishment of the powerful Maurya Empire.</li>
+              <li><b>Educational Contributions:</b> As a revered professor at Takshashila University, Chanakya contributed significantly to early Indian education and intellectual discourse.</li>
+              <li><b>Diplomatic Skills:</b> Known for his diplomatic acumen, Chanakya forged strategic alliances crucial for expanding the Maurya Empire's influence across ancient India.</li>
+              <li><b>Legacy and Influence:</b> Chanakya's seminal works, including the Arthashastra and Chanakya Neeti, continue to influence political thought and strategy worldwide.</li>
             </ul>
           </div>
         </div>
       </div>
-
       <div className="row">
         <h6 className="display-6 text-warning mt-4"><strong>Legacy</strong></h6>
         <p>Chanakya's legacy endures through his writings and the impact he had on Indian history. His teachings continue to influence modern economic and political thought. He is often regarded as the pioneer of classical economics and is considered one of the greatest political thinkers in history.</p>
@@ -161,7 +166,6 @@ const About = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
     </div>
   );
 };
