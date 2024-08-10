@@ -53,7 +53,10 @@ const Footer = () => {
       </div>
 
       <div className="text-center">
+
         <p>&copy; {year} Chanakya Niti. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Chanakya Niti. All rights reserved.</p>
+
       </div>
     </footer>
   );
