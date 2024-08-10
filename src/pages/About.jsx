@@ -1,15 +1,17 @@
-import React from 'react';
-import { BiCalendar, BiMap, BiUser, BiBook, BiBriefcase, BiWorld, BiStar, BiCalendarX } from 'react-icons/bi';
+import React, { useContext } from 'react';
+import { BiCalendar, BiMap, BiUser, BiBook, BiBriefcase, BiWorld, BiCalendarX } from 'react-icons/bi';
+import { Context } from '../context/Context'; // Assuming your context file is located here
 
 const About = () => {
-  return (
-    <div className="container p-4">
+  const { isDarkMode } = useContext(Context);
 
+  return (
+    <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272);' }}>
       <div className="d-flex flex-column flex-md-row mb-4 gap-4 align-items-center">
         <div className="col-md-6 text-center">
           <figure className="figure">
             <img src="chanakya.jpg" alt="Aacharya Chanakya Image" className="img-fluid rounded" style={{ maxWidth: '300px' }} />
-            <figcaption className="figure-caption mt-2">
+            <figcaption className={`figure-caption mt-2 ${isDarkMode ? 'text-white' : 'text-dark'}`}>
               Chanakya (c. 350–283 BCE) was a philosopher, economist, and royal advisor.
             </figcaption>
           </figure>
@@ -27,7 +29,6 @@ const About = () => {
 
       <div className="container">
         <h6 className="display-6 text-warning my-2">Timeline of Aacharya Chanakya</h6>
-
         <div className="row">
           <div className="col-md-6">
             <ul className="list-group list-group-flush rounded shadow-md">
@@ -62,7 +63,7 @@ const About = () => {
                 alt="Chanakya with Chandragupta Maurya"
                 style={{ maxWidth: '300px' }}
               />
-              <figcaption className="figure-caption mt-2">
+              <figcaption className={`figure-caption m-2 text-center text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>
                 Chanakya is often credited with playing a crucial role in the establishment of the Maurya Empire.
               </figcaption>
             </figure>
@@ -72,12 +73,11 @@ const About = () => {
 
       <div className="d-flex flex-column gap-4">
         <h6 className="display-6 text-warning">His Efforts</h6>
-
         <div className="row">
           <h4 className="text-success">Early Life & Education</h4>
           <figure className="figure mt-4">
             <img className="figure-img img-fluid rounded" src="takshashila.jpg" alt="Takshashila University" style={{width: '100%'}} />
-            <figcaption className="figure-caption mb-4 mt-3 text-center">Chanakya received his education at the ancient Takshashila University, where he mastered various fields of knowledge.</figcaption>
+            <figcaption className={`figure-caption mb-4 mt-3 text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>Chanakya received his education at the ancient Takshashila University, where he mastered various fields of knowledge.</figcaption>
           </figure>
           <p>Chanakya was born in 350 BCE in ancient India. He was a brilliant student and pursued his studies at the Takshashila University, one of the oldest universities in the world. He was proficient in various subjects, including economics, politics, and military strategy.</p>
         </div>
@@ -86,7 +86,7 @@ const About = () => {
           <h4 className="text-success"><strong>Role in Establishing the Maurya Empire</strong></h4>
           <figure className="figure mt-4">
             <img className="figure-img rounded" src="Chandragupta_Maurya_Empire.png" alt="Maurya Empire" style={{ width: '100%' }} />
-            <figcaption className="figure-caption text-center">Chanakya's strategies were instrumental in the rise of the Maurya Empire, which became one of the largest empires in Indian history.</figcaption>
+            <figcaption className={`figure-caption text-center text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>Chanakya's strategies were instrumental in the rise of the Maurya Empire, which became one of the largest empires in Indian history.</figcaption>
           </figure>
           <p>Chanakya played a crucial role in the rise of the Maurya Empire. He identified and mentored Chandragupta Maurya, helping him overthrow the Nanda dynasty. Chanakya's guidance was pivotal in Chandragupta's ascent to power, and he continued to serve as the chief advisor to both Chandragupta and his son, Bindusara.</p>
         </div>
@@ -96,7 +96,7 @@ const About = () => {
           <div className="col-md-6 text-center">
             <figure className="figure">
               <img src="arthashastra.webp" alt="Arthashastra" className="figure-img rounded" style={{ width: '300px' }} />
-              <figcaption className="figure-caption">The Arthashastra is Chanakya's most renowned work, covering topics such as economics, politics, military strategy, and statecraft.</figcaption>
+              <figcaption className={`figure-caption text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>The Arthashastra is Chanakya's most renowned work, covering topics such as economics, politics, military strategy, and statecraft.</figcaption>
             </figure>
           </div>
           <div className="col-md-6">
@@ -127,7 +127,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
       <div className="row">
         <h6 className="display-6 text-warning mt-4"><strong>Legacy</strong></h6>
         <p>Chanakya's legacy endures through his writings and the impact he had on Indian history. His teachings continue to influence modern economic and political thought. He is often regarded as the pioneer of classical economics and is considered one of the greatest political thinkers in history.</p>
@@ -167,7 +166,6 @@ const About = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
     </div>
   );
 };
