@@ -10,7 +10,7 @@ This project aims to bring the timeless wisdom of Chanakya to a modern audience,
 
 ## Features ✨
 
-- **Interactive Interface**: Engaging UI for exploring Chanakya's teachings.
+- **Interactive Interface**: Engaging UI for exploring Chanakya's teachings.   
 - **Secure Backend**: Robust infrastructure to secure source code and multimedia content.
 - **AI Integration**: Personalized recommendations and image processing.
 - **User Authentication**: Secure and personalized user experiences.
