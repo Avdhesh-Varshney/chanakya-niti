@@ -1,12 +1,17 @@
-# CHANAKYA-NITI 📚
+<h1 align="center">CHANAKYA-NITI 📚</h1>
+
 
 ## Overview
 
 CHANAKYA-NITI is a web application designed to provide an engaging platform for exploring and learning about the teachings of Chanakya, an ancient Indian philosopher, economist, and strategist.
 
+<hr>
+
 ## Purpose and Motivation 🎯
 
 This project aims to bring the timeless wisdom of Chanakya to a modern audience, making his teachings accessible and engaging through a digital platform.
+
+<hr>
 
 ## Features ✨
 
@@ -17,6 +22,8 @@ This project aims to bring the timeless wisdom of Chanakya to a modern audience,
 - **Multimedia Content**: Audio files, books, videos on Chanakya’s life.
 - **API Access**: Allows users to create their own Chanakya-Niti websites.
 - **Language Translation**: AI model for translating content into multiple languages.
+
+<hr>
 
 ## Backend Repository 🔧
 
@@ -29,8 +36,11 @@ The backend of the CHANAKYA-NITI application is designed to provide a secure and
   - **MongoDB**: NoSQL database for storing application data.
   - **JWT**: JSON Web Tokens for secure user authentication.
   - **TensorFlow**: AI model integration for personalized recommendations and language translation.
+  
+<hr>
 
-## Rough Project Structure 👈
+ <details>
+   <summary><h2>Rough Project Structure 👈</h2></summary>
 
 ```css
 Chanakya-Niti
@@ -107,6 +117,9 @@ Chanakya-Niti
     ├── Books database
     └── Quotes database
 ```
+</details>
+
+<hr>
 
 ## Installation Instructions 🛠️
 
@@ -127,7 +140,12 @@ Chanakya-Niti
    npm run dev
    ```
 
-## Contributing Guidelines 🤝
+  <hr>
+  
+
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Contributing Guidelines </h2>
+</div>
 
 We welcome contributions! Here’s how you can get started:
 
@@ -147,10 +165,14 @@ We welcome contributions! Here’s how you can get started:
 5. Open a pull request.
 6. Feel the pr template carefully by properly linked your issue with the pr.
 
+<hr>
+
 ## Contact Information 📬
 
 - **Maintainer**: Avdhesh Varshney
 - **Discord Server**: https://discord.gg/tSqtvHUJzE
+
+<hr>
 
 ## Guide to Contributing 🛠️
 
@@ -159,6 +181,14 @@ We welcome contributions! Here’s how you can get started:
 3. **Advanced Contributions**: Work on integrating AI models, enhancing security features, or developing new modules. This requires a deep understanding of the project's architecture and advanced coding skills.
 4. **Engage with the Community**: Participate in discussions, attend virtual meetups, and provide feedback on others' contributions. Collaboration is key to the success of open-source projects.
 5. **Stay Updated**: Regularly check the project's issue tracker, roadmap, and discussion forums to stay informed about the latest developments and opportunities for contribution.
+
+<hr>
+
+<h2 align = "center">Our Contributors ❤️</h2>
+<a href="https://github.com/Avdhesh-Varshney/chanakya-niti/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Avdhesh-Varshney/chanakya-niti" />
+</a>
+
 
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
