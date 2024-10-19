@@ -1,7 +1,8 @@
 import { useContext, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { Context } from "./context/Context";
+import Feedback from './Feedback'; 
 
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
@@ -39,7 +40,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
-
+            <Route exact path="/feedback" element={<Feedback/>} />
             <Route exact path="/resources/audio" element={<ChanakyaAudio />} />
             <Route exact path="/resources/book" element={<ChanakyaBook />} />
             <Route exact path="/resources/news" element={<ChanakyaNews />} />
@@ -51,6 +52,7 @@ function App() {
             <Route path="/contributor/details" element={<ContributorDetail />} />
 
             {/* Authentication Pages */}
+            <Link to="/">Home</Link>
             <Route exact path="/auth/login" element={<Login />} />
             <Route exact path="/auth/signup" element={<SignUp />} />
           </Routes>
