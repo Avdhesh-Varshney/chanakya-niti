@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Groq from 'groq-sdk';
 import { ClipLoader } from "react-spinners";
-
+import '../../css/ChanakyaGpt.css';
 const groq = new Groq({
-    apiKey : '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',
-    dangerouslyAllowBrowser : true
+  apiKey: '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',
+  dangerouslyAllowBrowser: true
 })
 
 const ChanakyaGpt = () => {
@@ -20,41 +20,45 @@ const ChanakyaGpt = () => {
       setLoader(true);
       const response = await groq.chat.completions.create({
         messages: [
-            {
-                role: "user",
-                content: `
+          {
+            role: "user",
+            content: `
                 Answer this question as if you are chanakya and the question is :
                     ${prompt}
                 `
-            }
+          }
         ],
         model: "llama3-8b-8192"
-    });
-    setLoader(false);
-    console.log(response.choices[0]?.message?.content || '');
-    setResponse(response.choices[0]?.message?.content);
-    } catch(error){
+      });
+      setLoader(false);
+      console.log(response.choices[0]?.message?.content || '');
+      setResponse(response.choices[0]?.message?.content);
+    } catch (error) {
       console.log("Error occured")
     }
     setPrompt('');
   }
 
   return (
-    <div className="font-bold flex w-screen items-center rounded-lg m-2">
-            <form onSubmit={e => handleSubmit(e)} className="shadow-md p-10">
-                <div className="flex flex-col gap-7">
-                    <h1 className="text-3xl font-semibold">Ask your questions</h1>
-                    <div className="flex flex-col justify-center items-center">
-                      <input onChange={e => setPrompt(e.target.value)} value={prompt} type="text" placeholder="type something..." className="w-screen text-xl font-normal border-gray-300 rounded-lg border-2 p-2"/>
-                      {loader ? <button className="text-white w-full bg-white mt-2 p-2 rounded-md cursor-pointer"><ClipLoader /></button> :<button className="text-white w-full bg-black mt-2 p-2 rounded-md cursor-pointer">Search</button>}
-                    </div> 
-                </div>
-                <div className="font-normal mt-2">
-                {response && <>
-                    {response}</>}
-                </div>
-            </form>
+    <div className="container d-flex justify-content-center align-items-center min-vh-100">
+  <div className="row w-100 justify-content-center rounded-lg">
+    <form onSubmit={e => handleSubmit(e)} className="col-md-6 p-4 shadow-md  rounded-xl bg-secondary">
+      <div className="flex flex-col gap-4">
+        <h1 className="text-3xl font-semibold text-center">Ask your questions</h1>
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <input onChange={e => setPrompt(e.target.value)} value={prompt} type="text" placeholder="Type something..." className="form-control text-xl font-normal border-gray-300 rounded-lg mb-3 p-2" />
+          {loader ? 
+            <button className="btn btn-light w-100 mt-2 p-2 rounded-md" disabled><ClipLoader /></button> : 
+            <button className="btn btn-dark w-100 mt-2 p-2 rounded-md">Search</button>}
         </div>
+      </div>
+      <div className="font-normal mt-3">
+        {response && <>{response}</>}
+      </div>
+    </form>
+  </div>
+</div>
+
   )
 }
 

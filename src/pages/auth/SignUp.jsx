@@ -71,10 +71,17 @@ const SignUp = () => {
 			</div>
 
 			<div className="social-icons">
-				<button aria-label="Sign up with Google" className="icon"><FaGoogle /></button>
-				<button aria-label="Sign up with Twitter" className="icon"><FaTwitter /></button>
-				<button aria-label="Sign up with GitHub" className="icon"><FaGithub /></button>
+				<a aria-label="Log in with Google" className="icon" href="https://accounts.google.com/signin" target="_blank" rel="noopener noreferrer">
+					<FaGoogle />
+				</a>
+				<a aria-label="Log in with Twitter" className="icon" href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+					<FaTwitter />
+				</a>
+				<a aria-label="Log in with GitHub" className="icon" href="https://github.com/login" target="_blank" rel="noopener noreferrer">
+					<FaGithub />
+				</a>
 			</div>
+
 
 		</div>
 	)

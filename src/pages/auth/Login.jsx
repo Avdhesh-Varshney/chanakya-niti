@@ -31,7 +31,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className="form-container mb-4">
+		<div className="form-container mb-4 ">
 			<p className="title">Login</p>
 
 			<form className="form" onSubmit={handleSubmit}>
@@ -72,10 +72,17 @@ const Login = () => {
 			</div>
 
 			<div className="social-icons">
-				<button aria-label="Log in with Google" className="icon"><FaGoogle /></button>
-				<button aria-label="Log in with Twitter" className="icon"><FaTwitter /></button>
-				<button aria-label="Log in with GitHub" className="icon"><FaGithub /></button>
+				<a aria-label="Log in with Google" className="icon" href="https://accounts.google.com/signin" target="_blank" rel="noopener noreferrer">
+					<FaGoogle />
+				</a>
+				<a aria-label="Log in with Twitter" className="icon" href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+					<FaTwitter />
+				</a>
+				<a aria-label="Log in with GitHub" className="icon" href="https://github.com/login" target="_blank" rel="noopener noreferrer">
+					<FaGithub />
+				</a>
 			</div>
+
 
 			<p className="signup">Don't have an account?
 				<a rel="noopener noreferrer" href="/auth/signup"> Sign up</a>
