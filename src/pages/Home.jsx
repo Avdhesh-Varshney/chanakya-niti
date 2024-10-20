@@ -1,11 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
 import { Context } from '../context/Context';
+import { FaAngleDoubleUp } from 'react-icons/fa';
 
 export default function Home() {
   const { isDarkMode } = useContext(Context);
+  const [showScroll, setShowScroll] = useState(false);
+
+  // Function to handle scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Function to check the scroll position
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 300) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 300) {
+      setShowScroll(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollTop);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  }, [showScroll]);
 
   return (
     <div className={`d-flex flex-column align-items-center ${isDarkMode ? 'dark-mode' : 'light-mode'}`} style={{ color: isDarkMode ? 'white' : 'black' }}>
@@ -34,6 +57,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Content Section */}
       <div className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" style={{ gap: '20px', backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px' }}>
         <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`, color: isDarkMode ? 'white' : 'black' }}>
           <img src="/e-book.jpeg" className="card-img-top" alt="" />
@@ -70,6 +94,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* AI-Powered Translation Section */}
       <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: isDarkMode ? 'white' : 'black' }}>
         <div className="d-flex align-items-center gap-2 justify-content-center mb-3">
           <img src="/ai.svg" alt="" style={{ width: '60px', borderRadius: '100%' }} />
@@ -84,6 +109,32 @@ export default function Home() {
           word resonates, bridging cultures and uniting minds.
         </p>
       </div>
+
+      {/* Scroll to Top Button */}
+      <button
+        className="scroll-to-top"
+        onClick={scrollToTop}
+        style={{
+          position: 'fixed',
+          bottom: '50px',
+          right: '30px',
+          display: showScroll ? 'flex' : 'none',
+          backgroundColor: `${isDarkMode ? '#333' : '#fff'}`,
+          color: `${isDarkMode ? '#fff' : '#333'}`,
+          borderRadius: '50%',
+          height: '50px',
+          width: '50px',
+          padding: '10px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '24px',
+          cursor: 'pointer',
+          zIndex: 1000,
+          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+        }}
+      >
+        <FaAngleDoubleUp />
+      </button>
     </div>
   );
 }
