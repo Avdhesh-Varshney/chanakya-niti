@@ -108,32 +108,34 @@ const ChanakyaNews = () => {
     responsive,
   };
   return (
-    <div className="container1">
+    <>
       <h1 className="mb-4 text-center">Latest News on Aacharya Chanakya</h1>
       <Slider {...settings}>
         {news.map((item, index) => (
           <div key={index} className="individualitem">
             <div className="nItem">
               <h5 className="card-des">{item.title}</h5>
-              <span className="badge bg-secondary mb-2 align-self-start ">
-                {item.category}
-              </span>
-              <p className="itemdate">
-                Published: {new Date(item.pubDate).toLocaleDateString()}
-              </p>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary mt-auto"
-              >
-                Read more
-              </a>
+              <div>
+                <span className="badge bg-secondary mb-2 align-self-start ">
+                  {item.category}
+                </span>
+                <p className="itemdate ">
+                  Published: {new Date(item.pubDate).toLocaleDateString()}
+                </p>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary mt-auto"
+                >
+                  Read more
+                </a>
+              </div>
             </div>
           </div>
         ))}
       </Slider>
-    </div>
+    </>
   );
 };
 
