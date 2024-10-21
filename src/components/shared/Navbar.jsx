@@ -99,11 +99,9 @@ const Navbar = () => {
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle"
-                to="#"
+                to="/src/pages/resources/ChanakyaBook"
                 id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                role="button" 
               >
                 Resources
               </Link>
