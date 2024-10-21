@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Collapse } from "bootstrap"; // Ensure Bootstrap's JavaScript is loaded in your project
 import { Context } from "../../context/Context";
+import '../shared/Navbar.css'
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(Context);
@@ -69,7 +70,7 @@ const Navbar = () => {
             src="logo.webp"
             alt="Chanakya Image"
             className="me-2"
-            style={{ width: "30px", height: "30px" }}
+            style={{ width: "40px", height: "40px" }}
           />
           <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
             चाणक्य नीति
@@ -88,7 +89,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className=" navbar-collapse " id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to="/about">
@@ -171,6 +172,10 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
+
+
+
   );
 };
 
