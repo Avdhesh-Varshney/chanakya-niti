@@ -2,14 +2,13 @@
   width: auto;
   max-width: 500px;
   border-radius: 0.75rem;
-  background-color: #d75e0262;
-
+  background-color: #DFDFB0; /* Updated background */
   padding: 2rem;
   color: rgba(243, 244, 246, 1);
   margin: auto;
 }
 
-path{
+path {
   color: #000;
 }
 
@@ -40,14 +39,14 @@ path{
 .input-group input {
   width: 100%;
   border-radius: 0.475rem;
-  border: 1px solid #ede8cf;
+  border: 1px solid #ccc; /* Updated border */
   outline: 0;
   background-color: #EDE8CA;
   padding: 0.75rem 1rem;
-  color: rgba(243, 244, 246, 1);
+  color: rgba(17, 24, 39, 1);
 }
 
-#email{
+#email {
   border-radius: 0.475rem;
 }
 
@@ -73,19 +72,23 @@ path{
 
 .forgot a:hover,
 .signup a:hover {
-  text-decoration: underline #ff8800;
+  text-decoration: underline #007bff; /* Updated hover color */
 }
 
 .sign {
   display: block;
   width: 100%;
-  background-color: #ff8800;
+  background-color: #007bff; /* Updated button background */
   padding: 0.75rem;
   text-align: center;
-  color: rgba(17, 24, 39, 1);
+  color: #fff;
   border: none;
   border-radius: 0.475rem;
   font-weight: 600;
+}
+
+.sign:hover {
+  background-color: #0056b3; /* Updated button hover */
 }
 
 .social-message {
@@ -133,6 +136,7 @@ path{
   line-height: 1rem;
   color: #000;
 }
+
 .password-container {
   position: relative;
   width: 100%;
@@ -140,7 +144,7 @@ path{
 
 .password-container input {
   width: 100%;
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .password-toggle {
@@ -151,8 +155,9 @@ path{
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.2em; 
-  color: rgba(243, 244, 246, 1); 
+  font-weight: 300px;
+  font-size: 1.2em;
+  color: rgba(17, 24, 39, 1); /* Updated toggle color */
   display: flex;
   align-items: center;
 }
@@ -160,3 +165,12 @@ path{
 .password-toggle:focus {
   outline: none;
 }
+#password::placeholder {
+  font-weight: 200px;
+  color: rgba(17, 24, 39, 1); /* Optional: Adjust the color if needed */
+}
+#email::placeholder {
+  font-weight: 200px;
+  color: rgba(17, 24, 39, 1); /* Optional: Adjust the color */
+}
+
