@@ -20,39 +20,50 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
+import PasswordRecovery from "./pages/auth/PasswordRecovery"; // Import PasswordRecovery component
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
 
 function App() {
   const { progress, isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
 
   useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
+    document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
   return (
-    <div className={`d-flex flex-column ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`d-flex flex-column ${isDarkMode ? "dark" : ""}`}>
       <Router>
         <Navbar />
-        <LoadingBar height={3} color="#f11946" progress={progress} />
+        <LoadingBar height={3} color='#f11946' progress={progress} />
 
-        <main className="container flex-grow-1 mt-4">
+        <main className='container flex-grow-1 mt-4'>
           <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-
-            <Route exact path="/resources/audio" element={<ChanakyaAudio />} />
-            <Route exact path="/resources/book" element={<ChanakyaBook />} />
-            <Route exact path="/resources/news" element={<ChanakyaNews />} />
-            <Route exact path="/resources/quiz" element={<ChanakyaQuiz />} />
-            <Route exact path="/resources/video" element={<ChanakyaVideo />} />
-            <Route exact path="/resources/chanakyagpt" element={<ChanakyaGpt />} />
-
-            <Route exact path="/contributor" element={<Contributors />} />
-            <Route path="/contributor/details" element={<ContributorDetail />} />
-
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/about' element={<About />} />
+            <Route exact path='/resources/audio' element={<ChanakyaAudio />} />
+            <Route exact path='/resources/book' element={<ChanakyaBook />} />
+            <Route exact path='/resources/news' element={<ChanakyaNews />} />
+            <Route exact path='/resources/quiz' element={<ChanakyaQuiz />} />
+            <Route exact path='/resources/video' element={<ChanakyaVideo />} />
+            <Route
+              exact
+              path='/resources/chanakyagpt'
+              element={<ChanakyaGpt />}
+            />
+            <Route exact path='/contributor' element={<Contributors />} />
+            <Route
+              path='/contributor/details'
+              element={<ContributorDetail />}
+            />
             {/* Authentication Pages */}
-            <Route exact path="/auth/login" element={<Login />} />
-            <Route exact path="/auth/signup" element={<SignUp />} />
+            <Route exact path='/auth/login' element={<Login />} />
+            <Route exact path='/auth/signup' element={<SignUp />} />
+            <Route
+              exact
+              path='/auth/password-recovery'
+              element={<PasswordRecovery />}
+            />{" "}
+            {/* Add PasswordRecovery route */}
           </Routes>
         </main>
 
