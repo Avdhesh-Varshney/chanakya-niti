@@ -147,6 +147,11 @@ const Navbar = () => {
                 Contributors
               </Link>
             </li>
+            <li>
+            <Link className="nav-link" to="/Feedback">
+                Feedback
+              </Link>
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/auth/login">
                 Login
