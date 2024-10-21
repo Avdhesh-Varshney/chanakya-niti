@@ -10,7 +10,7 @@ const About = () => {
       <div className="d-flex flex-column flex-md-row mb-4 gap-4 align-items-center">
         <div className="col-md-6 text-center">
           <figure className="figure">
-            <img src="chanakya.jpg" alt="Aacharya Chanakya Image" className="img-fluid rounded" style={{ maxWidth: '300px' }} />
+            <img src="chanakya.webp" alt="Aacharya Chanakya Image" className="img-fluid rounded" style={{ maxWidth: '300px' }} />
             <figcaption className={`figure-caption mt-2 ${isDarkMode ? 'text-white' : 'text-dark'}`}>
               Chanakya (c. 350–283 BCE) was a philosopher, economist, and royal advisor.
             </figcaption>
@@ -59,7 +59,7 @@ const About = () => {
             <figure className="figure">
               <img
                 className="figure-img img-fluid rounded"
-                src="chanakya_and_chandragupta_maurya.jpg"
+                src="chanakya_and_chandragupta_maurya.webp"
                 alt="Chanakya with Chandragupta Maurya"
                 style={{ maxWidth: '300px' }}
               />
@@ -76,7 +76,7 @@ const About = () => {
         <div className="row">
           <h4 className="text-success">Early Life & Education</h4>
           <figure className="figure mt-4">
-            <img className="figure-img img-fluid rounded" src="takshashila.jpg" alt="Takshashila University" style={{width: '100%'}} />
+            <img className="figure-img img-fluid rounded" src="takshashila.webp" alt="Takshashila University" style={{width: '100%'}} />
             <figcaption className={`figure-caption mb-4 mt-3 text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>Chanakya received his education at the ancient Takshashila University, where he mastered various fields of knowledge.</figcaption>
           </figure>
           <p>Chanakya was born in 350 BCE in ancient India. He was a brilliant student and pursued his studies at the Takshashila University, one of the oldest universities in the world. He was proficient in various subjects, including economics, politics, and military strategy.</p>
@@ -85,7 +85,7 @@ const About = () => {
         <div className="row">
           <h4 className="text-success"><strong>Role in Establishing the Maurya Empire</strong></h4>
           <figure className="figure mt-4">
-            <img className="figure-img rounded" src="Chandragupta_Maurya_Empire.png" alt="Maurya Empire" style={{ width: '100%' }} />
+            <img className="figure-img rounded" src="Chandragupta_Maurya_Empire.webp" alt="Maurya Empire" style={{ width: '100%' }} />
             <figcaption className={`figure-caption text-center text-center ${isDarkMode ? 'text-white' : 'text-dark'}`}>Chanakya's strategies were instrumental in the rise of the Maurya Empire, which became one of the largest empires in Indian history.</figcaption>
           </figure>
           <p>Chanakya played a crucial role in the rise of the Maurya Empire. He identified and mentored Chandragupta Maurya, helping him overthrow the Nanda dynasty. Chanakya's guidance was pivotal in Chandragupta's ascent to power, and he continued to serve as the chief advisor to both Chandragupta and his son, Bindusara.</p>
@@ -108,7 +108,7 @@ const About = () => {
         <div className="row">
           <h4 className="text-success"><strong>Chanakya Neeti</strong></h4>
           <div className="col-md-6 text-center">
-            <img src="chanakya-statue.jpg" alt="Statue of Chanakya" className="img-fluid rounded" style={{ width: '365px' }} />
+            <img src="chanakya-statue.webp" alt="Statue of Chanakya" className="img-fluid rounded" style={{ width: '365px' }} />
           </div>
           <div className="col-md-6">
             <h5 className="text-success">Leadership and Governance Principles</h5>
