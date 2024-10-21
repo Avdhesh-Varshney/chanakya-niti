@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Context } from "../../context/Context";
+import '../shared/Navbar.css'
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(Context);
@@ -32,6 +33,7 @@ const Navbar = () => {
       }}
     >
       <div className="container-fluid">
+
         <div className="d-flex justify-content-between align-items-center w-100">
           <Link className="navbar-brand d-flex align-items-center" to="/">
             <img
@@ -62,6 +64,8 @@ const Navbar = () => {
               )}
             </li>
 
+    
+
             <button
               className="navbar-toggler"
               type="button"
@@ -75,7 +79,9 @@ const Navbar = () => {
           </div>
         </div>
 
+
         <div className={`collapse navbar-collapse ${!isCollapsed ? "show" : ""}`} id="navbarSupportedContent">
+
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to="/about">
@@ -144,6 +150,10 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
+
+
+
   );
 };
 
