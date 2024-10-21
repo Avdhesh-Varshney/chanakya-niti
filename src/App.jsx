@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import { Context } from "./context/Context";
+import "./App.css";
 
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
@@ -26,11 +27,11 @@ function App() {
   const { progress, isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
 
   useEffect(() => {
-    document.body.classList.toggle('dark', isDarkMode);
+    document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
   return (
-    <div className={`d-flex flex-column ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`d-flex flex-column ${isDarkMode ? "dark" : ""}`}>
       <Router>
         <Navbar />
         <LoadingBar height={3} color="#f11946" progress={progress} />
@@ -45,10 +46,17 @@ function App() {
             <Route exact path="/resources/news" element={<ChanakyaNews />} />
             <Route exact path="/resources/quiz" element={<ChanakyaQuiz />} />
             <Route exact path="/resources/video" element={<ChanakyaVideo />} />
-            <Route exact path="/resources/chanakyagpt" element={<ChanakyaGpt />} />
+            <Route
+              exact
+              path="/resources/chanakyagpt"
+              element={<ChanakyaGpt />}
+            />
 
             <Route exact path="/contributor" element={<Contributors />} />
-            <Route path="/contributor/details" element={<ContributorDetail />} />
+            <Route
+              path="/contributor/details"
+              element={<ContributorDetail />}
+            />
 
             {/* Authentication Pages */}
             <Route exact path="/auth/login" element={<Login />} />

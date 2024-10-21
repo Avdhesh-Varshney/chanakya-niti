@@ -1,0 +1,49 @@
+/* Container for the newsletters */
+.container1 {
+  padding: 0px;
+  margin-left: 0;
+  width: 90vw;
+  background-color:rgb(241, 242, 242);
+}
+
+/* Individual newsletter card */
+.nItem {
+  background-color:rgb(183, 216, 234);
+  border-radius: 8px;
+  padding: 10px;
+  margin:10px; /* Add margin to create space between items */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  box-sizing: border-box;
+  width: calc(100% - 20px); /* Adjust width to account for margin */
+}
+.nItem:hover {
+  border: 0.5px solid rgb(254, 251, 251);
+  transform: scale(1.05); /* Add a hover effect for a smooth transition */
+}
+.card-des {
+  font-size: 1rem;
+  color: #383636;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.itemdate {
+  font-size: 0.9rem;
+  color: #502828;
+  margin-bottom:5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container1 {
+    padding: 2px;
+    overflow-x: hidden;
+    margin: 5vh 1vh;
+  }
+}
