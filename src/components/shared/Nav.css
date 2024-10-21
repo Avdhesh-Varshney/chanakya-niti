@@ -1,0 +1,13 @@
+.nav-link:hover {
+    color: #ff8800;
+    font-weight: bold;
+}
+.nav-link.active {
+    color: #ff5500;
+    font-weight: bold;
+    border-bottom: 2px solid #ff5500;
+}
+.dropdown-item:hover {
+    background-color: rgba(255, 136, 0, 0.2);
+    color: #ff8800;
+}
