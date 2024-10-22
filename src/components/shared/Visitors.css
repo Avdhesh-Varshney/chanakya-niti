@@ -1,0 +1,108 @@
+.tertiary {
+    max-width: 100%;
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering */
+    flex-direction: column;  /* Items stacked vertically */
+}
+
+.portfolio-container {
+    text-align: center;
+    
+}
+
+.visitor-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px; /* Space between scroll icon and the counter */
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(26, 24, 24);
+    border-radius: 50%;
+    height: 3rem;
+    width: 1.75rem;
+    transform: scale(0.75);
+    transition: transform 0.3s ease-in-out;
+    background-color: rgba(239, 243, 13, 0.8); /* Softer yellowish background */
+    cursor: pointer;
+}
+
+.icon-inner {
+    background-color: rgb(15, 14, 14);
+    height: 0.75rem;
+    width: 0.25rem;
+    border-radius: 0.25rem;
+    margin-top: 0.625rem;
+    animation: bounce 1s infinite;
+}
+
+.counter-widget {
+    border: none;
+    display: inline-block;
+}
+
+.sectionSubText {
+    font-size: 18px;
+    color: rgb(8, 8, 8);
+    text-transform: uppercase;
+    letter-spacing: wider;
+     margin-bottom: 4px;
+    padding: 5px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.githubstar {
+     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 780px) {
+    .portfolio-link {
+        padding: 0.5rem;
+       width: 100%;
+    }
+
+    .icon-container {
+        height: 3rem;
+        width: 1.75rem;
+        transform: scale(1);
+    }
+
+    .icon-inner {
+        height: 0.75rem;
+        width: 0.25rem;
+        transform: scale(1);
+    }
+
+    .sectionSubText {
+        font-size: 16px;
+    }
+
+    .githubstar{
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-1rem);
+    }
+    60% {
+        transform: translateY(-0.5rem);
+    }
+}

@@ -6,6 +6,7 @@ import { FaGithub, FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaMusic, FaVideo, 
 import Tilt from 'react-parallax-tilt';
 import "../../css/Footer.css";
 
+
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
 
@@ -14,28 +15,25 @@ const Footer = () => {
       <div className="container pt-2">
         <div className="row">
           <div className="col-md-6 d-lg-flex">
-      
-          <figure className="figure d-flex flex-column align-items-center">
-  <Tilt>
-    <img src="logo.webp" height="200" alt="Chanakya Image" />
-  </Tilt>
-  <figcaption
-    className="figure-caption text-center mt-2"
-    style={{ color: isDarkMode ? 'white' : 'black' }}
-  >
-    चाणक्य नीति
-  </figcaption>
-</figure>
 
-       
-            <div className="my-auto star-btn d-flex flex-column align-items-center">
-              <a href="https://github.com/Avdhesh-Varshney/chanakya-niti" target="_blank" rel="noopener noreferrer" className="text-white bg-dark p-2 rounded text-decoration-none d-inline-block">
-                <FaGithub className="me-2" /> Star Us ⭐
-              </a>
+            <figure className="figure d-flex flex-column align-items-center">
+              <Tilt>
+                <img src="logo.webp" height="200" alt="Chanakya Image" />
+              </Tilt>
+              <figcaption
+                className="figure-caption text-center mt-2"
+                style={{ color: isDarkMode ? 'white' : 'black' }}
+              >
+                चाणक्य नीति
+              </figcaption>
+            </figure>
+
+            <div>
               <Visitors />
             </div>
+
           </div>
-          
+
           <div className="col">
             <h3 className="text-uppercase fw-bold" style={{ color: isDarkMode ? 'white' : 'black' }}>चाणक्य नीति</h3>
             <ul className="list-unstyled">
