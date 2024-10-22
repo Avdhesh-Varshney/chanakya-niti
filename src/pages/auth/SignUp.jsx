@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../css/Auth.css';
-import { FaGithub, FaGoogle, FaTwitter, FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { FaGithub, FaGoogle, FaXTwitter, FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`;
 
@@ -71,6 +71,7 @@ const SignUp = () => {
 			</div>
 
 			<div className="social-icons">
+
 				<a aria-label="Log in with Google" className="icon" href="https://accounts.google.com/signin" target="_blank" rel="noopener noreferrer">
 					<FaGoogle />
 				</a>
@@ -80,6 +81,11 @@ const SignUp = () => {
 				<a aria-label="Log in with GitHub" className="icon" href="https://github.com/login" target="_blank" rel="noopener noreferrer">
 					<FaGithub />
 				</a>
+
+				<button aria-label="Sign up with Google" className="icon"><FaGoogle /></button>
+				<button aria-label="Sign up with Twitter" className="icon"><FaXTwitter /></button>
+				<button aria-label="Sign up with GitHub" className="icon"><FaGithub /></button>
+
 			</div>
 
 
