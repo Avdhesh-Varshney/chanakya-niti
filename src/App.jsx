@@ -8,6 +8,7 @@ import Footer from "./components/shared/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Help from "./pages/Help"
 
 import ChanakyaAudio from "./pages/resources/ChanakyaAudio";
 import ChanakyaBook from "./pages/resources/ChanakyaBook";
@@ -39,7 +40,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
-
+            <Route exact path="/help" element={<Help />} />
             <Route exact path="/resources/audio" element={<ChanakyaAudio />} />
             <Route exact path="/resources/book" element={<ChanakyaBook />} />
             <Route exact path="/resources/news" element={<ChanakyaNews />} />
