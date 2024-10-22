@@ -31,9 +31,9 @@ function App() {
 
   return (
     <div id="parentLayout" className={`d-flex flex-column ${isDarkMode ? 'dark' : ''}`}>
-      <LoadingBar height={3} color="#f11946" progress={progress} />
       <Router> 
         <Navbar />
+        <LoadingBar height={3} color="#f11946" progress={progress} />
         <main className="container flex-grow-1 mt-4">
           <Routes>
             <Route exact path="/" element={<Home />} />
