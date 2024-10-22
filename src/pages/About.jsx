@@ -1,9 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import { BiCalendar, BiMap, BiUser, BiBook, BiBriefcase, BiWorld, BiCalendarX } from 'react-icons/bi';
 import { Context } from '../context/Context'; // Assuming your context file is located here
+import { FaAngleDoubleUp } from 'react-icons/fa';
 
 const About = () => {
   const { isDarkMode } = useContext(Context);
+  const [showScroll, setShowScroll] = useState(false);
+
+  // Function to handle scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Function to check the scroll position
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 300) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 300) {
+      setShowScroll(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollTop);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  }, [showScroll]);
 
   return (
     <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272);' }}>
@@ -166,6 +189,32 @@ const About = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+
+      {/* Scroll to Top Button */}
+      <button
+        className="scroll-to-top"
+        onClick={scrollToTop}
+        style={{
+          position: 'fixed',
+          bottom: '50px',
+          right: '30px',
+          display: showScroll ? 'flex' : 'none',
+          backgroundColor: `${isDarkMode ? '#333' : '#fff'}`,
+          color: `${isDarkMode ? '#fff' : '#333'}`,
+          borderRadius: '50%',
+          height: '50px',
+          width: '50px',
+          padding: '10px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: '24px',
+          cursor: 'pointer',
+          zIndex: 1000,
+          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+        }}
+      >
+        <FaAngleDoubleUp />
+      </button>
     </div>
   );
 };
