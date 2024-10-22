@@ -5,6 +5,7 @@ import Visitors from "./Visitors";
 import { FaGithub, FaHome, FaInfoCircle, FaUser, FaSignInAlt, FaMusic, FaVideo, FaBook, FaNewspaper, FaQuestionCircle, FaRobot } from "react-icons/fa";
 import Tilt from 'react-parallax-tilt';
 import "../../css/Footer.css";
+import { TbHelpSquareFilled } from "react-icons/tb";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
@@ -41,6 +42,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li><NavLink to="/" className="text-decoration-none" style={{ color: isDarkMode ? 'white' : 'black' }}><FaHome className="me-2" /> Home</NavLink></li>
               <li><NavLink to="/about" className="text-decoration-none" style={{ color: isDarkMode ? 'white' : 'black' }}><FaInfoCircle className="me-2" /> About</NavLink></li>
+              <li><NavLink to="/Help" className="text-decoration-none" style={{ color: isDarkMode ? 'white' : 'black' }}><TbHelpSquareFilled className="me-2" /> Help</NavLink></li>
               <li><NavLink to="/contributor" className="text-decoration-none" style={{ color: isDarkMode ? 'white' : 'black' }}><FaUser className="me-2" /> Contributors</NavLink></li>
               <li><NavLink to="/auth/login" className="text-decoration-none" style={{ color: isDarkMode ? 'white' : 'black' }}><FaSignInAlt className="me-2" /> Login</NavLink></li>
             </ul>
