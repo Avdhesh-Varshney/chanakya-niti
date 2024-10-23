@@ -29,14 +29,14 @@ export default function Home() {
         </div>
         <div className="d-flex justify-content-center w-100 mt-4 mt-md-0">
           <Tilt>
-            <img className="img-fluid" src="/home1.png" alt="" style={{ animation: 'moveUpDown 2s infinite' }} />
+            <img className="img-fluid" src="/home1.webp" alt="" style={{ animation: 'moveUpDown 2s infinite' }} />
           </Tilt>
         </div>
       </div>
 
       <div className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" style={{ gap: '20px', backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px' }}>
         <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`, color: isDarkMode ? 'white' : 'black' }}>
-          <img src="/e-book.jpeg" className="card-img-top" alt="" />
+          <img src="/e-book.webp" className="card-img-top" alt="" />
           <div className="card-body">
             <h5 className="card-title font-weight-bold">Dive into the World of Chanakya through E-Books</h5>
             <p className="card-text">
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </div>
         <div className="card h-100 shadow-sm" style={{ width: '350px', borderRadius: '20px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`, color: isDarkMode ? 'white' : 'black' }}>
-          <img src="/video.jpg" className="card-img-top" alt="" />
+          <img src="/video.webp" className="card-img-top" alt="" />
           <div className="card-body">
             <h5 className="card-title font-weight-bold">Video and Audio Experiences</h5>
             <p className="card-text">
