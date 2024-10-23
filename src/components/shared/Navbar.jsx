@@ -184,6 +184,11 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/help">
+                Help
+              </Link>
+            </li>
 
             <li className="nav-item dropdown">
               <button
