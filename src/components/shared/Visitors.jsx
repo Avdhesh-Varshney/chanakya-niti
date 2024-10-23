@@ -18,11 +18,11 @@ const Visitors = () => {
               <div className="icon-inner"></div>
             </div>
           </div>
-
+                                    
           {/* External visit counter from hitwebcounter.com */}
           <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
             <img
-              src="https://hitwebcounter.com/counter/counter.php?page=16980147&style=0001&nbdigits=5&type=page&initCount=1000"
+              src="https://hitwebcounter.com/counter/counter.php?page=17007703&style=0006&nbdigits=5&type=page&initCount=1000" 
               title="Counter Widget"
               alt="Visit counter For Websites"
               className="counter-widget"
