@@ -20,6 +20,7 @@ import "../../css/Footer.css";
 import { TbHelpSquareFilled } from "react-icons/tb";
 import GoogleTranslate from "../../pages/contributor/GoogleTranslate";
 
+
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
 
@@ -48,19 +49,13 @@ const Footer = () => {
             </figure>
 
             <div className="my-auto star-btn d-flex flex-column align-items-center">
-              <a
-                href="https://github.com/Avdhesh-Varshney/chanakya-niti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white bg-dark p-2 rounded text-decoration-none d-inline-block"
-              >
-                <FaGithub className="me-2" /> Star Us ⭐
-              </a>
+             
               <div>
                 <GoogleTranslate />
               </div>
               <Visitors />
             </div>
+
           </div>
 
           <div className="col">
