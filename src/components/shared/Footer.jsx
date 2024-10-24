@@ -49,14 +49,7 @@ const Footer = () => {
             </figure>
 
             <div className="my-auto star-btn d-flex flex-column align-items-center">
-              <a
-                href="https://github.com/Avdhesh-Varshney/chanakya-niti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white bg-dark p-2 rounded text-decoration-none d-inline-block"
-              >
-                <FaGithub className="me-2" /> Star Us ⭐
-              </a>
+             
               <div>
                 <GoogleTranslate />
               </div>
