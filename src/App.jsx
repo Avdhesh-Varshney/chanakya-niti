@@ -9,6 +9,7 @@ import Footer from "./components/shared/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Help from "./pages/Help"
+import Error from "./pages/Error"
 
 import ChanakyaAudio from "./pages/resources/ChanakyaAudio";
 import ChanakyaBook from "./pages/resources/ChanakyaBook";
@@ -77,6 +78,7 @@ function App() {
             {/* Authentication Pages */}
             <Route exact path="/auth/login" element={<Login />} />
             <Route exact path="/auth/signup" element={<SignUp />} />
+            <Route exact path="/*" element={<Error/>} />
           </Routes>
         </main>
 
