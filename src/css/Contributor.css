@@ -6,7 +6,7 @@
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(52, 91, 57, 0.328)   ;
+    box-shadow: 0 8px 32px 0 rgba(52, 91, 57, 0.328);
     transition: all 0.3s ease;
   }
   .dark .card{
@@ -15,6 +15,7 @@
     color: white ;
     
   }
+  
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(92, 92, 92, 0.674);
@@ -29,21 +30,24 @@
   
   .card-body {
     padding: 1.5rem;
+    background-color: #FEFAE0;
   }
   
   .card-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #fff;
-    margin-bottom: 0.75rem;
+    color: #31511E !important;
+    margin-bottom: 1rem !important;
   }
   
-  .btn-primary {
+  .btn-primary{
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #007bff; 
+    background-color: #72BF78 !important; 
+    font-size: smaller !important;
     color: #fff;
     text-decoration: none;
+    border:2px solid #72BF78 !important;
     border-radius: 6px;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -52,3 +56,5 @@
     background-color: #0056b3; 
     color: #fff; 
   }
+
+ 
