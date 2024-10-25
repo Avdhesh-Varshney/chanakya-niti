@@ -2,11 +2,11 @@
   width: auto;
   max-width: 500px;
   border-radius: 0.75rem;
-  background-color: rgba(17, 24, 39, 1);
   padding: 2rem;
   color: rgba(243, 244, 246, 1);
   margin: auto;
 }
+
 
 .title {
   text-align: center;
