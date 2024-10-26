@@ -13,3 +13,25 @@ body {
   color: white;
   transition: 0.25s;
 }
+
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f0f3;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b1b183;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #DFDFB0;
+  border-radius: 12px;
+}
