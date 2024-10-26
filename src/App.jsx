@@ -8,6 +8,7 @@ import Footer from "./components/shared/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Help from "./pages/Help"
 
 import ChanakyaAudio from "./pages/resources/ChanakyaAudio";
 import ChanakyaBook from "./pages/resources/ChanakyaBook";
@@ -21,6 +22,8 @@ import ContributorDetail from "./pages/contributor/ContributorDetail";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
+import "./App.css";
+import AnimatedCursor from "react-animated-cursor"
 
 function App() {
   const { progress, isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
@@ -31,6 +34,27 @@ function App() {
 
   return (
     <div className={`d-flex flex-column ${isDarkMode ? 'dark' : ''}`}>
+          <AnimatedCursor
+      innerSize={10}
+      outerSize={12}
+      color='111, 158, 111'
+      outerAlpha={0.8}
+      innerScale={1.0}
+      outerScale={5}
+      clickables={[
+        'a',
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="submit"]',
+        'input[type="image"]',
+        'label[for]',
+        'select',
+        'textarea',
+        'button',
+        '.link'
+      ]}
+    />
       <Router>
         <Navbar />
         <LoadingBar height={3} color="#f11946" progress={progress} />
@@ -39,7 +63,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/about" element={<About />} />
-
+            <Route exact path="/help" element={<Help />} />
             <Route exact path="/resources/audio" element={<ChanakyaAudio />} />
             <Route exact path="/resources/book" element={<ChanakyaBook />} />
             <Route exact path="/resources/news" element={<ChanakyaNews />} />
