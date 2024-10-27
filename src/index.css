@@ -1,37 +1,101 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* General Body Background for Light and Dark Modes */
+body.light {
+  background-color: #f9edcc; /* Pale background color for light mode */
 }
 
-body {
-  background-color: rgba(228, 193, 129, 0.272);
+body.dark {
+  background-color: #2c2a2a; /* Dark background color for dark mode */
 }
 
-.dark {
-  background-color: #2c2a2a;
+/* Login Card Structure */
+.card-container {
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Input field styling */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+}
+
+/* Button styling */
+.btn-signin {
+  padding: 0.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode Styles for Login Card and Button */
+body.light .card-container {
+  background-color: #f7e8b5; /* Paler yellow for the card background in light mode */
+  color: #000; /* Black text for contrast */
+}
+
+body.light input[type="email"],
+body.light input[type="password"] {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.light .btn-signin {
+  background-color: #E5B500; /* Updated yellow button color */
+  color: #000; /* Black text for readability */
+}
+
+body.light .btn-signin:hover {
+  background-color: #cda300; /* Slightly darker shade on hover */
+}
+
+/* Dark Mode Styles */
+body.dark .card-container {
+  background-color: #002244; /* Dark blue for dark mode */
   color: white;
-  transition: 0.25s;
 }
 
-
-::-webkit-scrollbar {
-  width: 7px;
+body.dark input[type="email"],
+body.dark input[type="password"] {
+  background-color: #333;
+  color: white;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f0f3;
+body.dark .btn-signin {
+  background-color: #7b61ff; /* Purple button */
+  color: white;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #b1b183;
-  border-radius: 12px;
+body.dark .btn-signin:hover {
+  background-color: #6a52e3; /* Slightly darker purple on hover */
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #DFDFB0;
-  border-radius: 12px;
+/* Social Icons Row */
+.login-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Spacing and Alignment for Text Links */
+.forgot-password {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  color: #888;
 }
