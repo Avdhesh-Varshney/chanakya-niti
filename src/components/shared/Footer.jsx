@@ -116,6 +116,15 @@ const Footer = () => {
                   <FaSignInAlt className="me-2" /> Login
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to="/Feedback"
+                  className="text-decoration-none"
+                  style={{ color: isDarkMode ? "white" : "black" }}
+                >
+                  <FaInfoCircle className="me-2" /> Feedback
+                </NavLink>
+              </li>
             </ul>
           </div>
 
