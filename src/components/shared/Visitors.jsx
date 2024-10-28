@@ -20,15 +20,8 @@ const Visitors = () => {
           </div>
                                     
           {/* External visit counter from hitwebcounter.com */}
-          <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer">
-            <img
-              src="https://hitwebcounter.com/counter/counter.php?page=17007703&style=0006&nbdigits=5&type=page&initCount=1000" 
-              title="Counter Widget"
-              alt="Visit counter For Websites"
-              className="counter-widget"
-              border="0"
-            />
-          </a>
+          <a href="https://www.hitwebcounter.com" target="_blank">
+          <img src="https://hitwebcounter.com/counter/counter.php?page=17108008&style=0006&nbdigits=5&type=page&initCount=1000" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>       
         </div>
 
         {/* Visitor count text */}
