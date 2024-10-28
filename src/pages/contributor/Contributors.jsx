@@ -46,4 +46,3 @@ const Contributors = (props) => {
 }
 
 export default Contributors;
-
