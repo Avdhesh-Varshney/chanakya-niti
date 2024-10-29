@@ -68,9 +68,9 @@ const ChanakyaGpt = () => {
   };
 
   return (
-<div className="min-vh-100 d-flex align-items-center justify-content-center p-3 bg-light bg-gradient transition duration-300">
+<div className="min-vh-100 d-flex align-items-center justify-content-center p-3 bg-dark bg-gradient transition duration-300">
   <div className="border border-primary shadow-lg rounded-3 max-w-md w-100 py-3 text-dark bg-light bg-opacity-75 p-4 space-y-6">
-    <h1 className="text-center fw-bold text-warning">
+    <h1 className="text-center fw-bold text-dark">
       ChanakyaGPT
     </h1>
     <em className="small px-3">
@@ -81,7 +81,7 @@ const ChanakyaGpt = () => {
       {conversation.length > 0 &&
         conversation.map((entry, index) => (
           <div key={index} className={`d-flex ${entry.role === 'user' ? 'justify-content-end' : 'justify-content-start'}`}>
-            <div className={`rounded-3 p-2 shadow-sm ${entry.role === 'user' ? 'bg-warning text-dark' : 'bg-light my-4 text-dark'}`}>
+            <div className={`rounded-3 p-2 shadow-sm ${entry.role === 'user' ? 'bg-dark text-light' : 'bg-light my-4 text-dark'}`}>
               <p className="small mb-0">{entry.content}</p>
             </div>
           </div>
@@ -107,7 +107,7 @@ const ChanakyaGpt = () => {
       <button
         type="submit"
         disabled={loading}
-        className="btn btn-primary"
+        className="btn btn-outline-dark"
       >
         {loading ? "Loading.." : "Generate"}
       </button>
