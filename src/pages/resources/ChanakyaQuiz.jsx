@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom'; // Only import useNavigate
 import "./../../css/ChanakyaQuiz.css";
 
 const allQuestions = [
@@ -113,6 +114,8 @@ const getRandomQuestions = (questions, num) => {
 };
 
 const ChanakyaQuiz = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const [started, setStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -131,6 +134,10 @@ const ChanakyaQuiz = () => {
     const newAnswers = [...userAnswers];
     newAnswers[currentQuestionIndex] = answer;
     setUserAnswers(newAnswers);
+  };
+
+  const handleBackToHome = () => {
+    navigate('/'); // Navigate to the home page
   };
 
   const handleNext = () => {
@@ -170,13 +177,17 @@ const ChanakyaQuiz = () => {
         <>
           <h1>Ready to attempt Quiz</h1>
           <button className="start-button" onClick={startQuiz}>Start Quiz</button>
+          <button className="start-button" onClick={handleBackToHome}>Back</button>
         </>
       ) : showResult ? (
-        <Result 
-          score={calculateScore()} 
-          questions={questions} 
-          userAnswers={userAnswers} 
-        />
+        <>
+          <Result 
+            score={calculateScore()} 
+            questions={questions} 
+            userAnswers={userAnswers} 
+          />
+       <button className="quizbuttons" onClick={handleBackToHome}>Back</button>
+        </>
       ) : (
         <div>
           <div className="question-number">
@@ -201,6 +212,7 @@ const ChanakyaQuiz = () => {
               <button className="quizbuttons" onClick={finishQuiz}>Finish</button>
             )}
             <button className="quizbuttons" onClick={handleSkip}>Skip</button>
+            <button className="quizbuttons" onClick={handleBackToHome}>Back</button>
           </div>
         </div>
       )}
