@@ -1,0 +1,28 @@
+import { atom, selector } from 'recoil';
+
+const getInitialDarkMode = () => {
+  const savedMode = localStorage.getItem('darkMode');
+  return savedMode === 'true'; // Convert saved string back to boolean
+};
+
+export const themeState = atom({
+  key: 'themeState',
+  default: getInitialDarkMode(), // Use the initial value from localStorage
+  effects_UNSTABLE: [
+    ({ onSet }) => {
+      onSet((newMode) => {
+        localStorage.setItem('darkMode', newMode.toString()); // Store as string
+      });
+    },
+  ],
+});
+
+// Selector to toggle theme
+export const toggleThemeSelector = selector({
+  key: 'toggleThemeSelector',
+  get: ({ get }) => get(themeState),
+  set: ({ get, set }) => {
+    const currentMode = get(themeState);
+    set(themeState, !currentMode); // Toggle the theme
+  },
+});

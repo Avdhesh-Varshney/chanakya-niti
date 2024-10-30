@@ -27,9 +27,14 @@ import "./App.css";
 import AnimatedCursor from "react-animated-cursor";
 
 import { FaAngleDoubleUp } from "react-icons/fa";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { themeState } from "./atoms/ThemeAtom";
+import { toggleThemeSelector } from "./atoms/ThemeAtom";
 
 function App() {
-  const { progress, isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
+  const { progress} = useContext(Context);
+  const isDarkMode = useRecoilValue(themeState); //to use the current theme 
+  const toggleTheme = useSetRecoilState(toggleThemeSelector); //to update the state  
 
   const [showScroll, setShowScroll] = useState(false);
 
@@ -65,6 +70,11 @@ function App() {
   useEffect(() => {
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
+
+  // useEffect(() => {
+  //   // Add or remove the "dark" class on the body based on isDarkMode
+  //   document.body.classList.toggle("dark", isDarkMode);
+  // }, [isDarkMode]);
 
   return (
     <div className={`d-flex flex-column ${isDarkMode ? "dark" : ""}`}>

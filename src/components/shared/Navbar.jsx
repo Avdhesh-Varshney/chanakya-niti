@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Context } from "../../context/Context";
 import '../shared/Navbar.css';
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { themeState } from "../../atoms/ThemeAtom";
+import { toggleThemeSelector } from "../../atoms/ThemeAtom";
 
 const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useContext(Context);
+  const isDarkMode = useRecoilValue(themeState); //to use the current theme 
+  const toggleTheme = useSetRecoilState(toggleThemeSelector); //to update the state  
   const [isSticky, setIsSticky] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
 

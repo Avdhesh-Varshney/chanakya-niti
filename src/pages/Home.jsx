@@ -3,9 +3,11 @@ import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
 import { Context } from '../context/Context';
+import { themeState } from "../atoms/ThemeAtom";
+import { useRecoilValue } from "recoil";
 
 export default function Home() {
-  const { isDarkMode } = useContext(Context);
+  const isDarkMode = useRecoilValue(themeState); //to use the current theme 
 
   return (
     <div className={`d-flex flex-column align-items-center ${isDarkMode ? 'dark-mode' : 'light-mode'}`} style={{ color: isDarkMode ? 'white' : 'black' }}>

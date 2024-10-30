@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { BiCalendar, BiMap, BiUser, BiBook, BiBriefcase, BiWorld, BiCalendarX } from 'react-icons/bi';
 import { Context } from '../context/Context'; // Assuming your context file is located here
+import { themeState } from '../atoms/ThemeAtom';
+import { useRecoilValue } from 'recoil';
 
 const About = () => {
-  const { isDarkMode } = useContext(Context);
+  const isDarkMode = useRecoilValue(themeState); //to use the current theme 
 
   return (
     <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272);' }}>

@@ -19,9 +19,11 @@ import Tilt from "react-parallax-tilt";
 import "../../css/Footer.css";
 import { TbHelpSquareFilled } from "react-icons/tb";
 import GoogleTranslate from "../../pages/contributor/GoogleTranslate";
+import { themeState } from "../../atoms/ThemeAtom";
+import { useRecoilValue } from "recoil";
 
 const Footer = () => {
-  const { isDarkMode } = useContext(Context);
+  const isDarkMode = useRecoilValue(themeState); //to use the current theme 
 
   return (
     <footer
