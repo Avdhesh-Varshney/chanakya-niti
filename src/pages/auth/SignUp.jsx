@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { googleAuth } from "../../functions/api";
 
 const URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 //github client id
 const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
@@ -78,7 +79,7 @@ const SignUp = () => {
     if (code && !localStorage.getItem("gh_access_token")) {
       async function getGithubAccessToken() {
         const res = await axios.get(
-          "http://localhost:8080/api/auth/github?code=" + code
+          `${BACKEND_URL}api/auth/github?code=` + code
         );
         const resD = await res.data;
         const token = new URLSearchParams(resD).get("access_token");
@@ -91,7 +92,7 @@ const SignUp = () => {
       const getGhUser = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:8080/api/auth/github/getUser",
+            `${BACKEND_URL}api/auth/github/getUser`,
             {
               headers: {
                 Authorization:
