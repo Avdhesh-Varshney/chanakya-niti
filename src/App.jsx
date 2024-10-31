@@ -29,6 +29,13 @@ import AnimatedCursor from "react-animated-cursor";
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { ScrollToTop } from "react-simple-scroll-up";
 
+import { GoogleOAuthProvider } from "@react-oauth/google";
+const google_client_id =
+  import.meta.env.GOOGLE_CLIENT_ID ||
+  "425075477872-006urri81qbuedelsp3qp6am8sd5239f.apps.googleusercontent.com";
+
+
+
 function App() {
   const {isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
   const [showScroll, setShowScroll] = useState(false);
@@ -67,7 +74,16 @@ function App() {
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
-
+ const GoogleLoginWrapper = () => (
+   <GoogleOAuthProvider clientId={google_client_id}>
+     <Login />
+   </GoogleOAuthProvider>
+ );
+ const GoogleSignUpWrapper = () => (
+   <GoogleOAuthProvider clientId={google_client_id}>
+    <SignUp/>
+   </GoogleOAuthProvider>
+ );
 
   return (
     <div className={`d-flex flex-column ${isDarkMode ? "dark" : ""}`}>
@@ -118,8 +134,8 @@ function App() {
             />
 
             {/* Authentication Pages */}
-            <Route exact path="/auth/login" element={<Login />} />
-            <Route exact path="/auth/signup" element={<SignUp />} />
+            <Route exact path="/auth/login" element={<GoogleLoginWrapper/>} />
+            <Route exact path="/auth/signup" element={<GoogleSignUpWrapper />} />
           </Routes>
         </main>
 
