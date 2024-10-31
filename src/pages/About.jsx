@@ -6,7 +6,7 @@ const About = () => {
   const { isDarkMode } = useContext(Context);
 
   return (
-    <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272);' }}>
+    <div className={`container p-4 ${isDarkMode ? 'text-white' : 'text-dark'}`} style={{ backgroundColor: isDarkMode ? '#333' : 'rgba(228, 193, 129, 0.272)' }}>
       <div className="d-flex flex-column flex-md-row mb-4 gap-4 align-items-center">
         <div className="col-md-6 text-center">
           <figure className="figure">

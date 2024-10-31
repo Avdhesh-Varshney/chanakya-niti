@@ -1,9 +1,9 @@
- 
 .navbar {
-  padding: 60px 0;  
+  height: 70px;
   transition: background-color 0.5s ease, box-shadow 0.3s ease;
+  z-index: 99;
+  top: 0px;
 }
-
  
 .navbar-brand img {
   width: 80px;   
@@ -21,7 +21,7 @@
 .navbar-brand span {
   font-size: 1.8rem;   
   font-weight: bold;
-  color:  whitesmoke;        
+  color:  rgb(245, 245, 245);        
   transition: color 0.5s ease, transform 0.5s ease;   
 }
 
@@ -83,9 +83,6 @@
   content: none;  
 }
 
-.navbar{
-  height: 70px;
-}
 .navbar-nav{
   gap: 15px;
 }
