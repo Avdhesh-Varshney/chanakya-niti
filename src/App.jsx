@@ -29,11 +29,12 @@ import AnimatedCursor from "react-animated-cursor";
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { ScrollToTop } from "react-simple-scroll-up";
 
+//for handling oauths
+import axios from "axios";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 const google_client_id =
-  import.meta.env.GOOGLE_CLIENT_ID ||
-  "425075477872-006urri81qbuedelsp3qp6am8sd5239f.apps.googleusercontent.com";
-
+  import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 function App() {
@@ -74,6 +75,38 @@ function App() {
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
+  //to get github user if,the access token from github exists
+  useEffect(()=>{
+    if (localStorage.getItem("gh_access_token") && !(localStorage.getItem("user-info"))) {
+      const getGhUser = async () => {
+        try {
+          const response = await axios.get(
+            `${BACKEND_URL}/api/auth/github/getUser`,
+            {
+              headers: {
+                Authorization:
+                  "Bearer " + localStorage.getItem("gh_access_token"),
+              },
+            }
+          );
+          const { name, email } = await response.data.user;
+          localStorage.setItem(
+            "user-info",
+            JSON.stringify({
+              name: name,
+              email: email,
+            })
+          );
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getGhUser();
+    }
+  },[]);
+
+
+//Google oauth only works if we wrap the components with google oauth provider
  const GoogleLoginWrapper = () => (
    <GoogleOAuthProvider clientId={google_client_id}>
      <Login />
