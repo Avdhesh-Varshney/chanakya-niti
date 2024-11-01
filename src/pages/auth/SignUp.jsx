@@ -47,6 +47,8 @@ const SignUp = () => {
 
   const navigate = useNavigate();
   //oauth handlers
+
+  //sign up with google
   const responseGoogle = async (authResult) => {
     try {
       if (authResult["code"]) {
@@ -79,7 +81,7 @@ const SignUp = () => {
     if (code && !localStorage.getItem("gh_access_token")) {
       async function getGithubAccessToken() {
         const res = await axios.get(
-          `${BACKEND_URL}api/auth/github?code=` + code
+          `${BACKEND_URL}/api/auth/github?code=` + code
         );
         const resD = await res.data;
         const token = new URLSearchParams(resD).get("access_token");
@@ -88,29 +90,10 @@ const SignUp = () => {
         }
       }
       getGithubAccessToken();
-    } else if (code && localStorage.getItem("gh_access_token")) {
-      const getGhUser = async () => {
-        try {
-          const response = await axios.get(
-            `${BACKEND_URL}api/auth/github/getUser`,
-            {
-              headers: {
-                Authorization:
-                  "Bearer " + localStorage.getItem("gh_access_token"),
-              },
-            }
-          );
-          const user = await response.data.user;
-          localStorage.setItem("user-info", JSON.stringify(user));
-          navigate("/");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getGhUser();
-    }
+      navigate("/");
+    } 
   }, []);
-
+//sign up with github
   const SignUpWithGh = async () => {
     try {
       window.location.assign(
@@ -120,6 +103,51 @@ const SignUp = () => {
       console.log(error);
     }
   };
+
+
+  //sign up with X twitter
+  
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.origin !== `${BACKEND_URL}`) return;
+
+      const { token, user } = event.data;
+
+      if (token) {
+        if (localStorage.getItem("gh-access-token")) {
+          localStorage.removeItem("gh-access-token");
+        }
+        localStorage.setItem(
+          "user-info",
+          JSON.stringify({
+            name: user.name,
+            email: user.email,
+            x_username: user.x_username,
+            token: token,
+          })
+        );
+        navigate("/");
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
+   const SignUpWithX = async () => {
+     try {
+       window.open(
+         `${BACKEND_URL}/api/auth/x_twitter`,
+         "_blank",
+         "width=600,height=700"
+       );
+     } catch (error) {
+       console.log(error);
+     }
+   };
 
   //
 
@@ -200,7 +228,11 @@ const SignUp = () => {
         >
           <FaGoogle />
         </button>
-        <button aria-label="Sign up with Twitter" className="icon">
+        <button
+          aria-label="Sign up with Twitter"
+          className="icon"
+          onClick={SignUpWithX}
+        >
           <FaXTwitter />
         </button>
         <button
