@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../../css/Auth.css';
-import { FaGithub, FaGoogle, FaXTwitter, FaEye, FaEyeSlash } from 'react-icons/fa6';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../../css/Auth.css";
+import {
+  FaGithub,
+  FaGoogle,
+  FaXTwitter,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa6";
 
 // for the google oauth
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { googleAuth } from "../../functions/api";
-
 
 const URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`;
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -39,9 +44,11 @@ const Login = () => {
     }
   };
 
-  
   const navigate = useNavigate();
   //oauth handlers
+
+  // login with google
+  
   const responseGoogle = async (authResult) => {
     try {
       if (authResult["code"]) {
@@ -74,7 +81,7 @@ const Login = () => {
     if (code && !localStorage.getItem("gh_access_token")) {
       async function getGithubAccessToken() {
         const res = await axios.get(
-          `${BACKEND_URL}api/auth/github?code=` + code
+          `${BACKEND_URL}/api/auth/github?code=` + code
         );
         const resD = await res.data;
         const token = new URLSearchParams(resD).get("access_token");
@@ -83,29 +90,11 @@ const Login = () => {
         }
       }
       getGithubAccessToken();
-    } else if (code && localStorage.getItem("gh_access_token")) {
-      const getGhUser = async () => {
-        try {
-          const response = await axios.get(
-            `${BACKEND_URL}api/auth/github/getUser`,
-            {
-              headers: {
-                Authorization:
-                  "Bearer " + localStorage.getItem("gh_access_token"),
-              },
-            }
-          );
-          const user = await response.data.user;
-          localStorage.setItem("user-info",JSON.stringify(user));
-          navigate("/");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getGhUser();
+      navigate("/");
     }
   }, []);
 
+  //login with github
   const LoginWithGh = async () => {
     try {
       window.location.assign(
@@ -116,6 +105,50 @@ const Login = () => {
     }
   };
 
+  // login with X twitter
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.origin !== `${BACKEND_URL}`) return;
+
+      const { token, user } = event.data;
+
+      if (token) {
+        if (localStorage.getItem("gh-access-token")) {
+          localStorage.removeItem("gh-access-token");
+        }
+
+        localStorage.setItem(
+          "user-info",
+          JSON.stringify({
+            name: user.name,
+            email:user.email,
+            x_username: user.x_username,
+            token: token,
+          })
+        );
+        navigate("/");
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
+  const LoginWithX = async () => {
+    try {
+      window.open(
+        `${BACKEND_URL}/api/auth/x_twitter`,
+        "_blank",
+        "width=600,height=700"
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //
 
@@ -187,7 +220,11 @@ const Login = () => {
         >
           <FaGoogle />
         </button>
-        <button aria-label="Log in with Twitter" className="icon">
+        <button
+          aria-label="Log in with Twitter"
+          className="icon"
+          onClick={LoginWithX}
+        >
           <FaXTwitter />
         </button>
         <button
