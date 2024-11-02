@@ -9,16 +9,14 @@ import {
   FaEyeSlash,
 } from "react-icons/fa6";
 
-// for the google oauth
-import { useGoogleLogin } from "@react-oauth/google";
-import { useNavigate } from "react-router-dom";
-import { googleAuth } from "../../functions/api";
+// for oauth
+import useGoogleOauth from "../../functions/useGoogleOauth";
+import useGithubOauth from "../../functions/useGithubOauth";
+import useXTwitterOauth from "../../functions/useXTwitterOauth";
+
 
 const URL = `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`;
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-//github client id
-const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -44,110 +42,10 @@ const SignUp = () => {
       setError(error.response?.data?.error || "Something went wrong!");
     }
   };
-
-  const navigate = useNavigate();
-  //oauth handlers
-
-  //sign up with google
-  const responseGoogle = async (authResult) => {
-    try {
-      if (authResult["code"]) {
-        const result = await googleAuth(authResult.code);
-        const { email, name } = result.data.user;
-        const token = result.data.token;
-        const obj = { email, name, token };
-        localStorage.setItem("user-info", JSON.stringify(obj));
-        navigate("/");
-      } else {
-        console.log(authResult);
-        throw new Error(authResult);
-      }
-    } catch (e) {
-      console.log("Error while Google Login...", e);
-    }
-  };
-  const googleSignUp = useGoogleLogin({
-    onSuccess: responseGoogle,
-    onError: responseGoogle,
-    flow: "auth-code",
-  });
-
-  useEffect(() => {
-    //to get the github authentication code from the url
-    const params = window.location.search;
-    const urlParams = new URLSearchParams(params);
-    const code = urlParams.get("code");
-
-    if (code && !localStorage.getItem("gh_access_token")) {
-      async function getGithubAccessToken() {
-        const res = await axios.get(
-          `${BACKEND_URL}/api/auth/github?code=` + code
-        );
-        const resD = await res.data;
-        const token = new URLSearchParams(resD).get("access_token");
-        if (token) {
-          localStorage.setItem("gh_access_token", token);
-        }
-      }
-      getGithubAccessToken();
-      navigate("/");
-    } 
-  }, []);
-//sign up with github
-  const SignUpWithGh = async () => {
-    try {
-      window.location.assign(
-        `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}`
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-  //sign up with X twitter
-  
-  useEffect(() => {
-    const handleMessage = (event) => {
-      if (event.origin !== `${BACKEND_URL}`) return;
-
-      const { token, user } = event.data;
-
-      if (token) {
-        if (localStorage.getItem("gh-access-token")) {
-          localStorage.removeItem("gh-access-token");
-        }
-        localStorage.setItem(
-          "user-info",
-          JSON.stringify({
-            name: user.name,
-            email: user.email,
-            x_username: user.x_username,
-            token: token,
-          })
-        );
-        navigate("/");
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, []);
-
-   const SignUpWithX = async () => {
-     try {
-       window.open(
-         `${BACKEND_URL}/api/auth/x_twitter`,
-         "_blank",
-         "width=600,height=700"
-       );
-     } catch (error) {
-       console.log(error);
-     }
-   };
+// hooks to handle oauths
+ const { googleLoginSignUp } = useGoogleOauth();
+ const { githubLoginSignup } = useGithubOauth();
+ const { xTwitterLoginSignup } = useXTwitterOauth();
 
   //
 
@@ -224,21 +122,21 @@ const SignUp = () => {
         <button
           aria-label="Sign up with Google"
           className="icon"
-          onClick={googleSignUp}
+          onClick={googleLoginSignUp}
         >
           <FaGoogle />
         </button>
         <button
           aria-label="Sign up with Twitter"
           className="icon"
-          onClick={SignUpWithX}
+          onClick={xTwitterLoginSignup}
         >
           <FaXTwitter />
         </button>
         <button
           aria-label="Sign up with GitHub"
           className="icon"
-          onClick={SignUpWithGh}
+          onClick={githubLoginSignup}
         >
           <FaGithub />
         </button>
