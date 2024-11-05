@@ -14,23 +14,40 @@ const useGitHubOauth = () => {
     const urlParams = new URLSearchParams(params);
     const code = urlParams.get("code");
 
-    if (code && !localStorage.getItem("gh_access_token")) {
-      const getGithubAccessToken = async () => {
+    if (code) {
+      const getGithubUser = async () => {
         try {
           const res = await axios.get(
             `${BACKEND_URL}/api/auth/github?code=${code}`
           );
-          const resData = res.data;
+          const resData =await res.data;
           const token = new URLSearchParams(resData).get("access_token");
-          if (token) {
-            localStorage.setItem("gh_access_token", token);
-            navigate("/");
-          }
+
+           const response = await axios.get(
+             `${BACKEND_URL}/api/auth/github/getUser`,
+             {
+               headers: {
+                 Authorization:
+                   "Bearer " + token,
+               },
+             }
+           );
+           const { name, email } = await response.data.user;
+           localStorage.setItem(
+             "user-info",
+             JSON.stringify({
+               name: name,
+               email: email,
+             })
+            );
+         
+      
         } catch (error) {
-          console.error("GitHub Authentication Error:", error);
+          console.log("GitHub Authentication Error:", error);
         }
       };
-      getGithubAccessToken();
+      getGithubUser();
+         navigate("/");
     }
   }, [navigate]);
 

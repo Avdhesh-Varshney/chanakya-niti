@@ -75,35 +75,6 @@ function App() {
     document.body.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
-  //to get github user if,the access token from github exists
-  useEffect(()=>{
-    if (localStorage.getItem("gh_access_token") && !(localStorage.getItem("user-info"))) {
-      const getGhUser = async () => {
-        try {
-          const response = await axios.get(
-            `${BACKEND_URL}/api/auth/github/getUser`,
-            {
-              headers: {
-                Authorization:
-                  "Bearer " + localStorage.getItem("gh_access_token"),
-              },
-            }
-          );
-          const { name, email } = await response.data.user;
-          localStorage.setItem(
-            "user-info",
-            JSON.stringify({
-              name: name,
-              email: email,
-            })
-          );
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getGhUser();
-    }
-  },[]);
 
 
 //Google oauth only works if we wrap the components with google oauth provider
