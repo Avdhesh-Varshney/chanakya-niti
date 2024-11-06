@@ -1,0 +1,80 @@
+.story-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 80px; /* Add space below each heading */
+    margin-top: 80px; /* Add space above each heading */
+}
+.story-form h2{
+    color: rgb(57, 57, 57);
+}
+.story-form {
+    margin-bottom: 30px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.stories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px; /* Add space below each story section */
+}
+
+.story {
+    flex: 1 1 calc(50% - 20px);
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.story h3 {
+    color: #333;
+    margin: 0 0 10px;
+}
+
+/* Initial stories (great minds) */
+.story.initial {
+    background: #e7f3ff; /* Light blue */
+    border-left: 4px solid #1e90ff;
+}
+
+/* Personal stories */
+.story.personal {
+    background: #fff7e6; /* Light orange */
+    border-left: 4px solid #ff9800;
+}
+
+/* User-submitted stories */
+.story.user-submitted {
+    background: #f0f9e9; /* Light green */
+    border-left: 4px solid #28a745;
+}
