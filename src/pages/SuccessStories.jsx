@@ -44,7 +44,7 @@ const SuccessStories = () => {
         <div className="container">
             <h1>Success Stories and Inspiration Board</h1>
             <div className="story-form">
-                <h2>Share Your Story!</h2>
+                <h3>Share Your Story!</h3>
                 <input 
                     type="text" 
                     placeholder="Your Name" 

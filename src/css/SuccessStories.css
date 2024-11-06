@@ -1,19 +1,30 @@
+/* Dark mode colors */
+body.dark {
+    --background-color: #2c2a2a;
+    --text-color: #000000;
+    --card-background: #3a3a3a;
+    --heading-color: #363636;
+    --button-background: #3d8b3d;
+    --button-hover: #317532;
+    transition: background-color 0.25s, color 0.25s;
+  }
 .story-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
-    background: #f5f5f5;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: 8px;
 }
 
 h1, h2 {
     text-align: center;
-    color: #333;
+    color: var(--heading-color);
     margin-bottom: 80px; /* Add space below each heading */
     margin-top: 80px; /* Add space above each heading */
 }
-.story-form h2{
-    color: rgb(57, 57, 57);
+.story-form h3{
+    text-align: center;
 }
 .story-form {
     margin-bottom: 30px;
@@ -49,15 +60,16 @@ button:hover {
 }
 
 .story {
+    background-color: var(--card-background);
     flex: 1 1 calc(50% - 20px);
-    background: #f0f0f0;
+    color: var(--text-color);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .story h3 {
-    color: #333;
+    color: var(--heading-color);
     margin: 0 0 10px;
 }
 
