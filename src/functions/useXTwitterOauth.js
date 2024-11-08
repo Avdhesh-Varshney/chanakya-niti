@@ -35,6 +35,7 @@ const useXTwitterOauth = () => {
     window.open(
       `${BACKEND_URL}/api/auth/x_twitter`,
       "_blank",
+      "noopener","noreferrer",
       "width=600,height=700"
     );
   };
