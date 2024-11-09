@@ -13,7 +13,7 @@ const useXTwitterOauth = () => {
       const { token, user } = event.data;
 
       if (token) {
-        localStorage.removeItem("gh-access-token"); // Remove GitHub token if present
+        if(localStorage.getItem("gh-access-token")!==null){localStorage.removeItem("gh-access-token");}; // Remove GitHub token if present
         localStorage.setItem(
           "user-info",
           JSON.stringify({
@@ -35,7 +35,6 @@ const useXTwitterOauth = () => {
     window.open(
       `${BACKEND_URL}/api/auth/x_twitter`,
       "_blank",
-      "noopener","noreferrer",
       "width=600,height=700"
     );
   };
