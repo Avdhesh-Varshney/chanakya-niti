@@ -226,7 +226,16 @@ const Navbar = () => {
                   </li>
                 </ul>
               </li>
-
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/successstories"
+                  style={{ color: textColor }}
+                  onClick={handleLinkClick}
+                >
+                  Success Stories
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   className="nav-link"

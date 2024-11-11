@@ -9,6 +9,7 @@ import Footer from "./components/shared/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Help from "./pages/Help";
+import SuccessStories from "./pages/SuccessStories";
 import Feedback from "./pages/Feedback";
 
 import ChanakyaAudio from "./pages/resources/ChanakyaAudio";
@@ -130,7 +131,7 @@ function App() {
               path="/resources/chanakyagpt"
               element={<ChanakyaGpt />}
             />
-
+            <Route exact path="/successstories" element={<SuccessStories />} />
             <Route exact path="/contributor" element={<Contributors />} />
             <Route
               path="/contributor/details"
