@@ -1,0 +1,50 @@
+{
+  "name": "chanakya-niti-backend",
+  "version": "1.0.0",
+  "description": "A digital platform leveraging AI to provide accessible and engaging content on the teachings of Chanakya, an ancient Indian philosopher.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avdhesh-Varshney/chanakya-niti-backend.git"
+  },
+  "keywords": [
+    "chanakya-niti",
+    "chanakya-niti-backend",
+    "backend"
+  ],
+  "author": "Avdhesh Varshney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Avdhesh-Varshney/chanakya-niti-backend/issues"
+  },
+  "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti-backend#readme",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-validation": "^4.1.1",
+    "express-validator": "^7.1.0",
+    "googleapis": "^144.0.0",
+    "got": "^14.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "needle": "^3.3.1",
+    "nodemailer": "^6.9.15",
+    "oauth-1.0a": "^2.2.6",
+    "querystring": "^0.2.1",
+    "twitter": "^1.1.0",
+    "twitter-api-sdk": "^1.2.1",
+    "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
