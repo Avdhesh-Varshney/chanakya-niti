@@ -1,24 +1,26 @@
-<h1 align="center">CHANAKYA-NITI 📚</h1>
+<h2>Hey <𝚌𝚘𝚍𝚎𝚛𝚜/>! 👋</h2>
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Monoton&size=85&pause=12&speed=12&color=FFD700&center=true&vCenter=true&width=2000&height=200&lines=Welcome+to+Chanakya+Niti;Wisdom+of+the+Great+Strategist;Explore+Timeless+Teachings;Master+the+Art+of+Leadership;Knowledge.+Strategy.+Success.;Learn+from+History,+Shape+the+Future!;Decode+Chanakya's+Secrets!)](https://git.io/typing-svg)
 
-## Overview
+<div align="center">
 
-CHANAKYA-NITI is a web application designed to provide an engaging platform for exploring and learning about the teachings of Chanakya, an ancient Indian philosopher, economist, and strategist.
-
-<hr>
-
-## 📈 GitHub Repository Stats
 | 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
 |--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
 | ![GitHub stars](https://img.shields.io/github/stars/Avdhesh-Varshney/chanakya-niti) | ![forks](https://img.shields.io/github/forks/Avdhesh-Varshney/chanakya-niti) | ![issues](https://img.shields.io/github/issues/Avdhesh-Varshney/chanakya-niti?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/Avdhesh-Varshney/chanakya-niti?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/Avdhesh-Varshney/chanakya-niti?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/Avdhesh-Varshney/chanakya-niti?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/Avdhesh-Varshney/chanakya-niti?color=00FA9A) |
 
-## Purpose and Motivation 🎯
+</div>
+
+--- 
+
+#### :zap: About Chanakya Niti 🌟
+
+**CHANAKYA NITI** is a web application designed to provide an engaging platform for exploring and learning about the teachings of Chanakya, an ancient Indian philosopher, economist, and strategist.
+
+#### :zap: Purpose and Motivation 🎯
 
 This project aims to bring the timeless wisdom of Chanakya to a modern audience, making his teachings accessible and engaging through a digital platform.
 
-<hr>
-
-## Features ✨
+#### :zap: Features ✨
 
 - **Interactive Interface**: Engaging UI for exploring Chanakya's teachings.
 - **Secure Backend**: Robust infrastructure to secure source code and multimedia content.
@@ -28,24 +30,8 @@ This project aims to bring the timeless wisdom of Chanakya to a modern audience,
 - **API Access**: Allows users to create their own Chanakya-Niti websites.
 - **Language Translation**: AI model for translating content into multiple languages.
 
-<hr>
-
-## Backend Repository 🔧
-
-The backend of the CHANAKYA-NITI application is designed to provide a secure and scalable infrastructure for handling user data, authentication, multimedia content, and AI integrations.
-
-- **Repository Link**: [chanakya-niti-backend](https://github.com/Avdhesh-Varshney/chanakya-niti-backend)
-- **Technologies Used**:
-  - **Node.js**: Server-side JavaScript runtime.
-  - **Express.js**: Web application framework for Node.js.
-  - **MongoDB**: NoSQL database for storing application data.
-  - **JWT**: JSON Web Tokens for secure user authentication.
-  - **TensorFlow**: AI model integration for personalized recommendations and language translation.
-  
-<hr>
-
- <details>
-   <summary><h2>Rough Project Structure 👈</h2></summary>
+<details>
+<summary><h4>:zap: Rough Project Structure 👈</h4></summary>
 
 ```css
 Chanakya-Niti
@@ -92,6 +78,7 @@ Chanakya-Niti
 │           │       ├── GitHub
 │           │       └── Discord
 │           └── Project Frontend repo link
+|
 ├── Backend
 │   ├── Express + Node + MongoDB
 │   │   ├── User Authentication
@@ -116,6 +103,7 @@ Chanakya-Niti
 │   |       └── For audios
 |   ├── Testing
 |   └── Documentation
+|
 └── Database
     ├── Audio database
     ├── Videos database
@@ -124,9 +112,8 @@ Chanakya-Niti
 ```
 </details>
 
-<hr>
-
-## Installation Instructions 🛠️
+<details>
+<summary><h4>:zap: Installation Instructions 🛠️</h4></summary>
 
 1. Clone the repository:
    ```sh
@@ -144,64 +131,6 @@ Chanakya-Niti
    ```sh
    npm run dev
    ```
-
-  <hr>
-  
-
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Contributing Guidelines </h2>
-</div>
-
-We welcome contributions! Here’s how you can get started:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```sh
-   git checkout -b issue/<issue-number>
-   ```
-3. Make your changes and commit them:
-   ```sh
-   git commit -m 'Add some feature'
-   ```
-4. Push to the branch:
-   ```sh
-   git push origin issue/<issue-number>
-   ```
-5. Open a pull request.
-6. Feel the pr template carefully by properly linked your issue with the pr.
-
-<hr>
-
-## Contact Information 📬
-
-- **Maintainer**: Avdhesh Varshney
-- **Discord Server**: https://discord.gg/tSqtvHUJzE
-
-<hr>
-
-## Guide to Contributing 🛠️
-
-1. **Start Simple**: Begin with small tasks such as fixing typos, improving documentation, or resolving simple bugs. This will help you familiarize yourself with the project structure and coding standards.
-2. **Intermediate Tasks**: Once comfortable, take on more complex tasks such as adding new features, improving existing functionalities, or optimizing code performance.
-3. **Advanced Contributions**: Work on integrating AI models, enhancing security features, or developing new modules. This requires a deep understanding of the project's architecture and advanced coding skills.
-4. **Engage with the Community**: Participate in discussions, attend virtual meetups, and provide feedback on others' contributions. Collaboration is key to the success of open-source projects.
-5. **Stay Updated**: Regularly check the project's issue tracker, roadmap, and discussion forums to stay informed about the latest developments and opportunities for contribution.
-
-<hr>
-
-<h2 align = "center">Our Contributors ❤️</h2>
-<a href="https://github.com/Avdhesh-Varshney/chanakya-niti/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Avdhesh-Varshney/chanakya-niti" />
-</a>
-
-
-![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
-
-<div align="center">
-  <h1>Tip from us 😇</h1>
-  <p>It always takes time to understand and learn. So, don't worry at all. We know <b>you have got this</b>! 💪</p>
-  <h3>Show some &nbsp;❤️&nbsp; by &nbsp;🌟&nbsp; this repository!</h3>
-  <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60"> <em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you more!</b> :)</em>
-</div>
+</details>
 
 <a href="#top"><img src="https://img.shields.io/badge/-Back%20to%20Top-red?style=for-the-badge" align="right"/></a>
