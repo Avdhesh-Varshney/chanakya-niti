@@ -221,7 +221,7 @@ const Feedback = () => {
 
   const isValidEmail = (email) => {
     // Simple email validation
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    return /^(?:[a-zA-Z0-9]+(?:[\.-]?[a-zA-Z0-9]+)*)@(?:[a-zA-Z0-9]+(?:[\.-]?[a-zA-Z0-9]+)*)(\.[a-zA-Z]{2,3})+$/.test(email);
   };
 
   const resetForm = () => {
