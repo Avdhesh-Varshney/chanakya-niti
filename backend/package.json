@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Avdhesh-Varshney/chanakya-niti-backend.git"
+    "url": "git+https://github.com/Avdhesh-Varshney/chanakya-niti.git"
   },
   "keywords": [
     "chanakya-niti",
@@ -21,9 +21,9 @@
   "author": "Avdhesh Varshney",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Avdhesh-Varshney/chanakya-niti-backend/issues"
+    "url": "https://github.com/Avdhesh-Varshney/chanakya-niti/issues"
   },
-  "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti-backend#readme",
+  "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti#readme",
   "dependencies": {
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
