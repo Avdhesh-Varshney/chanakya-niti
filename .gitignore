@@ -26,12 +26,14 @@ coverage
 out/
 build
 dist
-
+dist-ssr
 
 # Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Misc
 .DS_Store
@@ -44,3 +46,17 @@ yarn-error.log*
 *.status
 *.sqlite
 *.db
+*.local
+
+# Logs
+logs
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
