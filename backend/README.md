@@ -4,7 +4,6 @@
 
 The backend of the CHANAKYA-NITI application is designed to provide a secure and scalable infrastructure for handling user data, authentication, multimedia content, and AI integrations.
 
-- **Repository Link**: [chanakya-niti-backend](https://github.com/Avdhesh-Varshney/chanakya-niti-backend)
 - **Technologies Used**:
   - **Node.js**: Server-side JavaScript runtime.
   - **Express.js**: Web application framework for Node.js.
