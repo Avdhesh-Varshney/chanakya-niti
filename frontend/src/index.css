@@ -75,6 +75,10 @@
     @apply z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-gray-200 bg-white;
   }
 
+  .footer {
+    @apply w-full px-[5vw] py-6 border-t border-gray-200 bg-[#dfdfb060];
+  }
+
   .h-cover {
     @apply min-h-[calc(100vh-80px)];
   }
