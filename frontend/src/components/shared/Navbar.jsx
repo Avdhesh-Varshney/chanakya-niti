@@ -139,16 +139,6 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link"
-                  to="/help"
-                  style={{ color: textColor }}
-                  onClick={handleLinkClick}
-                >
-                  Help
-                </Link>
-              </li>
 
               <li className="nav-item dropdown">
                 <button

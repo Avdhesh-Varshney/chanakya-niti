@@ -17,7 +17,6 @@ import {
 } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import "../../css/Footer.css";
-import { TbHelpSquareFilled } from "react-icons/tb";
 import GoogleTranslate from "../../pages/GoogleTranslate";
 
 const Footer = () => {
@@ -87,15 +86,6 @@ const Footer = () => {
                   style={{ color: isDarkMode ? "white" : "black" }}
                 >
                   <FaInfoCircle className="me-2" /> About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/Help"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <TbHelpSquareFilled className="me-2" /> Help
                 </NavLink>
               </li>
               <li>
