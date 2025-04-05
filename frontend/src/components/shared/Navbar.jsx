@@ -4,8 +4,6 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { Context } from "../../context/Context";
 import "../shared/Navbar.css";
 
-import ProgressBar from "./Progressbar";
-
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(Context);
   const [isSticky, setIsSticky] = useState(false);
@@ -50,7 +48,6 @@ const Navbar = () => {
 
   return (
     <>
-      <ProgressBar />
       <nav
         className={`navbar navbar-expand-lg ${isSticky ? "fixed-top" : ""} ${
           isDarkMode ? "navbar-dark" : "navbar-light"
