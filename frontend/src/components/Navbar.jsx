@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
   // Background and text color based on collapse state
@@ -19,21 +19,17 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar bg-[#dfdfb0]" id="navbarSupportedContent">
-        <div className="p-0">
-          <div className="flex flex-col justify-content-between align-items-center w-100">
+      <nav className="navbar bg-[#dfdfb0]">
+        <Link to="/" className="flex items-center gap-2">
+          <img src="logo.webp" alt="Chanakya Image" className="me-2 w-12 h-12" />
+          <span className="text-2xl font-bold">
+            चाणक्य नीति
+          </span>
+        </Link>
 
-            <Link to="/">
-              <img src="logo.webp" alt="Chanakya Image" className="me-2 w-[30px] h-[30px]" />
-              <span className="text-[1.2rem] font-bold">
-                चाणक्य नीति
-              </span>
-            </Link>
-
-          </div>
-
-        </div>
       </nav>
+
+      <Outlet />
     </>
   );
 };
