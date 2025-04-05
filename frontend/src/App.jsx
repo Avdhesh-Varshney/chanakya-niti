@@ -112,35 +112,10 @@ function App() {
         <Footer />
       </Router>
 
-      {/* Scroll to Top Button */}
-      {/* <button
-        className="scroll-to-top"
-        onClick={scrollToTop}
-        style={{
-          position: "fixed",
-          bottom: "50px",
-          right: "30px",
-          display: showScroll ? "flex" : "none",
-          backgroundColor: isDarkMode ? "#6f9e6f" : "#DFDFB0",
-          color: isDarkMode ? "#F5FBFA" : "#333",
-          borderRadius: "50%",
-          height: "50px",
-          width: "50px",
-          padding: "10px",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "24px",
-          cursor: "pointer",
-          zIndex: 1000,
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        <FaAngleDoubleUp />
-      </button> */}
       <ScrollToTop
         className="scroll-to-top"
         symbol={<FaAngleDoubleUp />}
-        size={90}
+        size={50}
         bgColor={isDarkMode ? "#2C2A2A" : "#dfdfb0"}
         strokeWidth={6}
         strokeFillColor={isDarkMode?"#fff":"rgb(0, 0, 0)"}
