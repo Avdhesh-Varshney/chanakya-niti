@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
 import { ReactTyped } from "react-typed";
 import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
-import { Context } from '../context/Context';
 
 export default function Home() {
-  const { isDarkMode } = useContext(Context);
 
   return (
-    <div className={`d-flex flex-column align-items-center ${isDarkMode ? 'dark-mode' : 'light-mode'}`} style={{ color: isDarkMode ? 'white' : 'black' }}>
+    <div className={`d-flex flex-column align-items-center ${'light-mode'}`} style={{ color: 'black' }}>
       
-      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'rgba(255, 255, 255, 0.035)'}` }}>
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: `${'rgba(255, 255, 255, 0.035)'}` }}>
         <div className="d-flex flex-column align-items-center justify-content-center w-100">
           <h1 className="font-weight-bold display-4 mb-3">चाणक्य नीति</h1>
           <div className="font-weight-bold">
@@ -40,7 +37,7 @@ export default function Home() {
         className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" 
         style={{ 
           gap: '20px', 
-          backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, 
+          backgroundColor: `${'rgba(52, 91, 57, 0.328)'}`, 
           borderRadius: '20px'
         }}
       >
@@ -50,7 +47,7 @@ export default function Home() {
           style={{ 
             width: '350px', 
             borderRadius: '20px', 
-            backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`
+            backgroundColor: `${'white'}`
           }}
         >
           <img src="/e-book.jpeg" className="card-img-top" alt="E-book on Chanakya" />
@@ -65,7 +62,7 @@ export default function Home() {
         {/* Video Button Section */}
         <div 
           className="d-flex flex-column align-items-center justify-content-center gap-3" 
-          style={{ color: isDarkMode ? 'white' : 'black' }}
+          style={{ color: 'black' }}
         >
           <VideoButton />
           <div className="text-center">
@@ -82,7 +79,7 @@ export default function Home() {
           style={{ 
             width: '350px', 
             borderRadius: '20px', 
-            backgroundColor: `${isDarkMode ? 'rgba(0, 0, 0, 0.6)' : 'white'}`
+            backgroundColor: `${'white'}`
           }}
         >
           <img src="/video.jpg" className="card-img-top" alt="Video and Audio Experiences" />
@@ -96,7 +93,7 @@ export default function Home() {
       </div>
 
       {/* AI-Powered Translations Section */}
-      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${isDarkMode ? 'rgba(52, 91, 57, 0.5)' : 'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: isDarkMode ? 'white' : 'black' }}>
+      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: 'black' }}>
         <div className="d-flex align-items-center gap-2 center mb-3">
           <img src="/ai.svg" alt="AI Translations" style={{ width: '60px', borderRadius: '100%' }} />
           <h5 className="font-weight-bold">AI-Powered Translations</h5>

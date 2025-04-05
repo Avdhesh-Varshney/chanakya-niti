@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
-import { Context } from "../../context/Context";
 
 const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useContext(Context);
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const toggleCollapse = () => {
@@ -16,20 +14,20 @@ const Navbar = () => {
   };
 
   // Background and text color based on collapse state
-  const bgColor = isCollapsed
-    ? isDarkMode
-      ? "rgba(223, 223, 176)"
-      : "rgba(223, 223, 176)"
-    : isDarkMode
-      ? "rgba(223, 223, 176)"
-      : "rgba(223, 223, 176)";
-  const textColor = isCollapsed
-    ? isDarkMode
-      ? "#000000a6"
-      : "#000000a6"
-    : isDarkMode
-      ? "#000000a6"
-      : "#000000a6";
+  // const bgColor = isCollapsed
+  //   ? isDarkMode
+  //     ? "rgba(223, 223, 176)"
+  //     : "rgba(223, 223, 176)"
+  //   : isDarkMode
+  //     ? "rgba(223, 223, 176)"
+  //     : "rgba(223, 223, 176)";
+  // const textColor = isCollapsed
+  //   ? isDarkMode
+  //     ? "#000000a6"
+  //     : "#000000a6"
+  //   : isDarkMode
+  //     ? "#000000a6"
+  //     : "#000000a6";
 
   return (
     <>
@@ -44,38 +42,6 @@ const Navbar = () => {
               </span>
             </Link>
 
-            <div className="d-flex align-items-center">
-              <li
-                className="nav-item nav-link"
-                onClick={toggleTheme}
-                style={{
-                  cursor: "pointer",
-                  marginRight: "1rem",
-                  color: textColor,
-                }}
-              >
-                {isDarkMode ? (
-                  <MdOutlineLightMode
-                    style={{ fontSize: "1.5rem", color: textColor }}
-                  />
-                ) : (
-                  <MdOutlineDarkMode
-                    style={{ fontSize: "1.5rem", color: textColor }}
-                  />
-                )}
-              </li>
-
-              <button
-                className="navbar-toggler"
-                type="button"
-                onClick={toggleCollapse}
-                aria-controls="navbarSupportedContent"
-                aria-expanded={!isCollapsed}
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-            </div>
           </div>
 
         </div>

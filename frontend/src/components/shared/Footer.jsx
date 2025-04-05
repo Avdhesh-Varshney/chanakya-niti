@@ -1,32 +1,21 @@
-import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { Context } from "../../context/Context";
 import Visitors from "./Visitors";
 import {
   FaGithub,
   FaHome,
   FaInfoCircle,
-  FaUser,
   FaSignInAlt,
-  FaMusic,
-  FaVideo,
-  FaBook,
-  FaNewspaper,
-  FaQuestionCircle,
-  FaRobot,
 } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import "../../css/Footer.css";
 
 const Footer = () => {
-  const { isDarkMode } = useContext(Context);
-
   return (
     <footer
       className="footer font-small pt-4"
       style={{
         backgroundColor: `${
-          isDarkMode ? "rgba(0, 0, 0, 0.4)" : "rgba(223, 223, 176, 0.4)"
+          "rgba(223, 223, 176, 0.4)"
         }`,
       }}
     >
@@ -39,7 +28,7 @@ const Footer = () => {
               </Tilt>
               <figcaption
                 className="figure-caption text-center mt-2"
-                style={{ color: isDarkMode ? "white" : "black" }}
+                style={{ color: "black" }}
               >
                 चाणक्य नीति
               </figcaption>
@@ -61,7 +50,7 @@ const Footer = () => {
           <div className="col">
             <h3
               className="text-uppercase fw-bold"
-              style={{ color: isDarkMode ? "white" : "black" }}
+              style={{ color: "black" }}
             >
               चाणक्य नीति
             </h3>
@@ -70,7 +59,7 @@ const Footer = () => {
                 <NavLink
                   to="/"
                   className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
+                  style={{ color: "black" }}
                 >
                   <FaHome className="me-2" /> Home
                 </NavLink>
@@ -79,7 +68,7 @@ const Footer = () => {
                 <NavLink
                   to="/auth/login"
                   className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
+                  style={{ color: "black" }}
                 >
                   <FaSignInAlt className="me-2" /> Login
                 </NavLink>
@@ -88,7 +77,7 @@ const Footer = () => {
                 <NavLink
                   to="/Feedback"
                   className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
+                  style={{ color: "black" }}
                 >
                   <FaInfoCircle className="me-2" /> Feedback
                 </NavLink>
@@ -96,76 +85,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col my-auto">
-            <h3
-              className="text-uppercase fw-bold"
-              style={{ color: isDarkMode ? "white" : "black" }}
-            >
-              Resources
-            </h3>
-            <ul className="list-unstyled">
-              <li>
-                <NavLink
-                  to="/resources/chanakyagpt"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaRobot className="me-2" /> ChanakyaGpt
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resources/audio"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaMusic className="me-2" /> Audio
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resources/video"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaVideo className="me-2" /> Video
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resources/book"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaBook className="me-2" /> Books
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resources/news"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaNewspaper className="me-2" /> News
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/resources/quiz"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaQuestionCircle className="me-2" /> Quiz
-                </NavLink>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
 
       <div
         className="text-center"
-        style={{ color: isDarkMode ? "white" : "black" }}
+        style={{ color: "black" }}
       >
         <p>
           &copy; {new Date().getFullYear()} Chanakya Niti. All rights reserved.

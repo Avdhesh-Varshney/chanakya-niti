@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-
-import { Context } from "./context/Context";
 
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
@@ -14,10 +12,8 @@ import { FaAngleDoubleUp } from "react-icons/fa";
 import { ScrollToTop } from "react-simple-scroll-up";
 
 function App() {
-  const { isDarkMode } = useContext(Context); // Assuming isDarkMode is provided in your context
   const [showScroll, setShowScroll] = useState(false);
 
-  // Function to check the scroll position
   const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 300) {
       setShowScroll(true);
@@ -32,18 +28,6 @@ function App() {
       window.removeEventListener("scroll", checkScrollTop);
     };
   }, [showScroll]);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [isDarkMode]);
-
-  useEffect(() => {
-    document.body.classList.toggle("dark", isDarkMode);
-  }, [isDarkMode]);
 
   return (
     <>
@@ -64,11 +48,11 @@ function App() {
         className="scroll-to-top"
         symbol={<FaAngleDoubleUp />}
         size={50}
-        bgColor={isDarkMode ? "#2C2A2A" : "#dfdfb0"}
+        bgColor={"#dfdfb0"}
         strokeWidth={6}
-        strokeFillColor={isDarkMode ? "#fff" : "rgb(0, 0, 0)"}
+        strokeFillColor={"#fff"}
         strokeEmptyColor="#505050"
-        symbolColor={isDarkMode ? "#F5FBFA" : "#333"}
+        symbolColor={"#333"}
       />
     </>
   );

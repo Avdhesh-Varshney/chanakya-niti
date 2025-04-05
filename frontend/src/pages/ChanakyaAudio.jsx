@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as func from '../functions/RequestEpisode.module';
 import ReactPlayer from "react-player";
-import { Context } from "../context/Context";
 
 const ChanakyaAudio = () => {
-  const { setProgress } = useContext(Context);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [URL, setURL] = useState(null);
