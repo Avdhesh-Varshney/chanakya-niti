@@ -32,66 +32,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* One wrapper div for the cards and multimedia content */}
-      <div 
-        className="d-flex flex-column flex-md-row align-items-center justify-content-around w-100 my-4 py-4" 
-        style={{ 
-          gap: '20px', 
-          backgroundColor: `${'rgba(52, 91, 57, 0.328)'}`, 
-          borderRadius: '20px'
-        }}
-      >
-        {/* E-Book Card */}
-        <div 
-          className="card h-100 shadow-sm" 
-          style={{ 
-            width: '350px', 
-            borderRadius: '20px', 
-            backgroundColor: `${'white'}`
-          }}
-        >
-          <img src="/e-book.jpeg" className="card-img-top" alt="E-book on Chanakya" />
-          <div className="card-body">
-            <h5 className="card-title font-weight-bold" style={{ color: 'black' }}>Dive into the World of Chanakya through E-Books</h5>
-            <p className="card-text" style={{ color: 'black' }}>
-              Discover the profound wisdom of Chanakya with our meticulously curated e-books. Each page offers a gateway into the timeless teachings of this ancient sage, providing you with insights and strategies that remain relevant in today's world.
-            </p>
-          </div>
-        </div>
-
-        {/* Video Button Section */}
-        <div 
-          className="d-flex flex-column align-items-center justify-content-center gap-3" 
-          style={{ color: 'black' }}
-        >
-          <VideoButton />
-          <div className="text-center">
-            <h4 className="font-weight-bold">MULTIMEDIA CONTENT</h4>
-            <p className="font-weight-semibold">
-              Audio Files, Books, Videos on Chanakya's Life
-            </p>
-          </div>
-        </div>
-
-        {/* Video and Audio Card */}
-        <div 
-          className="card h-100 shadow-sm" 
-          style={{ 
-            width: '350px', 
-            borderRadius: '20px', 
-            backgroundColor: `${'white'}`
-          }}
-        >
-          <img src="/video.jpg" className="card-img-top" alt="Video and Audio Experiences" />
-          <div className="card-body">
-            <h5 className="card-title font-weight-bold" style={{ color: 'black' }}>Video and Audio Experiences</h5>
-            <p className="card-text" style={{ color: 'black' }}>
-              Immerse yourself in the wisdom of Chanakya through our captivating blend of video and audio content. Explore his timeless teachings with clarity and depth, as every word and gesture comes alive, enriching your journey of learning and discovery.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* AI-Powered Translations Section */}
       <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: 'black' }}>
         <div className="d-flex align-items-center gap-2 center mb-3">
