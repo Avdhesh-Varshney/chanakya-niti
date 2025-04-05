@@ -17,7 +17,6 @@ import {
 } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import "../../css/Footer.css";
-import GoogleTranslate from "../../pages/GoogleTranslate";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
@@ -77,15 +76,6 @@ const Footer = () => {
                   style={{ color: isDarkMode ? "white" : "black" }}
                 >
                   <FaHome className="me-2" /> Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/about"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaInfoCircle className="me-2" /> About
                 </NavLink>
               </li>
               <li>
