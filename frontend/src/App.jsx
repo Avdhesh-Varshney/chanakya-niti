@@ -25,7 +25,6 @@ import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
 import "./App.css";
-import AnimatedCursor from "react-animated-cursor";
 
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { ScrollToTop } from "react-simple-scroll-up";
@@ -92,27 +91,6 @@ function App() {
 
   return (
     <div className={`d-flex flex-column ${isDarkMode ? "dark" : ""}`}>
-      <AnimatedCursor
-        innerSize={10}
-        outerSize={12}
-        color="111, 158, 111"
-        outerAlpha={0.8}
-        innerScale={1.0}
-        outerScale={5}
-        clickables={[
-          "a",
-          'input[type="text"]',
-          'input[type="email"]',
-          'input[type="number"]',
-          'input[type="submit"]',
-          'input[type="image"]',
-          "label[for]",
-          "select",
-          "textarea",
-          "button",
-          ".link",
-        ]}
-      />
       <Router>
         <Navbar />
         <main className="container flex-grow-1 mt-4">
