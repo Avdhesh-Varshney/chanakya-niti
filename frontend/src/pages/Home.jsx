@@ -1,16 +1,26 @@
 import { ReactTyped } from "react-typed";
-import VideoButton from "../components/Home/VideoButton";
 import Tilt from 'react-parallax-tilt';
+import QuoteSection from "../components/Quotes";
 
 export default function Home() {
 
   return (
     <div className={`d-flex flex-column align-items-center ${'light-mode'}`} style={{ color: 'black' }}>
-      
-      <div className="d-flex flex-column flex-md-row align-items-center justify-content-center w-100 p-4" style={{ padding: '80px 4px', borderRadius: '15px', backgroundColor: `${'rgba(255, 255, 255, 0.035)'}` }}>
-        <div className="d-flex flex-column align-items-center justify-content-center w-100">
-          <h1 className="font-weight-bold display-4 mb-3">चाणक्य नीति</h1>
-          <div className="font-weight-bold">
+      <div className="flex flex-col md:flex-row items-center justify-center w-full p-4 md:py-20 md:px-4 rounded-[15px] bg-[#FFFFFF06]">
+        <style>{`
+        @keyframes moveUpDown {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-moveUpDown {
+          animation: moveUpDown 2s infinite;
+        }
+      `}</style>
+
+        <div className="flex flex-col items-center justify-center w-full">
+          <h1 className="text-4xl md:text-6xl mb-3 text-center tracking-tight">चाणक्य नीति</h1>
+
+          <div className="text-center text-2xl md:text-4xl font-medium leading-relaxed">
             <ReactTyped
               strings={[
                 "शक्तिशाली मन को कोई नहीं हरा सकता।",
@@ -25,23 +35,20 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="d-flex justify-content-center w-100 mt-4 mt-md-0">
+
+        <div className="flex justify-center w-full mt-4 md:mt-0">
           <Tilt>
-            <img className="img-fluid" src="/home1.png" alt="Chanakya Wisdom" style={{ animation: 'moveUpDown 2s infinite' }} />
+            <img
+              className="w-100 h-100 max-w-md animate-moveUpDown"
+              src="/home1.png"
+              alt=""
+            />
           </Tilt>
         </div>
       </div>
 
-      {/* AI-Powered Translations Section */}
-      <div className="d-flex flex-column align-items-center justify-content-center my-4 py-4" style={{ backgroundColor: `${'rgba(52, 91, 57, 0.328)'}`, borderRadius: '20px', width: '100%', color: 'black' }}>
-        <div className="d-flex align-items-center gap-2 center mb-3">
-          <img src="/ai.svg" alt="AI Translations" style={{ width: '60px', borderRadius: '100%' }} />
-          <h5 className="font-weight-bold">AI-Powered Translations</h5>
-        </div>
-        <p className="text-center">
-          Explore the world without boundaries with our AI-powered language translation. Break down language barriers effortlessly as our advanced technology seamlessly transforms content into your preferred language. Whether you're discovering ancient wisdom or connecting with global insights, our translation AI ensures every word resonates, bridging cultures and uniting minds.
-        </p>
-      </div>
+      <QuoteSection />
+
     </div>
   );
 }
