@@ -1,18 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-
-  const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
-  };
-
-  const handleLinkClick = () => {
-    setIsCollapsed(true);
-  };
-
   // Background and text color based on collapse state
   // const bgColor = isCollapsed
   //   ? isDarkMode
@@ -37,7 +25,7 @@ const Navbar = () => {
 
             <Link to="/">
               <img src="logo.webp" alt="Chanakya Image" className="me-2 w-[30px] h-[30px]" />
-              <span className="text-[1.2rem] font-bold" onClick={handleLinkClick}>
+              <span className="text-[1.2rem] font-bold">
                 चाणक्य नीति
               </span>
             </Link>

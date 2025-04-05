@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/shared/Navbar";
-import Footer from "./components/shared/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 
