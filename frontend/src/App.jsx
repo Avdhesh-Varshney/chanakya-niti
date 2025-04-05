@@ -18,9 +18,6 @@ import ChanakyaNews from "./pages/resources/ChanakyaNews";
 import ChanakyaQuiz from "./pages/resources/ChanakyaQuiz";
 import ChanakyaVideo from "./pages/resources/ChanakyaVideo";
 
-import Contributors from "./pages/contributor/Contributors";
-import ContributorDetail from "./pages/contributor/ContributorDetail";
-
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
@@ -110,11 +107,6 @@ function App() {
               element={<ChanakyaGpt />}
             />
             <Route exact path="/successstories" element={<SuccessStories />} />
-            <Route exact path="/contributor" element={<Contributors />} />
-            <Route
-              path="/contributor/details"
-              element={<ContributorDetail />}
-            />
 
             {/* Authentication Pages */}
             <Route exact path="/auth/login" element={<GoogleLoginWrapper/>} />

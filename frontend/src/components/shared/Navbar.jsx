@@ -239,16 +239,6 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   className="nav-link"
-                  to="/contributor"
-                  style={{ color: textColor }}
-                  onClick={handleLinkClick}
-                >
-                  Contributors
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link"
                   to="/auth/login"
                   style={{ color: textColor }}
                   onClick={handleLinkClick}

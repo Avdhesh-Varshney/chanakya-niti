@@ -18,7 +18,7 @@ import {
 import Tilt from "react-parallax-tilt";
 import "../../css/Footer.css";
 import { TbHelpSquareFilled } from "react-icons/tb";
-import GoogleTranslate from "../../pages/contributor/GoogleTranslate";
+import GoogleTranslate from "../../pages/GoogleTranslate";
 
 const Footer = () => {
   const { isDarkMode } = useContext(Context);
@@ -96,15 +96,6 @@ const Footer = () => {
                   style={{ color: isDarkMode ? "white" : "black" }}
                 >
                   <TbHelpSquareFilled className="me-2" /> Help
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contributor"
-                  className="text-decoration-none"
-                  style={{ color: isDarkMode ? "white" : "black" }}
-                >
-                  <FaUser className="me-2" /> Contributors
                 </NavLink>
               </li>
               <li>
