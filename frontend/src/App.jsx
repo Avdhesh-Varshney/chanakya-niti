@@ -19,7 +19,6 @@ import ChanakyaVideo from "./pages/resources/ChanakyaVideo";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import ChanakyaGpt from "./pages/resources/ChanakyaGpt";
-import "./App.css";
 
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { ScrollToTop } from "react-simple-scroll-up";
