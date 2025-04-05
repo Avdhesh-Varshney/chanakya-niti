@@ -54,9 +54,6 @@ const Footer = () => {
               >
                 <FaGithub className="me-2" /> Star Us ⭐
               </a>
-              <div>
-                <GoogleTranslate />
-              </div>
               <Visitors />
             </div>
           </div>
