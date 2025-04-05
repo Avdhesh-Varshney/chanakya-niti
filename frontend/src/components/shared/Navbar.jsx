@@ -6,21 +6,7 @@ import "../shared/Navbar.css";
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(Context);
-  const [isSticky, setIsSticky] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
-
-  const handleScroll = () => {
-    setIsSticky(window.scrollY > 50);
-  };
-
-   useEffect(() => {
-     window.addEventListener("scroll", handleScroll);
-     window.addEventListener("load", handleScroll);
-     return () => {
-       window.removeEventListener("scroll", handleScroll);
-       window.removeEventListener("load", handleScroll);
-     };
-   }, []);
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
@@ -49,7 +35,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar navbar-expand-lg ${isSticky ? "fixed-top" : ""} ${
+        className={`navbar navbar-expand-lg fixed-top ${
           isDarkMode ? "navbar-dark" : "navbar-light"
         }`}
         id="navbarSupportedContent"
