@@ -12,7 +12,7 @@ import { UserContext } from "../App";
 
 const UserAuthForm = ({ type }) => {
 
-    const { userAuth: { access_token } } = useContext(UserContext);
+    const { userAuth, userAuth: { access_token }, setUserAuth } = useContext(UserContext);
 
     const userAuthThroughServer = async (serverRoute, formData) => {
         await axios.post(import.meta.env.VITE_SERVER_DOMAIN + serverRoute, formData)
