@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Inter:wght@400;500&display=swap');
+@import "@flaticon/flaticon-uicons/css/all/all";
 @import "tailwindcss";
 
 .font-gelasio {
@@ -92,15 +93,15 @@
   }
 
   .btn-dark {
-    @apply whitespace-nowrap bg-black text-white rounded-full py-3 px-6 text-xl capitalize hover:opacity-80;
+    @apply whitespace-nowrap bg-[#bfae64] text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-[#a6914f] transition;
   }
 
   .btn-light {
-    @apply whitespace-nowrap rounded-full py-3 px-6 text-xl capitalize hover:opacity-80 bg-gray-200 text-black;
+    @apply whitespace-nowrap bg-[#fdf8e4] text-black rounded-full py-3 px-6 text-xl capitalize border border-[#bfae64] hover:bg-[#f4eacb] transition;
   }
 
   .input-box {
-    @apply w-[100%] rounded-md p-4 bg-gray-200 pl-12 border border-gray-200 focus:bg-transparent placeholder:text-black;
+    @apply w-[100%] rounded-md p-4 bg-[#FFFFFF56] pl-12 border border-gray-200 focus:bg-transparent placeholder:text-black;
   }
 
   input:disabled,

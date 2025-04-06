@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
+import UserAuthForm from "./pages/UserAuthForm";
 
 export const UserContext = createContext({});
 
@@ -32,8 +33,8 @@ function App() {
         <main className="flex-1 w-full max-w-7xl px-4 mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<h1>Login Page</h1>} />
-            <Route path="/register" element={<h1>Register Page</h1>} />
+            <Route path="/login" element={<UserAuthForm type='login' />} />
+            <Route path="/register" element={<UserAuthForm type='register' />} />
           </Routes>
         </main>
 
