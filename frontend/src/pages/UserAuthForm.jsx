@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 
 import { storeInSession } from "../common/session";
+import AnimationWrapper from "../common/page-animation";
 
 import InputBox from "../components/InputBox";
 
@@ -14,12 +15,6 @@ const UserAuthForm = ({ type }) => {
     const { userAuth: { access_token } } = useContext(UserContext);
 
     const userAuthThroughServer = async (serverRoute, formData) => {
-
-        if (serverRoute === "/api/auth/register") {
-            let { email } = formData;
-            await axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/api/subscriber/subscribe", { email });
-        }
-
         await axios.post(import.meta.env.VITE_SERVER_DOMAIN + serverRoute, formData)
             .then(({ data }) => {
                 toast.success("Logged in successfully");
@@ -33,6 +28,7 @@ const UserAuthForm = ({ type }) => {
                 toast.error(response.data.error);
             })
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -71,65 +67,67 @@ const UserAuthForm = ({ type }) => {
     return (
         access_token ?
             <Navigate to="/" /> :
-            <section className="py-4 px-[5vw] md:px-[7vw] lg:px-[10vw] h-cover flex items-center justify-center">
-                <Toaster />
+            <AnimationWrapper>
+                <section className="py-4 px-[5vw] md:px-[7vw] lg:px-[10vw] h-cover flex items-center justify-center">
+                    <Toaster />
 
-                <form id="formElement" className="w-[80%] max-w-[400px]">
-                    <h1 className="text-4xl font-gelasio capitalize text-center mb-24">
-                        {type === "login" ? "Welcome back" : "Join us today"}
-                    </h1>
+                    <form id="formElement" className="w-[80%] max-w-[400px]">
+                        <h1 className="text-4xl font-gelasio capitalize text-center mb-24">
+                            {type === "login" ? "Welcome back" : "Join us today"}
+                        </h1>
 
-                    {
-                        type !== "login" ?
-                            <InputBox
-                                name="fullname"
-                                type="text"
-                                placeholder="Full Name"
-                                icon="fi-rr-user"
-                            />
-                            : ""
-                    }
+                        {
+                            type !== "login" ?
+                                <InputBox
+                                    name="fullname"
+                                    type="text"
+                                    placeholder="Full Name"
+                                    icon="fi-rr-user"
+                                />
+                                : ""
+                        }
 
-                    <InputBox
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        icon="fi-rr-envelope"
-                    />
+                        <InputBox
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            icon="fi-rr-envelope"
+                        />
 
-                    <InputBox
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        icon="fi-rr-key"
-                    />
+                        <InputBox
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            icon="fi-rr-key"
+                        />
 
-                    <button
-                        className="btn-light center mt-14"
-                        type="submit"
-                        onClick={handleSubmit}
-                    >
-                        {type === "login" ? "Login" : "Register"}
-                    </button>
+                        <button
+                            className="btn-light center mt-14"
+                            type="submit"
+                            onClick={handleSubmit}
+                        >
+                            {type === "login" ? "Login" : "Register"}
+                        </button>
 
-                    {
-                        type === "login" ?
-                            <p className="mt-6 text-gray-700 text-xl text-center">
-                                Don't have an account ?
-                                <Link to="/register" className="text-black text-xl ml-1 underline">
-                                    Join us today
-                                </Link>
-                            </p>
-                            :
-                            <p className="mt-6 text-gray-700 text-xl text-center">
-                                Already a member ?
-                                <Link to="/login" className="text-black text-xl ml-1 underline">
-                                    Sign in here
-                                </Link>
-                            </p>
-                    }
-                </form>
-            </section>
+                        {
+                            type === "login" ?
+                                <p className="mt-6 text-gray-700 text-xl text-center">
+                                    Don't have an account ?
+                                    <Link to="/register" className="text-black text-xl ml-1 underline">
+                                        Join us today
+                                    </Link>
+                                </p>
+                                :
+                                <p className="mt-6 text-gray-700 text-xl text-center">
+                                    Already a member ?
+                                    <Link to="/login" className="text-black text-xl ml-1 underline">
+                                        Sign in here
+                                    </Link>
+                                </p>
+                        }
+                    </form>
+                </section>
+            </AnimationWrapper>
     )
 }
 
