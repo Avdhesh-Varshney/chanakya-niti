@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
