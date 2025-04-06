@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { UserContext } from "../App";
+
 const Navbar = () => {
+
+  const { userAuth: { access_token } } = useContext(UserContext);
 
   return (
     <>
@@ -30,6 +35,19 @@ const Navbar = () => {
           चाणक्य नीति
         </span>
       </Link>
+
+      {
+        !access_token ?
+          <div className="flex items-center gap-3 md:gap-6 ml-auto">
+            <Link to={'/login'} className="nav-link">
+              Login
+            </Link>
+            <Link to="/register" className="nav-link hidden md:block">
+              Register
+            </Link>
+          </div>
+          : ""
+      }
 
 
     </>
