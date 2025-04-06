@@ -93,11 +93,11 @@
   }
 
   .btn-dark {
-    @apply whitespace-nowrap bg-[#bfae64] text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-[#a6914f] transition;
+    @apply whitespace-nowrap bg-[#bfae64] text-white rounded-full py-3 px-6 text-xl capitalize hover:bg-[#a6914f] transition duration-300;
   }
 
   .btn-light {
-    @apply whitespace-nowrap bg-[#fdf8e4] text-black rounded-full py-3 px-6 text-xl capitalize border border-[#bfae64] hover:bg-[#f4eacb] transition;
+    @apply whitespace-nowrap bg-[#fdf8e4] text-black rounded-full py-3 px-6 text-xl capitalize border border-[#bfae64] hover:bg-[#f4eacb] transition duration-300;
   }
 
   .input-box {
