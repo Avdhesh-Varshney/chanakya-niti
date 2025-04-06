@@ -75,6 +75,10 @@
     @apply z-10 sticky top-0 flex items-center gap-12 w-full px-[5vw] py-5 h-[80px] border-b border-gray-200 bg-white;
   }
 
+  .nav-link {
+    @apply relative inline-block px-3 py-2 text-lg transition-colors duration-300 hover:text-[#f39c12] before:absolute before:left-0 before:bottom-0 before:h-[3px] before:w-0 before:bg-[#f39c12] before:transition-all before:duration-300 hover:before:w-full whitespace-nowrap;
+  }
+
   .footer {
     @apply w-full px-[5vw] py-6 border-t border-gray-200 bg-[#dfdfb060];
   }
