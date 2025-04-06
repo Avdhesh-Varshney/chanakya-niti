@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import UserAuthForm from "./pages/UserAuthForm";
+import Audio from "./pages/Audio";
 
 export const UserContext = createContext({});
 
@@ -32,7 +33,12 @@ function App() {
 
         <main className="flex-1 w-full max-w-7xl px-4 mx-auto">
           <Routes>
-            <Route path="/" element={<Home />} />
+            {
+              userAuth.access_token ?
+                <Route path="/" element={<Audio />} />
+                :
+                <Route path="/" element={<Home />} />
+            }
             <Route path="/login" element={<UserAuthForm type='login' />} />
             <Route path="/register" element={<UserAuthForm type='register' />} />
           </Routes>
