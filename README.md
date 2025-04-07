@@ -4,9 +4,9 @@
 
 <div align="center">
 
-| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **PRs** | 🛠️ **Languages** | ✅ **Contributors** | 🗃️ **Sizes** |
 |--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
-| ![GitHub stars](https://img.shields.io/github/stars/Avdhesh-Varshney/chanakya-niti) | ![forks](https://img.shields.io/github/forks/Avdhesh-Varshney/chanakya-niti) | ![issues](https://img.shields.io/github/issues/Avdhesh-Varshney/chanakya-niti?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/Avdhesh-Varshney/chanakya-niti?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/Avdhesh-Varshney/chanakya-niti?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/Avdhesh-Varshney/chanakya-niti?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/Avdhesh-Varshney/chanakya-niti?color=00FA9A) |
+| ![GitHub stars](https://img.shields.io/github/stars/Avdhesh-Varshney/chanakya-niti) | ![forks](https://img.shields.io/github/forks/Avdhesh-Varshney/chanakya-niti) | ![issues](https://img.shields.io/github/issues/Avdhesh-Varshney/chanakya-niti?color=32CD32) <br /> ![Closed Issues](https://img.shields.io/github/issues-closed-raw/Avdhesh-Varshney/chanakya-niti?color=FA8072) | ![pull requests](https://img.shields.io/github/issues-pr/Avdhesh-Varshney/chanakya-niti?color=32CD32) <br /> ![Closed PRs](https://img.shields.io/github/issues-pr-closed/Avdhesh-Varshney/chanakya-niti?color=FA8072) | ![Languages](https://img.shields.io/github/languages/count/Avdhesh-Varshney/chanakya-niti?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/Avdhesh-Varshney/chanakya-niti?color=00FA9A) | ![GitHub stars](https://img.shields.io/github/repo-size/Avdhesh-Varshney/chanakya-niti) |
 
 </div>
 
