@@ -39,6 +39,8 @@ This project aims to bring the timeless wisdom of Chanakya to a modern audience,
 3. Install dependencies:
    ```sh
    npm install
+   cd frontend && npm install
+   cd backend && npm install
    ```
 4. Start the development server:
    ```sh
