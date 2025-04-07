@@ -9,9 +9,21 @@
     "backend": "cd backend && npm run dev",
     "dev": "concurrently -n \"FRONTEND,BACKEND\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run frontend\" \"npm run backend\""
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avdhesh-Varshney/chanakya-niti.git"
+  },
+  "keywords": [
+    "chanakya-niti",
+    "chanakya-niti-backend",
+    "backend"
+  ],
+  "author": "Avdhesh Varshney",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Avdhesh-Varshney/chanakya-niti/issues"
+  },
+  "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti#readme",
   "dependencies": {
     "concurrently": "^9.1.2"
   }
