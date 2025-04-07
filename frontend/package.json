@@ -9,6 +9,21 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Avdhesh-Varshney/chanakya-niti.git"
+  },
+  "keywords": [
+    "chanakya-niti",
+    "chanakya-niti-frontend",
+    "frontend"
+  ],
+  "author": "Avdhesh Varshney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Avdhesh-Varshney/chanakya-niti/issues"
+  },
+  "homepage": "https://github.com/Avdhesh-Varshney/chanakya-niti#readme",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
