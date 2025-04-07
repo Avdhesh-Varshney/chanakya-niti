@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import UserAuthForm from "./pages/UserAuthForm";
 import Audio from "./pages/Audio";
+import PageNotFound from "./pages/404";
 
 export const UserContext = createContext({});
 
@@ -41,6 +42,8 @@ function App() {
             }
             <Route path="/login" element={<UserAuthForm type='login' />} />
             <Route path="/register" element={<UserAuthForm type='register' />} />
+
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
 
