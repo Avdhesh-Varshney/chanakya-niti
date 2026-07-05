@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -23,34 +23,6 @@ function App() {
     if (window.location.pathname !== "/") {
       window.history.replaceState(null, "", "/");
     }
-  }, []);
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.code !== "Space") return;
-
-      const active = document.activeElement;
-      const isTyping = active && (
-        active.tagName === "INPUT" ||
-        active.tagName === "TEXTAREA" ||
-        active.isContentEditable
-      );
-      if (isTyping) return;
-
-      e.preventDefault();
-
-      const audioEl = playerRef.current?.audio?.current;
-      if (!audioEl) return;
-
-      if (audioEl.paused) {
-        audioEl.play();
-      } else {
-        audioEl.pause();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -94,10 +66,10 @@ function App() {
   const currentEpisode = episodes.find(ep => ep.id === currentId) || null;
   const playURL = currentEpisode?.url || "";
 
-  const selectEpisode = (id) => {
+  const selectEpisode = useCallback((id) => {
     setCurrentId(id);
     localStorage.setItem(STORAGE_KEY, id);
-  };
+  }, []);
 
   const handleSearchKeyDown = (e) => {
     if (e.key !== "Enter" || jumpTargetId === null) return;
@@ -110,13 +82,57 @@ function App() {
     selectEpisode(target.id);
   };
 
-  const goToOffset = (offset) => {
+  const goToOffset = useCallback((offset) => {
     if (currentId === null || episodes.length === 0) return;
     const index = episodes.findIndex(ep => ep.id === currentId);
     const nextIndex = index + offset;
     if (nextIndex < 0 || nextIndex >= episodes.length) return;
     selectEpisode(episodes[nextIndex].id);
-  };
+  }, [currentId, episodes, selectEpisode]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const active = document.activeElement;
+      const isTyping = active && (
+        active.tagName === "INPUT" ||
+        active.tagName === "TEXTAREA" ||
+        active.isContentEditable
+      );
+      if (isTyping) return;
+
+      const audioEl = playerRef.current?.audio?.current;
+
+      switch (e.code) {
+        case "Space":
+          e.preventDefault();
+          if (!audioEl) return;
+          if (audioEl.paused) audioEl.play();
+          else audioEl.pause();
+          break;
+        case "ArrowLeft":
+          e.preventDefault();
+          goToOffset(-1);
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          goToOffset(1);
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          if (audioEl) audioEl.volume = Math.min(1, audioEl.volume + 0.1);
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          if (audioEl) audioEl.volume = Math.max(0, audioEl.volume - 0.1);
+          break;
+        default:
+          return;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [goToOffset]);
 
   return (
     <div className="flex h-screen bg-[#f4eecb]">
