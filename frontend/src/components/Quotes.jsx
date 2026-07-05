@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import quotes from "/database/quotes.json";
 
 const QuoteSection = () => {
@@ -15,7 +15,7 @@ const QuoteSection = () => {
 
   return (
     <div className="w-full text-center py-6 px-4 rounded-lg" style={{ backgroundColor: "#345B3953" }}>
-      <p className="text-lg font-gelasio italic">"{quote}"</p>
+      <p className="text-lg font-gelasio italic">&quot;{quote}&quot;</p>
     </div>
   );
 };
