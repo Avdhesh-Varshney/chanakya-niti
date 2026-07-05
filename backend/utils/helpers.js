@@ -8,5 +8,5 @@ export const parseEpisodeFile = (downloadUrl) => {
     const id = parseInt(label.replace(/\D/g, ""), 10);
     const title = rest ? rest.split(".")[0] : undefined;
 
-    return { id, title, filename };
+    return { id, title, url: downloadUrl };
 }
