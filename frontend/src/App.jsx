@@ -23,7 +23,6 @@ function App() {
   });
 
   const rowRefs = useRef(new Map());
-  const hasScrolledInitially = useRef(false);
 
   useEffect(() => {
     axios.get(import.meta.env.VITE_SERVER_DOMAIN + "/api/audio/eps")
@@ -42,13 +41,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentId === null || hasScrolledInitially.current) return;
+    if (currentId === null) return;
     const row = rowRefs.current.get(currentId);
-    if (row) {
-      row.scrollIntoView({ block: "center" });
-      hasScrolledInitially.current = true;
-    }
-  }, [currentId, episodes]);
+    if (row) row.scrollIntoView({ block: "nearest" });
+  }, [currentId]);
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
 
@@ -59,6 +55,12 @@ function App() {
   }, [episodes, search, isNumericSearch]);
 
   const jumpTargetId = isNumericSearch ? parseInt(search.trim()) : null;
+
+  useEffect(() => {
+    if (jumpTargetId === null) return;
+    const row = rowRefs.current.get(jumpTargetId);
+    if (row) row.scrollIntoView({ block: "center" });
+  }, [jumpTargetId]);
 
   const currentEpisode = episodes.find(ep => ep.id === currentId) || null;
   const playURL = currentEpisode?.url || "";
