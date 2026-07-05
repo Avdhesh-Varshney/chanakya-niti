@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
-import ReactPlayer from "react-player";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 import Tilt from "react-parallax-tilt";
 import { Toaster, toast } from "react-hot-toast";
-
-import quotes from "../database/quotes.json";
 
 const STORAGE_KEY = "episode";
 
@@ -16,11 +15,6 @@ function App() {
 
   const [search, setSearch] = useState("");
   const [currentId, setCurrentId] = useState(null);
-
-  const [quote] = useState(() => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return quotes[randomIndex].quote;
-  });
 
   const rowRefs = useRef(new Map());
 
@@ -186,42 +180,21 @@ function App() {
           />
         </Tilt>
 
-        <p className="max-w-md text-center text-sm italic text-gray-600">&quot;{quote}&quot;</p>
-
         {currentEpisode ? (
           <div className="w-full max-w-xl flex flex-col gap-4">
             <p className="text-center text-xl font-semibold text-gray-800">
               Ep {currentEpisode.id} · {currentEpisode.title}
             </p>
 
-            <div className="flex items-center justify-center gap-4">
-              <button
-                onClick={() => goToOffset(-1)}
-                className="p-2.5 rounded-full border border-[#bfae64] hover:bg-[#f4eacb] transition"
-                aria-label="Previous episode"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
-                </svg>
-              </button>
-              <button
-                onClick={() => goToOffset(1)}
-                className="p-2.5 rounded-full border border-[#bfae64] hover:bg-[#f4eacb] transition"
-                aria-label="Next episode"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
-                </svg>
-              </button>
-            </div>
-
-            <ReactPlayer
-              url={playURL}
-              volume={0.75}
-              playing
-              controls
-              height="50px"
-              width="100%"
+            <AudioPlayer
+              src={playURL}
+              autoPlayAfterSrcChange
+              showSkipControls
+              showJumpControls={false}
+              onClickPrevious={() => goToOffset(-1)}
+              onClickNext={() => goToOffset(1)}
+              onEnded={() => goToOffset(1)}
+              className="niti-player"
             />
           </div>
         ) : (

@@ -52,3 +52,81 @@ body {
   background: #DFDFB0;
   border-radius: 12px;
 }
+
+.niti-player.rhap_container {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.niti-player .rhap_time {
+  color: #57534e;
+}
+
+.niti-player .rhap_progress-bar {
+  background-color: #e4dbae;
+}
+
+.niti-player .rhap_progress-filled,
+.niti-player .rhap_progress-indicator,
+.niti-player .rhap_volume-filled,
+.niti-player .rhap_volume-indicator {
+  background-color: #bfae64;
+  box-shadow: none;
+}
+
+.niti-player .rhap_volume-bar {
+  background-color: #e4dbae;
+}
+
+.niti-player .rhap_main-controls-button,
+.niti-player .rhap_volume-button,
+.niti-player .rhap_repeat-button {
+  color: #57534e;
+  width: 22px;
+  height: 22px;
+  transition: color 0.15s;
+}
+
+.niti-player .rhap_main-controls-button svg,
+.niti-player .rhap_volume-button svg,
+.niti-player .rhap_repeat-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.niti-player .rhap_main-controls-button:hover,
+.niti-player .rhap_volume-button:hover,
+.niti-player .rhap_repeat-button:hover {
+  color: #bfae64;
+}
+
+.niti-player .rhap_play-pause-button {
+  color: #bfae64;
+  width: 42px;
+  height: 42px;
+}
+
+.niti-player .rhap_play-pause-button svg {
+  width: 42px;
+  height: 42px;
+}
+
+.niti-player .rhap_play-pause-button:hover {
+  color: #a6914f;
+}
+
+.niti-player .rhap_button-clear:focus {
+  outline: none;
+}
+
+.niti-player .rhap_button-clear:focus-visible {
+  outline: 2px solid #bfae64;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.niti-player .rhap_progress-container:focus,
+.niti-player .rhap_volume-bar-area:focus {
+  outline: none;
+}
