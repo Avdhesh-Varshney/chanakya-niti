@@ -25,6 +25,12 @@ function App() {
   const rowRefs = useRef(new Map());
 
   useEffect(() => {
+    if (window.location.pathname !== "/") {
+      window.history.replaceState(null, "", "/");
+    }
+  }, []);
+
+  useEffect(() => {
     axios.get(import.meta.env.VITE_SERVER_DOMAIN + "/api/audio/eps")
       .then(({ data }) => {
         setEpisodes(data);
