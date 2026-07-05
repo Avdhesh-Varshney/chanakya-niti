@@ -1,15 +1,12 @@
-export const formatAudioDataToSend = (URL) => {
-    const parts = URL.split("/");
-    const filename = parts[parts.length - 1];
+export const parseEpisodeFile = (downloadUrl) => {
+    const parts = downloadUrl.split("/");
+    const filename = decodeURIComponent(parts[parts.length - 1]);
 
-    let splitFilename;
-    if (filename.includes(" - ")) {
-        splitFilename = filename.split(" - ");
-    } else if (filename.includes("- ")) {
-        splitFilename = filename.split("- ");
-    }
+    const separator = filename.includes(" - ") ? " - " : "- ";
+    const [label, rest] = filename.split(separator);
 
-    const title = splitFilename[0];
-    const content = splitFilename[1].split(".")[0];
-    return { title, content, filename };
+    const id = parseInt(label.replace(/\D/g, ""), 10);
+    const title = rest ? rest.split(".")[0] : undefined;
+
+    return { id, title, filename };
 }

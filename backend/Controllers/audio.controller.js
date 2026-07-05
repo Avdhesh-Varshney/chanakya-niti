@@ -1,4 +1,4 @@
-import { formatAudioDataToSend } from '../utils/helpers.js';
+import { parseEpisodeFile } from '../utils/helpers.js';
 
 const CACHE_TTL_MS = 10 * 60 * 1000;
 let cachedFiles = null;
@@ -25,33 +25,18 @@ const getAudioFiles = async () => {
     return cachedFiles;
 };
 
-export const getAudio = async (req, res) => {
-    const { id } = req.params;
-
+export const getEpisodes = async (req, res) => {
     try {
-        const episodeNumber = parseInt(id);
-        if (isNaN(episodeNumber)) {
-            return res.status(400).json({ error: "Invalid episode ID" });
-        }
-
-        if (episodeNumber < 1 || episodeNumber > 806) {
-            return res.status(400).json({ error: "Episode number must be between 1 and 806" });
-        }
-
-        const episodeName = episodeNumber < 10 ? `Ep 0${episodeNumber}` : `Ep ${episodeNumber}`;
-
         const audioFiles = await getAudioFiles();
-        const URL = audioFiles.find(URL => URL.includes(episodeName));
 
-        if (!URL) {
-            return res.status(404).json({ error: "Episode not found" });
-        }
+        const episodes = audioFiles
+            .map(parseEpisodeFile)
+            .filter(episode => !isNaN(episode.id) && episode.title)
+            .sort((a, b) => a.id - b.id);
 
-        const data = formatAudioDataToSend(URL);
-
-        return res.status(200).json(data);
+        return res.status(200).json(episodes);
 
     } catch (error) {
-        return res.status(500).json({ error: "Failed to fetch episode" });
+        return res.status(500).json({ error: "Failed to fetch episodes" });
     }
 }
