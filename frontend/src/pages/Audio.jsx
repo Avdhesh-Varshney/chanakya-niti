@@ -1,10 +1,7 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { Toaster, toast } from "react-hot-toast";
-
-import { UserContext } from "../App";
-import { storeInSession } from "../common/session";
 
 const Imgs = [
   "/image.webp",
@@ -17,18 +14,17 @@ const Imgs = [
 
 const Audio = () => {
 
-  const { userAuth, userAuth: { access_token, episode }, setUserAuth } = useContext(UserContext);
+  const [episode, setEpisode] = useState(() => {
+    const stored = localStorage.getItem("episode");
+    return stored ? parseInt(stored) : null;
+  });
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [URL, setURL] = useState("");
 
-  const fetchEpisode = async () => {
-    await axios.get(import.meta.env.VITE_SERVER_DOMAIN + `/api/audio/eps/${episode}`, {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      }
-    })
+  const fetchEpisode = async (episodeNumber) => {
+    await axios.get(import.meta.env.VITE_SERVER_DOMAIN + `/api/audio/eps/${episodeNumber}`)
       .then(({ data }) => {
         setTitle(data.title);
         setContent(data.content);
@@ -49,39 +45,35 @@ const Audio = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let form = new FormData(audioFormElement);
+    let form = new FormData(e.target);
     let formData = {};
 
     for (let [key, value] of form.entries()) {
       formData[key] = value;
     }
 
-    let { episode } = formData;
+    let { episode: episodeInput } = formData;
 
-    episode = parseInt(episode);
-    if (isNaN(episode)) return toast.error("Invalid episode number");
+    const episodeNumber = parseInt(episodeInput);
+    if (isNaN(episodeNumber)) return toast.error("Invalid episode number");
 
-    if (!episode) {
-      return toast.error("Episode number is required");
-    }
-    if (episode < 1 || episode > 806) {
+    if (episodeNumber < 1 || episodeNumber > 806) {
       return toast.error("Episode number must be between 1 and 806");
     }
 
-    const updatedUser = { ...userAuth, episode: episode };
-    setUserAuth(updatedUser);
-    storeInSession("user", JSON.stringify(updatedUser));
+    localStorage.setItem("episode", episodeNumber);
+    setEpisode(episodeNumber);
   }
 
   useEffect(() => {
-    fetchEpisode();
+    if (episode) fetchEpisode(episode);
   }, [episode]);
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto px-4 py-8">
       <Toaster />
 
-      <form id="audioFormElement" onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-center relative">
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-center relative">
         <input
           name="episode"
           type="number"

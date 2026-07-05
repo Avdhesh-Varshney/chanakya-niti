@@ -1,9 +1,32 @@
 import { formatAudioDataToSend } from '../utils/helpers.js';
-import User from '../Models/user.model.js';
+
+const CACHE_TTL_MS = 10 * 60 * 1000;
+let cachedFiles = null;
+let cachedAt = 0;
+
+const getAudioFiles = async () => {
+    if (cachedFiles && Date.now() - cachedAt < CACHE_TTL_MS) {
+        return cachedFiles;
+    }
+
+    const response = await fetch(process.env.AUDIO_BUCKET_URI, {
+        headers: {
+            Authorization: `token ${process.env.ACCESS_TOKEN}`,
+        },
+    });
+
+    const resp = await response.json();
+
+    cachedFiles = resp
+        .filter(file => file.name.endsWith(".mp3") || file.name.endsWith(".wav") || file.name.endsWith(".m4a") || file.name.endsWith(".aac"))
+        .map(file => file.download_url);
+    cachedAt = Date.now();
+
+    return cachedFiles;
+};
 
 export const getAudio = async (req, res) => {
     const { id } = req.params;
-    const userId = req.user.id;
 
     try {
         const episodeNumber = parseInt(id);
@@ -17,22 +40,14 @@ export const getAudio = async (req, res) => {
 
         const episodeName = episodeNumber < 10 ? `Ep 0${episodeNumber}` : `Ep ${episodeNumber}`;
 
-        const response = await fetch(process.env.AUDIO_BUCKET_URI, {
-            headers: {
-                Authorization: `token ${process.env.ACCESS_TOKEN}`,
-            },
-        });
-
-        const resp = await response.json();
-
-        const audioFiles = resp
-            .filter(file => file.name.endsWith(".mp3") || file.name.endsWith(".wav") || file.name.endsWith(".m4a") || file.name.endsWith(".aac"))
-            .map(file => file.download_url);
-
+        const audioFiles = await getAudioFiles();
         const URL = audioFiles.find(URL => URL.includes(episodeName));
-        let data = formatAudioDataToSend(URL);
 
-        await User.findByIdAndUpdate(userId, { episode: episodeNumber }, { new: true });
+        if (!URL) {
+            return res.status(404).json({ error: "Episode not found" });
+        }
+
+        const data = formatAudioDataToSend(URL);
 
         return res.status(200).json(data);
 

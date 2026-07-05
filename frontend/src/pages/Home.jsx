@@ -1,6 +1,7 @@
 import { ReactTyped } from "react-typed";
 import Tilt from 'react-parallax-tilt';
 import QuoteSection from "../components/Quotes";
+import Audio from "./Audio";
 
 export default function Home() {
 
@@ -48,6 +49,8 @@ export default function Home() {
       </div>
 
       <QuoteSection />
+
+      <Audio />
 
     </div>
   );
