@@ -17,11 +17,40 @@ function App() {
   const [currentId, setCurrentId] = useState(null);
 
   const rowRefs = useRef(new Map());
+  const playerRef = useRef(null);
 
   useEffect(() => {
     if (window.location.pathname !== "/") {
       window.history.replaceState(null, "", "/");
     }
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code !== "Space") return;
+
+      const active = document.activeElement;
+      const isTyping = active && (
+        active.tagName === "INPUT" ||
+        active.tagName === "TEXTAREA" ||
+        active.isContentEditable
+      );
+      if (isTyping) return;
+
+      e.preventDefault();
+
+      const audioEl = playerRef.current?.audio?.current;
+      if (!audioEl) return;
+
+      if (audioEl.paused) {
+        audioEl.play();
+      } else {
+        audioEl.pause();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -187,10 +216,12 @@ function App() {
             </p>
 
             <AudioPlayer
+              ref={playerRef}
               src={playURL}
               autoPlayAfterSrcChange
               showSkipControls
               showJumpControls={false}
+              hasDefaultKeyBindings={false}
               onClickPrevious={() => goToOffset(-1)}
               onClickNext={() => goToOffset(1)}
               onEnded={() => goToOffset(1)}
