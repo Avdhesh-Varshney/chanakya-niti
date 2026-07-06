@@ -17,9 +17,12 @@ function App() {
   const [currentId, setCurrentId] = useState(null);
   const [mobileView, setMobileView] = useState("list");
   const [audioLoading, setAudioLoading] = useState(true);
+  const [isCurrentRowVisible, setIsCurrentRowVisible] = useState(true);
+  const [nowPlayingDirection, setNowPlayingDirection] = useState("down");
 
   const rowRefs = useRef(new Map());
   const playerRef = useRef(null);
+  const listContainerRef = useRef(null);
 
   useEffect(() => {
     if (window.location.pathname !== "/") {
@@ -69,6 +72,46 @@ function App() {
     const row = rowRefs.current.get(jumpTargetId);
     if (row) row.scrollIntoView({ block: "center" });
   }, [jumpTargetId]);
+
+  useEffect(() => {
+    if (currentId === null) {
+      setIsCurrentRowVisible(true);
+      return;
+    }
+
+    const container = listContainerRef.current;
+    if (!container) {
+      setIsCurrentRowVisible(false);
+      return;
+    }
+
+    const checkVisibility = () => {
+      const row = rowRefs.current.get(currentId);
+      if (!row) {
+        setIsCurrentRowVisible(false);
+        return;
+      }
+
+      const containerRect = container.getBoundingClientRect();
+      const rowRect = row.getBoundingClientRect();
+      const visible = rowRect.bottom > containerRect.top && rowRect.top < containerRect.bottom;
+
+      setIsCurrentRowVisible(visible);
+      if (!visible) {
+        setNowPlayingDirection(rowRect.top < containerRect.top ? "up" : "down");
+      }
+    };
+
+    checkVisibility();
+    const intervalId = setInterval(checkVisibility, 300);
+
+    return () => clearInterval(intervalId);
+  }, [currentId, filteredEpisodes, mobileView]);
+
+  const jumpToNowPlaying = () => {
+    const row = rowRefs.current.get(currentId);
+    if (row) row.scrollIntoView({ block: "center", behavior: "smooth" });
+  };
 
   const currentEpisode = episodes.find(ep => ep.id === currentId) || null;
   const playURL = currentEpisode?.url || "";
@@ -143,82 +186,98 @@ function App() {
   }, [goToOffset]);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-[#f4eecb]">
+    <div className="flex flex-col md:flex-row h-dvh bg-[#f4eecb]">
       <Toaster />
 
       <aside
         className={
-          (mobileView === "list" ? "flex flex-1" : "hidden") +
+          (mobileView === "list" ? "flex flex-1 min-h-0" : "hidden") +
           " md:flex md:flex-none w-full md:w-[320px] shrink-0 flex-col border-r border-[#d8cf9e] bg-[#ece2b6]"
         }
       >
-        <div className="px-4 pt-4 pb-3 border-b border-[#d8cf9e]">
-          <div className="flex items-center gap-2">
-            <img src="logo.webp" alt="Chanakya Niti logo" className="w-8 h-8" />
-            <span className="text-xl font-bold">चाणक्य नीति</span>
-          </div>
-        </div>
-
-        <div className="px-4 py-3 border-b border-[#d8cf9e]">
-          <div className="relative">
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              onKeyDown={handleSearchKeyDown}
-              placeholder="Search title or jump to Ep #..."
-              className="input-box text-sm"
-            />
-            <svg
-              className="input-icon w-4 h-4 text-gray-500"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </div>
-        </div>
-
-        <div className="flex-1 overflow-y-auto">
-          {loading && (
-            <div className="flex items-center justify-center gap-2 p-6 text-sm text-gray-600">
-              <span className="w-4 h-4 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
-              Loading episodes...
+        <div className="sticky top-0 z-10 bg-[#ece2b6]">
+          <div className="px-4 pt-4 pb-3 border-b border-[#d8cf9e]">
+            <div className="flex items-center gap-2">
+              <img src="logo.webp" alt="Chanakya Niti logo" className="w-8 h-8" />
+              <span className="text-xl font-bold">चाणक्य नीति</span>
             </div>
-          )}
+          </div>
 
-          {loadError && (
-            <p className="p-4 text-sm text-red-600">{loadError}</p>
-          )}
+          <div className="px-4 py-3 border-b border-[#d8cf9e]">
+            <div className="relative">
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={handleSearchKeyDown}
+                placeholder="Search title or jump to Ep #..."
+                className="input-box text-sm"
+              />
+              <svg
+                className="input-icon w-4 h-4 text-gray-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </div>
+          </div>
+        </div>
 
-          {!loading && !loadError && filteredEpisodes.length === 0 && (
-            <p className="p-4 text-sm text-gray-600">No episodes match your search.</p>
-          )}
+        <div className="relative flex-1 min-h-0 overflow-hidden">
+          <div ref={listContainerRef} className="h-full overflow-y-auto">
+            {loading && (
+              <div className="flex items-center justify-center gap-2 p-6 text-sm text-gray-600">
+                <span className="w-4 h-4 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
+                Loading episodes...
+              </div>
+            )}
 
-          {filteredEpisodes.map((ep) => (
+            {loadError && (
+              <p className="p-4 text-sm text-red-600">{loadError}</p>
+            )}
+
+            {!loading && !loadError && filteredEpisodes.length === 0 && (
+              <p className="p-4 text-sm text-gray-600">No episodes match your search.</p>
+            )}
+
+            {filteredEpisodes.map((ep) => (
+              <button
+                key={ep.id}
+                ref={(el) => {
+                  if (el) rowRefs.current.set(ep.id, el);
+                  else rowRefs.current.delete(ep.id);
+                }}
+                onClick={() => selectEpisode(ep.id)}
+                className={
+                  "w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm border-b border-[#e4dbae] hover:bg-[#dfd6a3] transition " +
+                  (ep.id === currentId ? "bg-[#d8cf9e] font-semibold" : "") +
+                  (ep.id === jumpTargetId ? " ring-2 ring-inset ring-[#bfae64]" : "")
+                }
+              >
+                <span className="text-gray-500 tabular-nums w-8 shrink-0">
+                  {String(ep.id).padStart(2, "0")}
+                </span>
+                <span className="truncate">{ep.title}</span>
+              </button>
+            ))}
+          </div>
+
+          {currentId !== null && !search.trim() && !isCurrentRowVisible && (
             <button
-              key={ep.id}
-              ref={(el) => {
-                if (el) rowRefs.current.set(ep.id, el);
-                else rowRefs.current.delete(ep.id);
-              }}
-              onClick={() => selectEpisode(ep.id)}
-              className={
-                "w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm border-b border-[#e4dbae] hover:bg-[#dfd6a3] transition " +
-                (ep.id === currentId ? "bg-[#d8cf9e] font-semibold" : "") +
-                (ep.id === jumpTargetId ? " ring-2 ring-inset ring-[#bfae64]" : "")
-              }
+              onClick={jumpToNowPlaying}
+              className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-[#bfae64] bg-[#ece2b6] text-sm font-medium text-gray-800 shadow-md hover:bg-[#f4eacb] transition"
             >
-              <span className="text-gray-500 tabular-nums w-8 shrink-0">
-                {String(ep.id).padStart(2, "0")}
-              </span>
-              <span className="truncate">{ep.title}</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" />
+              </svg>
+              Now Playing {nowPlayingDirection === "up" ? "↑" : "↓"}
             </button>
-          ))}
+          )}
         </div>
       </aside>
 
