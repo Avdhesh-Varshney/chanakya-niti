@@ -17,4 +17,8 @@ app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.get('/', (req, res) => res.send('Hello from Chanakya Niti Backend!'));
 app.use('/api', router);
 
-app.listen(port, () => console.log(`Chanakya Niti Backend listening on port http://localhost:${port}`));
+app.listen(port, () =>
+  console.log(
+    `Chanakya Niti Backend listening on port http://localhost:${port}`,
+  ),
+);
