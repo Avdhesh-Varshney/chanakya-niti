@@ -15,6 +15,7 @@ function App() {
 
   const [search, setSearch] = useState("");
   const [currentId, setCurrentId] = useState(null);
+  const [mobileView, setMobileView] = useState("list");
 
   const rowRefs = useRef(new Map());
   const playerRef = useRef(null);
@@ -33,6 +34,7 @@ function App() {
         const stored = parseInt(localStorage.getItem(STORAGE_KEY));
         if (!isNaN(stored) && data.some(ep => ep.id === stored)) {
           setCurrentId(stored);
+          setMobileView("player");
         }
       })
       .catch(() => {
@@ -44,8 +46,8 @@ function App() {
   useEffect(() => {
     if (currentId === null) return;
     const row = rowRefs.current.get(currentId);
-    if (row) row.scrollIntoView({ block: "nearest" });
-  }, [currentId]);
+    if (row) row.scrollIntoView({ block: "center" });
+  }, [currentId, mobileView]);
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
 
@@ -68,6 +70,7 @@ function App() {
 
   const selectEpisode = useCallback((id) => {
     setCurrentId(id);
+    setMobileView("player");
     localStorage.setItem(STORAGE_KEY, id);
   }, []);
 
@@ -135,10 +138,15 @@ function App() {
   }, [goToOffset]);
 
   return (
-    <div className="flex h-screen bg-[#f4eecb]">
+    <div className="flex flex-col md:flex-row h-screen bg-[#f4eecb]">
       <Toaster />
 
-      <aside className="w-[320px] shrink-0 flex flex-col border-r border-[#d8cf9e] bg-[#ece2b6]">
+      <aside
+        className={
+          (mobileView === "list" ? "flex flex-1" : "hidden") +
+          " md:flex md:flex-none w-full md:w-[320px] shrink-0 flex-col border-r border-[#d8cf9e] bg-[#ece2b6]"
+        }
+      >
         <div className="px-4 pt-4 pb-3 border-b border-[#d8cf9e]">
           <div className="flex items-center gap-2">
             <img src="logo.webp" alt="Chanakya Niti logo" className="w-8 h-8" />
@@ -206,7 +214,12 @@ function App() {
         </div>
       </aside>
 
-      <main className="flex-1 flex flex-col items-center justify-center gap-6 p-8">
+      <main
+        className={
+          (mobileView === "player" ? "flex" : "hidden") +
+          " md:flex flex-1 flex-col p-4 md:p-8"
+        }
+      >
         <style>{`
           @keyframes moveUpDown {
             0%, 100% { transform: translateY(0); }
@@ -217,38 +230,50 @@ function App() {
           }
         `}</style>
 
-        <Tilt>
-          <img
-            src="/home1.png"
-            alt="Chanakya"
-            className="w-64 h-64 animate-moveUpDown"
-          />
-        </Tilt>
+        <button
+          onClick={() => setMobileView("list")}
+          className="md:hidden self-start inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#bfae64] text-sm text-gray-700 hover:bg-[#f4eacb] transition"
+        >
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z" />
+          </svg>
+          Back to episodes
+        </button>
 
-        {currentEpisode ? (
-          <div className="w-full max-w-xl flex flex-col gap-4">
-            <p className="text-center text-xl font-semibold text-gray-800">
-              Ep {currentEpisode.id} · {currentEpisode.title}
-            </p>
-
-            <AudioPlayer
-              ref={playerRef}
-              src={playURL}
-              autoPlayAfterSrcChange
-              showSkipControls
-              showJumpControls={false}
-              hasDefaultKeyBindings={false}
-              onClickPrevious={() => goToOffset(-1)}
-              onClickNext={() => goToOffset(1)}
-              onEnded={() => goToOffset(1)}
-              className="niti-player"
+        <div className="flex-1 flex flex-col items-center justify-center gap-6">
+          <Tilt>
+            <img
+              src="/home1.png"
+              alt="Chanakya"
+              className="w-64 h-64 animate-moveUpDown"
             />
-          </div>
-        ) : (
-          <p className="text-lg text-gray-600">
-            Select an episode from the list to begin listening.
-          </p>
-        )}
+          </Tilt>
+
+          {currentEpisode ? (
+            <div className="w-full max-w-xl flex flex-col gap-4">
+              <p className="text-center text-xl font-semibold text-gray-800">
+                Ep {currentEpisode.id} · {currentEpisode.title}
+              </p>
+
+              <AudioPlayer
+                ref={playerRef}
+                src={playURL}
+                autoPlayAfterSrcChange
+                showSkipControls
+                showJumpControls={false}
+                hasDefaultKeyBindings={false}
+                onClickPrevious={() => goToOffset(-1)}
+                onClickNext={() => goToOffset(1)}
+                onEnded={() => goToOffset(1)}
+                className="niti-player"
+              />
+            </div>
+          ) : (
+            <p className="text-lg text-gray-600">
+              Select an episode from the list to begin listening.
+            </p>
+          )}
+        </div>
       </main>
     </div>
   );
