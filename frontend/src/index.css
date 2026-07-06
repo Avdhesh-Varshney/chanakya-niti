@@ -59,6 +59,10 @@ body {
   padding: 0;
 }
 
+.niti-player-hidden.rhap_container {
+  display: none;
+}
+
 .niti-player .rhap_time {
   color: #57534e;
 }

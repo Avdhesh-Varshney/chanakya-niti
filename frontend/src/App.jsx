@@ -16,6 +16,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [currentId, setCurrentId] = useState(null);
   const [mobileView, setMobileView] = useState("list");
+  const [audioLoading, setAudioLoading] = useState(true);
 
   const rowRefs = useRef(new Map());
   const playerRef = useRef(null);
@@ -48,6 +49,10 @@ function App() {
     const row = rowRefs.current.get(currentId);
     if (row) row.scrollIntoView({ block: "center" });
   }, [currentId, mobileView]);
+
+  useEffect(() => {
+    setAudioLoading(true);
+  }, [currentId]);
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
 
@@ -180,7 +185,10 @@ function App() {
 
         <div className="flex-1 overflow-y-auto">
           {loading && (
-            <p className="p-4 text-sm text-gray-600">Loading episodes...</p>
+            <div className="flex items-center justify-center gap-2 p-6 text-sm text-gray-600">
+              <span className="w-4 h-4 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
+              Loading episodes...
+            </div>
           )}
 
           {loadError && (
@@ -255,18 +263,30 @@ function App() {
                 Ep {currentEpisode.id} · {currentEpisode.title}
               </p>
 
-              <AudioPlayer
-                ref={playerRef}
-                src={playURL}
-                autoPlayAfterSrcChange
-                showSkipControls
-                showJumpControls={false}
-                hasDefaultKeyBindings={false}
-                onClickPrevious={() => goToOffset(-1)}
-                onClickNext={() => goToOffset(1)}
-                onEnded={() => goToOffset(1)}
-                className="niti-player"
-              />
+              <div className="relative w-full">
+                {audioLoading && (
+                  <div className="flex items-center justify-center gap-2 py-4 text-sm text-gray-600">
+                    <span className="w-4 h-4 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
+                    Loading audio...
+                  </div>
+                )}
+
+                <AudioPlayer
+                  ref={playerRef}
+                  src={playURL}
+                  autoPlayAfterSrcChange
+                  showSkipControls
+                  showJumpControls={false}
+                  hasDefaultKeyBindings={false}
+                  onClickPrevious={() => goToOffset(-1)}
+                  onClickNext={() => goToOffset(1)}
+                  onEnded={() => goToOffset(1)}
+                  onCanPlay={() => setAudioLoading(false)}
+                  onPlaying={() => setAudioLoading(false)}
+                  onWaiting={() => setAudioLoading(true)}
+                  className={"niti-player" + (audioLoading ? " niti-player-hidden" : "")}
+                />
+              </div>
             </div>
           ) : (
             <p className="text-lg text-gray-600">
