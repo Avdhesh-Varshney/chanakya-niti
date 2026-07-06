@@ -71,6 +71,10 @@ body {
   background-color: #e4dbae;
 }
 
+.niti-player .rhap_download-progress {
+  background-color: #d4c78f;
+}
+
 .niti-player .rhap_progress-filled,
 .niti-player .rhap_progress-indicator,
 .niti-player .rhap_volume-filled,
