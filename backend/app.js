@@ -6,12 +6,17 @@ import router from './Routes/index.js';
 
 dotenv.config();
 
+if (!process.env.FRONTEND_URL) {
+  console.error('FRONTEND_URL environment variable is required to start the server.');
+  process.exit(1);
+}
+
 const app = express();
 const port = process.env.PORT || 8000;
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 // Routes
 app.get('/', (req, res) => res.send('Hello from Chanakya Niti Backend!'));
