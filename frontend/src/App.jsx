@@ -4,6 +4,8 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Tilt from "react-parallax-tilt";
 import { Toaster, toast } from "react-hot-toast";
+import { transliterate } from "transliteration";
+import Fuse from "fuse.js";
 
 const STORAGE_KEY = "episode";
 
@@ -59,11 +61,19 @@ function App() {
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
 
+  const searchableEpisodes = useMemo(() => {
+    return episodes.map(ep => ({ ...ep, translit: transliterate(ep.title).toLowerCase() }));
+  }, [episodes]);
+
+  const fuse = useMemo(() => {
+    return new Fuse(searchableEpisodes, { keys: ["title", "translit"], threshold: 0.4 });
+  }, [searchableEpisodes]);
+
   const filteredEpisodes = useMemo(() => {
     const term = search.trim().toLowerCase();
     if (!term || isNumericSearch) return episodes;
-    return episodes.filter(ep => ep.title.toLowerCase().includes(term));
-  }, [episodes, search, isNumericSearch]);
+    return fuse.search(term).map(result => result.item);
+  }, [episodes, search, isNumericSearch, fuse]);
 
   const jumpTargetId = isNumericSearch ? parseInt(search.trim()) : null;
 
