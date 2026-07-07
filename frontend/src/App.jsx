@@ -19,6 +19,7 @@ function App() {
   const [currentId, setCurrentId] = useState(null);
   const [mobileView, setMobileView] = useState("list");
   const [audioLoading, setAudioLoading] = useState(true);
+  const [isBuffering, setIsBuffering] = useState(false);
   const [isCurrentRowVisible, setIsCurrentRowVisible] = useState(true);
   const [nowPlayingDirection, setNowPlayingDirection] = useState("down");
 
@@ -57,6 +58,11 @@ function App() {
 
   useEffect(() => {
     setAudioLoading(true);
+    setIsBuffering(false);
+    hasStartedRef.current = false;
+
+    const audioEl = playerRef.current?.audio?.current;
+    if (audioEl) audioEl.setAttribute("controlsList", "nodownload");
   }, [currentId]);
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
@@ -340,6 +346,13 @@ function App() {
                   </div>
                 )}
 
+                {isBuffering && !audioLoading && (
+                  <div className="absolute top-1 right-1 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-[#ece2b6] text-xs text-gray-600 shadow">
+                    <span className="w-3 h-3 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
+                    Buffering...
+                  </div>
+                )}
+
                 <AudioPlayer
                   ref={playerRef}
                   src={playURL}
@@ -351,8 +364,18 @@ function App() {
                   onClickNext={() => goToOffset(1)}
                   onEnded={() => goToOffset(1)}
                   onCanPlay={() => setAudioLoading(false)}
-                  onPlaying={() => setAudioLoading(false)}
-                  onWaiting={() => setAudioLoading(true)}
+                  onPlaying={() => {
+                    setAudioLoading(false);
+                    setIsBuffering(false);
+                    hasStartedRef.current = true;
+                  }}
+                  onWaiting={() => {
+                    if (hasStartedRef.current) {
+                      setIsBuffering(true);
+                    } else {
+                      setAudioLoading(true);
+                    }
+                  }}
                   className={"niti-player" + (audioLoading ? " niti-player-hidden" : "")}
                 />
               </div>
