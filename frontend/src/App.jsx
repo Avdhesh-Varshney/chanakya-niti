@@ -22,10 +22,13 @@ function App() {
   const [isBuffering, setIsBuffering] = useState(false);
   const [isCurrentRowVisible, setIsCurrentRowVisible] = useState(true);
   const [nowPlayingDirection, setNowPlayingDirection] = useState("down");
+  const [activeCueIndex, setActiveCueIndex] = useState(-1);
 
   const rowRefs = useRef(new Map());
   const playerRef = useRef(null);
   const listContainerRef = useRef(null);
+  const cueListRef = useRef([]);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
     if (window.location.pathname !== "/") {
@@ -63,6 +66,33 @@ function App() {
 
     const audioEl = playerRef.current?.audio?.current;
     if (audioEl) audioEl.setAttribute("controlsList", "nodownload");
+  }, [currentId]);
+
+  // PILOT ONLY: transcript sync is hardcoded to episode 1 for evaluation purposes.
+  // Uses the browser's native <track>/TextTrack API (cuechange event) instead of
+  // manually polling currentTime, so sync is driven by the media element itself.
+  useEffect(() => {
+    cueListRef.current = [];
+    setActiveCueIndex(-1);
+
+    if (currentId !== 1) return;
+
+    const audioEl = playerRef.current?.audio?.current;
+    const track = audioEl?.textTracks?.[0];
+    if (!track) return;
+
+    track.mode = "hidden";
+
+    const handleCueChange = () => {
+      cueListRef.current = Array.from(track.cues || []);
+      const activeCue = track.activeCues && track.activeCues[0];
+      if (activeCue) {
+        setActiveCueIndex(cueListRef.current.indexOf(activeCue));
+      }
+    };
+
+    track.addEventListener("cuechange", handleCueChange);
+    return () => track.removeEventListener("cuechange", handleCueChange);
   }, [currentId]);
 
   const isNumericSearch = search.trim().length > 0 && /^\d+$/.test(search.trim());
@@ -338,7 +368,21 @@ function App() {
                 Ep {currentEpisode.id} · {currentEpisode.title}
               </p>
 
-              <div className="relative w-full">
+              {currentEpisode.id === 1 && (
+                <div className="flex flex-col items-center justify-center gap-1 py-2 text-center">
+                  <p className="text-sm text-gray-500 min-h-[1.5em]">
+                    {cueListRef.current[activeCueIndex - 1]?.text || ""}
+                  </p>
+                  <p className="text-sm font-bold text-gray-900 min-h-[1.5em]">
+                    {cueListRef.current[activeCueIndex]?.text || ""}
+                  </p>
+                  <p className="text-sm text-gray-500 min-h-[1.5em]">
+                    {cueListRef.current[activeCueIndex + 1]?.text || ""}
+                  </p>
+                </div>
+              )}
+
+              <div className="relative w-full" onContextMenu={(e) => e.preventDefault()}>
                 {audioLoading && (
                   <div className="flex items-center justify-center gap-2 py-4 text-sm text-gray-600">
                     <span className="w-4 h-4 border-2 border-gray-400 border-t-[#bfae64] rounded-full animate-spin" />
@@ -377,7 +421,11 @@ function App() {
                     }
                   }}
                   className={"niti-player" + (audioLoading ? " niti-player-hidden" : "")}
-                />
+                >
+                  {currentEpisode.id === 1 && (
+                    <track kind="subtitles" src="/transcripts/1.vtt" srcLang="hi" default />
+                  )}
+                </AudioPlayer>
               </div>
             </div>
           ) : (
