@@ -26,6 +26,7 @@ function App() {
   const rowRefs = useRef(new Map());
   const playerRef = useRef(null);
   const listContainerRef = useRef(null);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
     if (window.location.pathname !== "/") {
